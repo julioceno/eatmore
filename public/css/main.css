@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-white:  #FFFFFF;
+    --color-white-font: #F7F6FF;
+    --color-grey:  #A3A7A7;
+    --color-red:  #FF6787;
+
+    font-size: 62.5%;
+}
+
+body,
+#container {
+    height: 100vh;
+}
+
