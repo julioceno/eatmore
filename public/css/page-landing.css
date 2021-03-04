@@ -32,18 +32,22 @@
 }
 
 #container section .buttons {
-    width: 21rem;
+    min-width: 23rem;
+    max-width: 25rem;
+    width: 63vw;
 
     display: flex;
     justify-content: space-between;
-
 }
 
 #container section button {
 
     font-family: 'Roboto', sans-serif;
 
-    width: 10rem;
+    min-width: 10rem;
+    width: 30vw;
+    max-width: 11rem;
+
     height: 7rem;
 
     border-radius: 1rem;
