@@ -11,8 +11,11 @@
     justify-content: space-between;
 }
 
-#container .logo {
+#container header {
     margin-top: 10rem;
+}
+
+#container .logo {
     min-height: 7.5rem;
     max-height: 10rem;
     height: 15vw;
@@ -44,7 +47,7 @@
     justify-content: space-between;
 }
 
-#container section button {
+#container section a {
 
     font-family: 'Roboto', sans-serif;
 
@@ -61,17 +64,25 @@
     border: none;
     background: var(--color-white);
 
+    text-decoration: none;
+
+    padding-top: 1rem;
 }
 
-#container section button img {
+#container section a:hover {
+    background: rgba(255, 255, 255, 0.836);
+
+}
+
+#container section a img {
     height: 4rem;
 }
 
-#container section button:nth-child(1) {
+#container section a:nth-child(1) {
     color: var(--color-grey);
 } 
 
-#container section button:nth-child(2) {
+#container section a:nth-child(2) {
     color: var(--color-red);
 } 
 
@@ -99,6 +110,115 @@
 
 @media(min-width:760px) {
     #container {
+        padding: 0 4rem;
+
+        background-image: url(../images/restaurant.svg);
+        background-repeat: no-repeat;
+        background-size: 42%;
+        background-position-x: 90%;
+        background-position-y: clamp(18rem,50%, 20rem);
+
+    }
+
+    #container header {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: 8rem;
+
+        width: 100%;
+    }
+
+
+    #container header .logo {
+        min-height: 8rem;
+        height: 12vw;
+    }
+
+
+    #container header .location {
+        text-align: end;
+        margin-top: 4rem;
+    }
+
+    #container section  {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+    
+        margin-top: 8rem;
+        margin-bottom: 200rem;
+
+    }
+
+    #container section  h3 {
+        display: block;
+        font-size: clamp(3rem, 4vw , 4rem);
+        color: var(--color-white-font);
+        font-weight: 700;
+
+
+        min-width: 30rem;
+        width: 25vw;
+        max-width: 32rem;
+        text-align: start;
+        align-self: flex-start;
+
+
+        
+
+        font-family: 'Nunito', sans-serif;
+    }
+
+
+    #container section .buttons {
+        align-self: unset;
+
+        vertical-align: bottom;
+        min-width: 24rem;
+        max-width: 34rem;
+        width: 25vw;
+
+        margin-left: 20%;
+
+        margin-top: clamp( 3rem, 5vw,  10rem);
+
+    }
+
+    #container section a {
+        min-height: 8rem;
+        max-height: 9rem;
+        height: 10vw;
+
+        width: 11.5vw;
+        max-width: 14rem;
+    
+        border-radius: 1rem;
+    
+        font-size: 1.4rem;
+    
+        border: none;
+        background: var(--color-white);
+    
+
+  
+    }
+
+    #container section a img {
+        margin-bottom: .5rem;
+        max-height: 5rem;
+        height: 60%;
+    }
+
+   
+    #container .fruits {
         display: none;
     }
+
+    
 }
