@@ -31,7 +31,7 @@
 }
 
 #container section {
-    margin-bottom: clamp(10rem, 20%, 20rem);
+    margin-bottom: clamp(10rem, 40%, 20rem);
 }
 
 #container section  h3 {
@@ -134,13 +134,14 @@
 
     #container header .logo {
         min-height: 8rem;
-        height: 12vw;
+        height: 9vw;
     }
 
 
     #container header .location {
         text-align: end;
-        margin-top: 4rem;
+        margin-top: 2rem;
+        font-size: clamp(1.5rem, 1.6vw, 2rem);
     }
 
     #container section  {
@@ -152,8 +153,6 @@
 
     
         margin-top: 8rem;
-        margin-bottom: 200rem;
-
     }
 
     #container section  h3 {
@@ -168,9 +167,6 @@
         text-align: start;
         align-self: flex-start;
 
-
-        
-
         font-family: 'Nunito', sans-serif;
     }
 
@@ -178,28 +174,27 @@
     #container section .buttons {
         align-self: unset;
 
-        vertical-align: bottom;
         min-width: 24rem;
         max-width: 34rem;
         width: 25vw;
 
         margin-left: 20%;
 
-        margin-top: clamp( 3rem, 5vw,  10rem);
+        margin-top: clamp(4rem, 13vh,  10rem);
 
     }
 
     #container section a {
-        min-height: 8rem;
-        max-height: 9rem;
+        min-height: 7rem;
+        max-height: 8rem;
         height: 10vw;
 
-        width: 11.5vw;
-        max-width: 14rem;
+        width: 10.5vw;
+        max-width: 13rem;
     
         border-radius: 1rem;
     
-        font-size: 1.4rem;
+        font-size: 1.7vw;
     
         border: none;
         background: var(--color-white);
