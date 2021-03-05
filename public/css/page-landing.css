@@ -31,7 +31,7 @@
 }
 
 #container section {
-    margin-bottom: clamp(10rem, 40%, 20rem);
+    margin-bottom: clamp(17rem, 40%, 20rem);
 }
 
 #container section  h3 {
@@ -174,8 +174,8 @@
     #container section .buttons {
         align-self: unset;
 
-        min-width: 24rem;
-        max-width: 34rem;
+        min-width: 28rem;
+        max-width: 30rem;
         width: 25vw;
 
         margin-left: 20%;
