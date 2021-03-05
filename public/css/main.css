@@ -5,9 +5,12 @@
 }
 
 :root {
+    --color-linear: linear-gradient(191.73deg, #FF0036 0.46%, #FF6787 100%);
     --color-white:  #FFFFFF;
     --color-white-font: #F7F6FF;
+    --color-grey-page: #F7FCFF;
     --color-grey:  #A3A7A7;
+    --color-red-dark:  #FF0036;
     --color-red:  #FF6787;
 
     font-size: 62.5%;
