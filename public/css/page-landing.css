@@ -31,7 +31,7 @@
 }
 
 #container section {
-    margin-bottom: 43%;
+    margin-bottom: clamp(10rem, 20%, 20rem);
 }
 
 #container section  h3 {
@@ -126,7 +126,7 @@
         align-items: center;
         justify-content: space-between;
 
-        margin-top: 8rem;
+        margin-top: 4rem;
 
         width: 100%;
     }
@@ -158,10 +158,9 @@
 
     #container section  h3 {
         display: block;
-        font-size: clamp(3rem, 4vw , 4rem);
+        font-size: clamp(2rem, 3.3vw , 4rem);
         color: var(--color-white-font);
         font-weight: 700;
-
 
         min-width: 30rem;
         width: 25vw;
@@ -221,4 +220,10 @@
     }
 
     
+}
+
+@media (min-width: 900px) {
+    #container header {
+        margin-top: 8rem;
+    }
 }
