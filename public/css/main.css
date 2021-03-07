@@ -13,7 +13,10 @@
     --color-red-dark:  #FF0036;
     --color-red:  #FF6787;
 
+    --font-poppins: 'Poppins', sans-serif;
+
     font-size: 62.5%;
+    
 }
 
 body,
