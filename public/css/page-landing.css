@@ -31,7 +31,7 @@
 }
 
 #container section {
-    margin-bottom: clamp(17rem, 40%, 20rem);
+    margin-bottom: clamp(22rem, 40%, 25rem);
 }
 
 #container section  h3 {
