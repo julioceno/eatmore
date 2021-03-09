@@ -1,9 +1,9 @@
 const checkbox = document.getElementById('check')
 const section = document.getElementById('section')
 
-checkbox.addEventListener('click', () => verify() )
+checkbox.addEventListener('click', () => verifyOption() )
 
-function verify() {
+function verifyOption() {
   
     if (!checkbox.checked) {
 
@@ -18,4 +18,22 @@ function verify() {
     }
 }
 
-verify()
+verifyOption()
+
+
+function showPassword(event) {
+    const input = event.currentTarget.parentNode.children[0]
+    const button = event.currentTarget
+    console.log()
+    
+    
+    if (input.type === "password") {
+        input.type = "text"
+        button.style.backgroundImage = " url(./public/images/eye-hidden-password.svg)"
+       
+    } else {
+        input.type = "password"
+        button.style.backgroundImage = " url(./public/images/eye-show-password.svg)"
+
+    }
+}
