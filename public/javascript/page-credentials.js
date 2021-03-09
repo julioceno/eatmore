@@ -20,7 +20,6 @@ function verifyOption() {
 
 verifyOption()
 
-
 function showPassword(event) {
     const input = event.currentTarget.parentNode.children[0]
     const button = event.currentTarget
@@ -36,4 +35,19 @@ function showPassword(event) {
         button.style.backgroundImage = " url(./public/images/eye-show-password.svg)"
 
     }
+}
+
+
+function validateRegister (event) {
+    const messageValidadePassword = document.getElementById('message-validade-password')
+    const password = document.getElementById('password').value
+    const confirmPassword = document.getElementById('confirm-password').value
+
+    if (password !== confirmPassword) {
+        event.preventDefault()
+        messageValidadePassword.style.display = "block"
+    } else {
+        messageValidadePassword.style.display = "none"
+    }
+
 }

@@ -1,5 +1,5 @@
 <div>
-    <form action="" >
+    <form action="" onsubmit="validateRegister(event)">
 
         <div class="input-block">
             <input type="text" name="name" placeholder="Seu nome" required>
@@ -10,12 +10,20 @@
         </div>
 
         <div class="input-block">
-            <input type="password" name="password" placeholder="Sua senha" required>
+            <div class="password">
+                <input type="password" name="password" id="password" placeholder="Sua senha" required>
+                <input type="button" onclick="showPassword(event)" >
+            </div>
         </div>
 
         <div class="input-block">
-            <input type="password" placeholder="Confirme sua senha" required>
+            <div class="password">
+                <input type="password"id="confirm-password" placeholder="Confirme sua senha" required>
+                <input type="button" onclick="showPassword(event)" >
+            </div>
         </div>
+
+        <p id="message-validade-password">Suas senhas não são iguais</p>
 
         <input type="submit" value="Registre-se">
 
