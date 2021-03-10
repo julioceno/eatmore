@@ -1,0 +1,9 @@
+#page-menu {
+    background: var(--color-white-page);
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
