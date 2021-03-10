@@ -10,16 +10,16 @@ function appearMenu() {
     } else {
 
        sideMenu.animate([
-           {transform: 'translateX(-200px)'}
+           {transform: 'translateX(-300px)'}
        ], {
-            duration: 250,
+            duration: 300,
        }
     
        )
        setTimeout(() =>{
         sideMenu.classList.remove('appear-menu-options')
         
-    }, 250)
+    }, 300)
     }
 }
 
