@@ -1,0 +1,13 @@
+@keyframes menu-appear{
+    to {
+    }
+
+    from {
+
+    }
+}
+
+.animate-menu-appear {
+    animation-name: menu-appear;
+    animation-duration: .2s;
+}

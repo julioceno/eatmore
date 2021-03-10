@@ -7,6 +7,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    overflow: hidden;
 }
 
 header .menu-hamburguer {
@@ -26,6 +28,9 @@ header .menu-hamburguer {
     transition: 1s ease;
 
     margin-top: 2rem;
+
+    z-index: 9;
+
 }
 
 header .menu-hamburguer::before {
@@ -58,6 +63,9 @@ header .menu-hamburguer::after {
 header #check:checked ~ label .menu-hamburguer::before{
     transform: rotate(225deg);
     top: 10%;
+    
+    background: var(--color-white-soft);
+
 }
 
 header #check:checked ~ label .menu-hamburguer::after{
@@ -65,9 +73,30 @@ header #check:checked ~ label .menu-hamburguer::after{
     top: 10%;
     width: 60%;
 
+    background: var(--color-white-soft);
+
 }
 
-header a img{
+.menu-options {
+    height: 100%;
+    width: 60%;
+
+    position: fixed;
+    background: var(--color-red-dark);
+
+    z-index: 1;
+
+    left: 0;
+
+    display: none;
+
+}
+
+.appear-menu-options {
+    display: flex;
+}
+
+header .profile img{
     height: 5rem;
     width: 5rem;
 

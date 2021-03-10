@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="./public/css/main.css">
     <link rel="stylesheet" href="./public/css/utils.css">
+    <link rel="stylesheet" href="./public/css/animations.css">
     <link rel="stylesheet" href="./public/css/page-menu.css">
 
     <!-- fonts -->
@@ -24,18 +25,22 @@
         <div class="menu-hamburguer-container">
             <input type="checkbox"id="check" style="display: none;">
 
-            <label for="check">
+            <label for="check" onclick="appearMenu()">
                 <div class="menu-hamburguer"></div>
             </label>
         </div>
+      
 
-
-        <a href="#">
+        <a class="profile" href="#">
             <img src="./public/images/doka.png" alt="perfil">
         </a>
 
 
     </header>
+
+    <aside class="menu-options animate-menu-appear ">
+    </aside>
+
 
     <section class="section">
 
