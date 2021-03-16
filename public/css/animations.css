@@ -3,7 +3,7 @@
     from {
         opacity: 0;
 
-        transform: translateX(-30px);
+        transform: translateX(-300px);
 
     }
 
@@ -18,5 +18,5 @@
 
 .animate-menu-appear {
     animation-name: menu-appear;
-    animation-duration: .2s;
+    animation-duration: 300ms;
 }

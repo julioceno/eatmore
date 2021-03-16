@@ -42,7 +42,7 @@ header .menu-hamburguer::before {
 
     background: var(--color-back);
 
-    transition: 1s ease;
+    transition: .8s ease;
 }
 
 header .menu-hamburguer::after {
@@ -56,7 +56,7 @@ header .menu-hamburguer::after {
 
     top: 25%;
 
-    transition: 1s ease;
+    transition: .8s ease;
 
 }
 
