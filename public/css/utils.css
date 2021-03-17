@@ -77,24 +77,6 @@ header #check:checked ~ label .menu-hamburguer::after{
 
 }
 
-.menu-options {
-    height: 100%;
-    width: 60%;
-
-    position: fixed;
-    background: var(--color-red-dark);
-
-    z-index: 1;
-
-    left: 0;
-
-    display: none;
-
-}
-
-.appear-menu-options {
-    display: flex;
-}
 
 header .profile img{
     height: 5rem;
@@ -104,3 +86,114 @@ header .profile img{
     border: .2rem solid #fff;
 
 }
+
+
+
+/* menu */
+
+.menu-options {
+    height: 100%;
+    
+    min-width: 16rem;
+    max-width: 23rem;
+    width: 60%;
+
+    position: fixed;
+    background: var(--color-red-dark);
+
+    z-index: 1;
+
+    left: 0;
+
+    padding: 13rem 0 0;
+
+    flex-direction: column;
+    font-family: var(--font-poppins);
+
+
+    display: none;
+}
+
+.menu-options .routes {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 0 2rem 1.8rem;
+}
+
+.menu-options .routes a {
+    text-decoration: none;
+    color: var(--color-white-soft);
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+
+
+    display: flex;
+    align-items: center;
+}
+
+.menu-options .routes a + a {
+    margin-top: 1.8rem;
+}
+
+.menu-options .routes a img {
+    margin-right: 1rem;
+
+    min-height: 2.5rem;
+    max-height: 3.3rem;
+    height: 8vw;
+}
+
+.menu-options .routes a:nth-child(3) img {
+    min-height: 3rem;
+    max-height: 4rem;
+}
+
+.menu-options .line-menu {
+    width: 90%;
+
+    align-self: center;
+
+    border: none;
+
+    border-bottom: .2rem solid var(--color-white-soft);
+
+    margin-bottom: 1.3rem;
+}
+
+.menu-options .social-media {
+    align-self: center;
+
+}
+
+.menu-options .social-media a + a {
+    margin-left: .3rem;
+}
+
+.menu-options .social-media img {
+    min-height: 3rem;
+    max-height: 3.5rem;
+    height: 7vw;
+
+}
+
+.menu-options .address {
+    align-self: center;
+    text-align: center;
+    
+    color: var(--color-white-soft);
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
+
+    font-weight: 700;
+
+    margin-top: 1.5rem;
+
+    max-width: 20rem;
+
+}
+
+
+
+.appear-menu-options {
+    display: flex;
+}
+

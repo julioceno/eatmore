@@ -1,5 +1,4 @@
 @keyframes menu-appear{
-   
     from {
         opacity: 0;
 
@@ -12,8 +11,6 @@
         transform: translateX(0);
         
     }
-
-    
 }
 
 .animate-menu-appear {
