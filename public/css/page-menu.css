@@ -8,6 +8,59 @@
 }
 
 
-section {
+#container .section {
     flex-shrink: 1;
+    padding-top: 3rem;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#container .section h3 {
+    color: var(--color-black);
+    font-weight: 400;
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+
+    font-family: var(--font-poppins);
+
+    margin-left: clamp(2rem, 4vw, 8rem);
+}
+
+#container .section h3 strong {
+    font-weight: 800;
+    display: block;
+}
+
+#container .section .search-bar {
+    border: none;
+    border: .2rem solid var(--color-grey);
+
+    margin-top: 2rem;
+
+    align-self: center;
+
+    font-family: var(--font-poppins);
+    font-size: clamp(1.2rem, 2vw, 2rem);
+
+
+    height: 3.5rem;
+    width: 23rem;
+
+    border-radius: 2rem;
+
+    padding: 0 1rem;
+
+    outline: none;
+
+}
+
+datalist option{
+    background: red;
+}
+
+select option{
+background: red;
 }
