@@ -70,7 +70,7 @@
     align-self: center;
 
     margin-top: 3.5rem;
-    margin-left: 4rem;
+    margin-left: clamp(3rem, 4vw, 9rem);
 
 
     display: flex;
