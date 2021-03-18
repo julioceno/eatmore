@@ -79,14 +79,13 @@ header #check:checked ~ label .menu-hamburguer::after{
 
 
 header .profile img{
-    height: 5rem;
-    width: 5rem;
+    height: clamp(5rem, 8vw, 9rem);
+    width: clamp(5rem, 8vw, 9rem);
 
     border-radius: 50%;
     border: .2rem solid #fff;
 
 }
-
 
 
 /* menu */
