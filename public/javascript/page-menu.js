@@ -31,7 +31,7 @@ slider.addEventListener('mousemove', element => {
     slider.scrollLeft = scrollLeft - walk
 })
 
-// alternando imagem no seu momento focus 
+// Seleao de categoria
 const categories = document.querySelectorAll('.slider-categories .categories')
 
 const categorieHamburguer = document.querySelector('.slider-categories .categories') 

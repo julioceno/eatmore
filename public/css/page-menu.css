@@ -64,17 +64,19 @@
 .section main {
     display: flex;
     flex-direction: column;
+
+
+    overflow: hidden;
 }
 
 .section main .categories-container {
-    align-self: center;
-
     margin-top: 3.5rem;
     margin-left: clamp(3rem, 4vw, 9rem);
 
 
     display: flex;
     flex-direction: column;
+
 
 
 }
@@ -84,7 +86,7 @@
     font-weight: bold;
 
     color: var(--color-black);
-    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 2vw, 1.35rem);
 
 }
 
@@ -101,11 +103,14 @@
 
     margin-top: 1rem;
 
-    width: 30rem;
+    width: 100%;
 
-    margin-top: 2rem;
+    margin-top: 0rem;
 
-    height: 10rem;
+
+    padding: 2rem;
+    padding-left: 0;
+
 }
 
 .section main .slider-categories::-webkit-scrollbar {
@@ -141,10 +146,11 @@
     font-family: var(--font-poppins);
     color: var(--color-grey);
 
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.16rem);
 
-    width: 10rem;
-    height: 7rem;
+    width: clamp(10rem, 16vw, 13rem);
+
+    height: clamp(7rem, 16vw, 8rem);
     
     background: #FFFFFF;
     box-shadow: 0px 5px 8px rgba(174, 182, 222, 0.3);
@@ -154,8 +160,9 @@
 
 
 .section main .slider-categories .categories img{
-    height: 3.5rem;
+    height: clamp(3.5rem, 5vw, 4rem);
     display: block;
+    margin-bottom: .2rem;
 }
 
 .section main .slider-categories .categorie-selected {
