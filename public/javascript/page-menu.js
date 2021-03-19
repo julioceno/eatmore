@@ -132,6 +132,7 @@ categorieFruits.addEventListener("click", e => {
 // slider food
 
 const sliderFood = document.querySelector('.slider-foods')
+let isScroll = true
 
 let isDownFood = false
 let startXFood;
@@ -140,20 +141,19 @@ let scrollLeftFood;
 
 sliderFood.addEventListener('mousedown', element => {
     isDownFood = true 
-    sliderFood.classList.add('active')
     startXFood = element.pageX - sliderFood.offsetLeft
     scrollLeftFood = sliderFood.scrollLeft
+
+
 })
 
 sliderFood.addEventListener('mouseleave', () => {
     isDownFood = false
-    sliderFood.classList.remove('active')
 
 })
 
 sliderFood.addEventListener('mouseup', () => {
     isDownFood = false
-    sliderFood.classList.remove('active')
 })
 
 sliderFood.addEventListener('mousemove', element => {
@@ -162,6 +162,13 @@ sliderFood.addEventListener('mousemove', element => {
     const x = element.pageX - sliderFood.offsetLeft
     const walk = (x - startXFood) * 3
     sliderFood.scrollLeft = scrollLeftFood - walk
+
+    isScroll = true
+})
+
+sliderFood.addEventListener('touchmove', element => {
+   isScroll = true
+
 })
 
 
@@ -228,6 +235,7 @@ locationFood.forEach( (location, indice) => {
 
 
 
+
 function foodMarked(e) {
     e.preventDefault()
 
@@ -259,24 +267,34 @@ function foodMarked(e) {
         left: to,
         behavior: "smooth"
     })
+    isScroll = false
 }
 
 
 sliderFood.addEventListener('scroll', markedFoodScroll)
 
 
-function markedFoodScroll(event) {
-    const windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 8)
+function markedFoodScroll() {
+    let windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 8)
    
+    if (window.innerWidth >= 800) {
+        windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 17)
+    }
+
+    if (!isScroll) {
+        return 
+    }
+
+    // Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
     foods.forEach( (food, indice) => {
 
-        // foods[indice - 1].classList.remove('food-selected')
-
         if (windowLeft > food.offsetLeft) {
-            if (indice !== 0 )foods[indice - 1 ].classList.remove('food-selected')
-            if (indice !== foods.length )foods[indice + 1 ].classList.remove('food-selected')
 
-            food.classList.add('food-selected')
+            locationFood.forEach( location => {
+                location.classList.remove('location-selected')
+            } )
+           
+            locationFood[indice].classList.add('location-selected')
         } 
     })
 }
