@@ -222,22 +222,35 @@ foods.forEach( (food, indice) => {
 
     foodLocationContainer.appendChild(createLocation)
 
-    // evento de click
 
 })
 
 const locationFood = document.querySelectorAll('.food-location a')
 
-console.log(locationFood)
 
-locationFood.forEach( location => {
+locationFood.forEach( (location, indice) => {
     location.addEventListener('click', foodMarked)
 })
 
 function foodMarked(e) {
     e.preventDefault()
 
-    console.log((e.target).classList.add('location-selected'))
+
+    locationFood.forEach( location => {
+        location.classList.remove('location-selected')
+    })
+
+    foods.forEach( food => {
+        food.classList.remove('food-selected')
+    })
+
+    e.target.classList.add('location-selected')
+
+    locationFood.forEach( (location, indice) => {
+        if(location.classList.contains('location-selected')) 
+        foods[indice].classList.add('food-selected')
+    })
+
 
 }
 
