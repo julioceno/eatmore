@@ -215,18 +215,19 @@ function getRatings() {
 
 const foods = document.querySelectorAll(".slider-foods .food")
 
-const foodLocationContainer = document.querySelector('.food-location')
+const foodLocationContainer = document.querySelector('.foods-location')
 console.log(foodLocationContainer)
 
 foods.forEach( (food, indice) => {
     // gerando bolinha no html
     const createLocation = document.createElement('a')
 
+
     foodLocationContainer.appendChild(createLocation)
 })
 
-const locationFoodContainer = document.querySelector('.food-location')
-const locationFood = document.querySelectorAll('.food-location a')
+const locationFoodContainer = document.querySelector('.foods-location')
+const locationFood = document.querySelectorAll('.foods-location a')
 
 
 locationFood.forEach( (location, indice) => {
