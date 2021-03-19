@@ -226,8 +226,6 @@
     color: var(--color-grey);
 
     font-size: clamp(1rem, 2vw, 1.16rem);
-    width: clamp(10rem, 16vw, 13rem);
-
     
     background: #FFFFFF;
     box-shadow: 0px 8px 15px rgba(183, 183, 229, 0.3);
@@ -266,12 +264,13 @@
     flex-direction: column;
     align-self: flex-start;
     margin-left: 2rem;
+    margin: 2rem;
     margin-top: 1.5rem;
     color: var(--color-black);
 
     font-family: var(--font-poppins);
-    word-wrap: break-word;
-
+    white-space: normal;
+    word-break: break-all;
 }
 
 .section main .slider-foods .food footer h6 {
@@ -279,8 +278,7 @@
     font-weight: 700;
 
     width: 100%;
-    white-space: normal;
-
+   
 }
 
 
@@ -330,7 +328,7 @@
     box-shadow: 0px 8px 15px rgba(255, 0, 54, 0.24);
 
     width: clamp(16rem, 16vw, 19rem);
-    min-height: clamp(20.5rem, 16vw, 25rem);
+    height: clamp(21rem, 16vw, 26rem);
 
 }
 
