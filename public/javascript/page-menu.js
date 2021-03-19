@@ -213,8 +213,31 @@ console.log(foodLocationContainer)
 
 foods.forEach( (food, indice) => {
 
+
+
+
+    // gerando bolinha no html
     const createLocation = document.createElement('a')
-    createLocation.setAttribute('href', indice)
+    createLocation.setAttribute('href', '#food' + indice)
 
     foodLocationContainer.appendChild(createLocation)
+
+    // evento de click
+
 })
+
+const locationFood = document.querySelectorAll('.food-location a')
+
+console.log(locationFood)
+
+locationFood.forEach( location => {
+    location.addEventListener('click', foodMarked)
+})
+
+function foodMarked(e) {
+    e.preventDefault()
+
+    console.log((e.target).classList.add('location-selected'))
+
+}
+
