@@ -218,13 +218,13 @@ foods.forEach( (food, indice) => {
 
     // gerando bolinha no html
     const createLocation = document.createElement('a')
-    createLocation.setAttribute('href', '#food' + indice)
 
     foodLocationContainer.appendChild(createLocation)
 
 
 })
 
+const locationFoodContainer = document.querySelector('.food-location')
 const locationFood = document.querySelectorAll('.food-location a')
 
 
@@ -246,9 +246,21 @@ function foodMarked(e) {
 
     e.target.classList.add('location-selected')
 
+    let i 
     locationFood.forEach( (location, indice) => {
-        if(location.classList.contains('location-selected')) 
-        foods[indice].classList.add('food-selected')
+        if(location.classList.contains('location-selected'))  {
+            foods[indice].classList.add('food-selected')
+            i = indice
+        }
+    })
+
+
+    const to = foods[i].offsetLeft
+    console.log(to)
+
+    sliderFood.scroll({
+        left: to,
+        behavior: "smooth"
     })
 
 
