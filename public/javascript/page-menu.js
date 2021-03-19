@@ -212,16 +212,10 @@ const foodLocationContainer = document.querySelector('.food-location')
 console.log(foodLocationContainer)
 
 foods.forEach( (food, indice) => {
-
-
-
-
     // gerando bolinha no html
     const createLocation = document.createElement('a')
 
     foodLocationContainer.appendChild(createLocation)
-
-
 })
 
 const locationFoodContainer = document.querySelector('.food-location')
@@ -232,37 +226,60 @@ locationFood.forEach( (location, indice) => {
     location.addEventListener('click', foodMarked)
 })
 
+
+
 function foodMarked(e) {
     e.preventDefault()
 
+
+    foods.forEach( food => {
+        food.classList.remove('food-selected')
+
+    })
 
     locationFood.forEach( location => {
         location.classList.remove('location-selected')
     })
 
-    foods.forEach( food => {
-        food.classList.remove('food-selected')
-    })
+ 
 
     e.target.classList.add('location-selected')
 
-    let i 
+    let indiceFoodSelected 
     locationFood.forEach( (location, indice) => {
         if(location.classList.contains('location-selected'))  {
             foods[indice].classList.add('food-selected')
-            i = indice
+            indiceFoodSelected = indice
         }
     })
 
-
-    const to = foods[i].offsetLeft
-    console.log(to)
+    const to = foods[indiceFoodSelected].offsetLeft
 
     sliderFood.scroll({
         left: to,
         behavior: "smooth"
     })
-
-
 }
 
+
+sliderFood.addEventListener('scroll', markedFoodScroll)
+
+
+function markedFoodScroll(event) {
+    const windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 8)
+   
+    foods.forEach( (food, indice) => {
+
+        // foods[indice - 1].classList.remove('food-selected')
+
+        if (windowLeft > food.offsetLeft) {
+            if (indice !== 0 )foods[indice - 1 ].classList.remove('food-selected')
+            if (indice !== foods.length )foods[indice + 1 ].classList.remove('food-selected')
+
+            food.classList.add('food-selected')
+        } 
+    })
+}
+
+
+locationFood[0].click()

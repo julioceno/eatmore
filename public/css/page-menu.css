@@ -278,9 +278,8 @@
     font-size: clamp(1.3rem, 1.4vw, 1.5rem);
     font-weight: 700;
 
-    width: 9rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    width: 100%;
+    white-space: normal;
 
 }
 
