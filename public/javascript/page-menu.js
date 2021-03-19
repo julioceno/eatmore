@@ -203,3 +203,18 @@ function getRatings() {
     // })
 
 }
+
+// location food 
+
+const foods = document.querySelectorAll(".slider-foods .food")
+
+const foodLocationContainer = document.querySelector('.food-location')
+console.log(foodLocationContainer)
+
+foods.forEach( (food, indice) => {
+
+    const createLocation = document.createElement('a')
+    createLocation.setAttribute('href', indice)
+
+    foodLocationContainer.appendChild(createLocation)
+})
