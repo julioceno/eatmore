@@ -171,14 +171,114 @@ sliderFood.addEventListener('touchmove', element => {
 
 })
 
-
+const allFoods = [
+    {
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer',
+        rating: 1,
+        value: 15.55
+    },
+    {
+        id: 2,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer2',
+        rating: 1.5,
+        value: 15.55
+    }
+]
 
 
 // render food 
-
-
-
 const foodContainer = document.querySelector('.food-category-container .slider-foods')
+
+
+allFoods.forEach( ({ id, img, name,rating, value}) => {
+
+    // Criando o container 
+    const tagA = document.createElement('a')
+    tagA.setAttribute('href', `/food/${id}`)
+    tagA.classList.add('food')
+
+    // Criando div centering
+    const tagDivCentering = document.createElement('div')
+    tagDivCentering.classList.add('centering')
+
+    // Criando imagem na div cetering
+    const tagImg = document.createElement('img')
+    tagImg.src = img
+
+    // Criando footer
+    const tagFooter = document.createElement('footer')
+    tagFooter.classList.add('footer-food')
+
+    // criando tag h6
+    const tagH6 = document.createElement('h6')
+
+    const foodName = document.createTextNode(name)
+    tagH6.appendChild(foodName)
+
+
+    // Criando div stars-outer 
+    const tagDivStarsOuter = document.createElement('div')
+    tagDivStarsOuter.classList.add('stars-outer')
+
+    // Criando div stars-inner 
+    const tagDivStarsInner = document.createElement('div')
+    tagDivStarsInner.classList.add('stars-inner')
+
+    // Criando div stars-inner 
+    const tagSpanValue = document.createElement('span')
+    tagSpanValue.classList.add('value')
+
+    
+    const foodValue = document.createTextNode(`R$ ${value.toString().replace('.', ',')}`)
+    tagSpanValue.appendChild(foodValue)
+
+
+    // Get porcentage
+    const starPercentage = (rating / 5) * 100
+
+    // Round to nearest 10
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
+
+    // Set width of stars-inner to percentage
+    console.log(starPercentageRounded)
+    tagDivStarsInner.style.width = starPercentageRounded
+    
+    
+    
+
+
+    /* Adicionando conteudo no food container */
+
+    // Adicionando div centering na tag a
+    tagA.appendChild(tagDivCentering)
+
+    // Adicionando img na tag centering 
+    tagDivCentering.appendChild(tagImg)
+
+    // Adicionando tag footer 
+    tagDivCentering.appendChild(tagFooter) 
+
+    // Adicionando h6 no footer
+    tagFooter.appendChild(tagH6)
+    
+    // Adicionando div stars-outer 
+    tagFooter.appendChild(tagDivStarsOuter)
+    
+    // Adicionando div stars-inner 
+    tagDivStarsOuter.appendChild(tagDivStarsInner)
+
+    // Adicionando span Value
+    tagFooter.appendChild(tagSpanValue)
+
+
+
+    // Adicionando o elemento  diretamente no html
+    foodContainer.appendChild(tagA)
+})
+
 
 
 // ratings
@@ -187,7 +287,16 @@ const foodContainer = document.querySelector('.food-category-container .slider-f
 
 document.addEventListener('DOMcontentLoaded', getRatings())
 
+
+
+
 function getRatings() {
+
+    const ratings = {
+        zingerBurguer: 1,
+        zingerBurguer2: 2,
+    }
+
     // for(let rating in ratings) {
         
     //     // Get porcentage
@@ -202,6 +311,23 @@ function getRatings() {
     //     console.log(starPercentageRounded)
     // }
 
+    allFoods.forEach(({rating}, indice ) => {
+       
+    // Get porcentage
+    const starPercentage = (rating / 5) * 100
+
+    // Round to nearest 10
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
+
+    // Set width of stars-inner to percentage
+    console.log(starPercentageRounded)
+    
+    
+    
+    // console.log(document.querySelector(`.bah .stars-inner`)) //.style.width = starPercentageRounded
+
+
+    })
  
 
     // foods.forEach( food => {
