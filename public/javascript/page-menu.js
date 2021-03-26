@@ -185,7 +185,38 @@ const allFoods = [
         name: 'Zinger burguer2',
         rating: 1.5,
         value: 15.55
-    }
+    },
+
+    {
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer',
+        rating: 1,
+        value: 15.55
+    },
+    {
+        id: 2,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer2',
+        rating: 1.5,
+        value: 15.55
+    },
+
+    {
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer',
+        rating: 1,
+        value: 15.55
+    },
+    {
+        id: 2,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Zinger burguer2',
+        rating: 1.5,
+        value: 15.55
+    },
+
 ]
 
 
@@ -218,6 +249,10 @@ allFoods.forEach( ({ id, img, name,rating, value}) => {
     const foodName = document.createTextNode(name)
     tagH6.appendChild(foodName)
 
+    // Criando container das estrlas pra controlar o tamanho
+    const tagDivContainerStars = document.createElement('div')
+
+
 
     // Criando div stars-outer 
     const tagDivStarsOuter = document.createElement('div')
@@ -227,7 +262,7 @@ allFoods.forEach( ({ id, img, name,rating, value}) => {
     const tagDivStarsInner = document.createElement('div')
     tagDivStarsInner.classList.add('stars-inner')
 
-    // Criando div stars-inner 
+    // Criando div span value
     const tagSpanValue = document.createElement('span')
     tagSpanValue.classList.add('value')
 
@@ -235,6 +270,8 @@ allFoods.forEach( ({ id, img, name,rating, value}) => {
     const foodValue = document.createTextNode(`R$ ${value.toString().replace('.', ',')}`)
     tagSpanValue.appendChild(foodValue)
 
+
+    /* Adicionando os valores das estrelas */
 
     // Get porcentage
     const starPercentage = (rating / 5) * 100
@@ -263,9 +300,13 @@ allFoods.forEach( ({ id, img, name,rating, value}) => {
 
     // Adicionando h6 no footer
     tagFooter.appendChild(tagH6)
+
+    // adicionando div de controle das estrelas
+    tagFooter.appendChild(tagDivContainerStars)
+
     
     // Adicionando div stars-outer 
-    tagFooter.appendChild(tagDivStarsOuter)
+    tagDivContainerStars.appendChild(tagDivStarsOuter)
     
     // Adicionando div stars-inner 
     tagDivStarsOuter.appendChild(tagDivStarsInner)
@@ -280,71 +321,11 @@ allFoods.forEach( ({ id, img, name,rating, value}) => {
 })
 
 
-
-// ratings
-
-// total stars
-
-document.addEventListener('DOMcontentLoaded', getRatings())
-
-
-
-
-function getRatings() {
-
-    const ratings = {
-        zingerBurguer: 1,
-        zingerBurguer2: 2,
-    }
-
-    // for(let rating in ratings) {
-        
-    //     // Get porcentage
-    //     const starPercentage = (ratings[rating] / 5) * 100
-  
-    //     // Round to nearest 10
-    //     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
-
-    //     // Set width of stars-inner to percentage
-    //    console.log( document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded)
-
-    //     console.log(starPercentageRounded)
-    // }
-
-    allFoods.forEach(({rating}, indice ) => {
-       
-    // Get porcentage
-    const starPercentage = (rating / 5) * 100
-
-    // Round to nearest 10
-    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
-
-    // Set width of stars-inner to percentage
-    console.log(starPercentageRounded)
-    
-    
-    
-    // console.log(document.querySelector(`.bah .stars-inner`)) //.style.width = starPercentageRounded
-
-
-    })
- 
-
-    // foods.forEach( food => {
-    //     const rating = food.
-    //     console.log(food)
-    // })
-
-}
-
 // location food 
-
 const foods = document.querySelectorAll(".slider-foods .food")
-
 const foodLocationContainer = document.querySelector('.foods-location')
-console.log(foodLocationContainer)
 
-foods.forEach( (food, indice) => {
+foods.forEach( () => {
     // gerando bolinha no html
     const createLocation = document.createElement('a')
 
