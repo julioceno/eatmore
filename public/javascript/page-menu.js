@@ -56,6 +56,8 @@ function deselectingCategories() {
 
 }
 
+let allFoods 
+
 categorieHamburguer.addEventListener("click", e => {
     deselectingCategories()
 
@@ -64,8 +66,31 @@ categorieHamburguer.addEventListener("click", e => {
     const img = categorieHamburguer.children[0].children[0]
     img.src = "./public/images/categories/hamburguer-focus.svg"
 
+
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+    ]
+
+    updatingFoodsClickingCategory()
+
     e.preventDefault()
 })
+
+categorieHamburguer.click()
 
 categoriePizza.addEventListener("click", e => {
     deselectingCategories()
@@ -75,6 +100,64 @@ categoriePizza.addEventListener("click", e => {
 
     const img = categoriePizza.children[0].children[0]
     img.src = "./public/images/categories/pizza-focus.svg"
+
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza catupiri',
+            rating: 2,
+            value: 15.55
+        },
+
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza catupiri',
+            rating: 3,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza',
+            rating: 5,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza catupiri',
+            rating: 2,
+            value: 15.55
+        },
+
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pizza catupiri',
+            rating: 2,
+            value: 15.55
+        },
+       
+       
+    ]
+
+    updatingFoodsClickingCategory()
+    
+    
 
     e.preventDefault()
 })
@@ -131,7 +214,7 @@ categorieFruits.addEventListener("click", e => {
 
 // slider food
 
-const sliderFood = document.querySelector('.slider-foods')
+let sliderFood = document.querySelector('.slider-foods')
 let isScroll = true
 
 let isDownFood = false
@@ -139,12 +222,11 @@ let startXFood;
 let scrollLeftFood;
 
 
+
 sliderFood.addEventListener('mousedown', element => {
     isDownFood = true 
     startXFood = element.pageX - sliderFood.offsetLeft
     scrollLeftFood = sliderFood.scrollLeft
-
-
 })
 
 sliderFood.addEventListener('mouseleave', () => {
@@ -171,182 +253,144 @@ sliderFood.addEventListener('touchmove', element => {
 
 })
 
-const allFoods = [
-    {
-        id: 1,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer',
-        rating: 1,
-        value: 15.55
-    },
-    {
-        id: 2,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer2',
-        rating: 1.5,
-        value: 15.55
-    },
 
-    {
-        id: 1,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer',
-        rating: 1,
-        value: 15.55
-    },
-    {
-        id: 2,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer2',
-        rating: 1.5,
-        value: 15.55
-    },
+function updatingFoodsClickingCategory() {
 
-    {
-        id: 1,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer',
-        rating: 1,
-        value: 15.55
-    },
-    {
-        id: 2,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Zinger burguer2',
-        rating: 1.5,
-        value: 15.55
-    },
+    // Removendo os alimentos da categoria selecionada anteriormente
+    document.querySelectorAll(".slider-foods .food").forEach( (food) => {
+        food.remove()
+    })
 
-]
+    document.querySelectorAll(".foods-location a").forEach( (location) => {
+        location.remove()
+    })
+        
+    // render food 
+    const foodContainer = document.querySelector('.food-category-container .slider-foods')
 
+   
 
-// render food 
-const foodContainer = document.querySelector('.food-category-container .slider-foods')
+    allFoods.forEach( ({ id, img, name,rating, value}) => {
 
+        // Criando o container 
+        const tagA = document.createElement('a')
+        tagA.setAttribute('href', `/food/${id}`)
+        tagA.classList.add('food')
 
-allFoods.forEach( ({ id, img, name,rating, value}) => {
+        // Criando div centering
+        const tagDivCentering = document.createElement('div')
+        tagDivCentering.classList.add('centering')
 
-    // Criando o container 
-    const tagA = document.createElement('a')
-    tagA.setAttribute('href', `/food/${id}`)
-    tagA.classList.add('food')
+        // Criando imagem na div cetering
+        const tagImg = document.createElement('img')
+        tagImg.src = img
 
-    // Criando div centering
-    const tagDivCentering = document.createElement('div')
-    tagDivCentering.classList.add('centering')
+        // Criando footer
+        const tagFooter = document.createElement('footer')
+        tagFooter.classList.add('footer-food')
 
-    // Criando imagem na div cetering
-    const tagImg = document.createElement('img')
-    tagImg.src = img
+        // criando tag h6
+        const tagH6 = document.createElement('h6')
 
-    // Criando footer
-    const tagFooter = document.createElement('footer')
-    tagFooter.classList.add('footer-food')
+        const foodName = document.createTextNode(name)
+        tagH6.appendChild(foodName)
 
-    // criando tag h6
-    const tagH6 = document.createElement('h6')
-
-    const foodName = document.createTextNode(name)
-    tagH6.appendChild(foodName)
-
-    // Criando container das estrlas pra controlar o tamanho
-    const tagDivContainerStars = document.createElement('div')
+        // Criando container das estrlas pra controlar o tamanho
+        const tagDivContainerStars = document.createElement('div')
 
 
 
-    // Criando div stars-outer 
-    const tagDivStarsOuter = document.createElement('div')
-    tagDivStarsOuter.classList.add('stars-outer')
+        // Criando div stars-outer 
+        const tagDivStarsOuter = document.createElement('div')
+        tagDivStarsOuter.classList.add('stars-outer')
 
-    // Criando div stars-inner 
-    const tagDivStarsInner = document.createElement('div')
-    tagDivStarsInner.classList.add('stars-inner')
+        // Criando div stars-inner 
+        const tagDivStarsInner = document.createElement('div')
+        tagDivStarsInner.classList.add('stars-inner')
 
-    // Criando div span value
-    const tagSpanValue = document.createElement('span')
-    tagSpanValue.classList.add('value')
+        // Criando div span value
+        const tagSpanValue = document.createElement('span')
+        tagSpanValue.classList.add('value')
 
+        
+        const foodValue = document.createTextNode(`R$ ${value.toString().replace('.', ',')}`)
+        tagSpanValue.appendChild(foodValue)
+
+
+        /* Adicionando os valores das estrelas */
+
+        // Get porcentage
+        const starPercentage = (rating / 5) * 100
+
+        // Round to nearest 10
+        const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
+
+        // Set width of stars-inner to percentage
+        tagDivStarsInner.style.width = starPercentageRounded
+        
+        
+        
+
+
+        /* Adicionando conteudo no food container */
+
+        // Adicionando div centering na tag a
+        tagA.appendChild(tagDivCentering)
+
+        // Adicionando img na tag centering 
+        tagDivCentering.appendChild(tagImg)
+
+        // Adicionando tag footer 
+        tagDivCentering.appendChild(tagFooter) 
+
+        // Adicionando h6 no footer
+        tagFooter.appendChild(tagH6)
+
+        // adicionando div de controle das estrelas
+        tagFooter.appendChild(tagDivContainerStars)
+
+        
+        // Adicionando div stars-outer 
+        tagDivContainerStars.appendChild(tagDivStarsOuter)
+        
+        // Adicionando div stars-inner 
+        tagDivStarsOuter.appendChild(tagDivStarsInner)
+
+        // Adicionando span Value
+        tagFooter.appendChild(tagSpanValue)
+
+
+
+        // Adicionando o elemento  diretamente no html
+        foodContainer.appendChild(tagA)
+    })
+
+
+    // location food 
+    const foods = document.querySelectorAll(".slider-foods .food")
+    const foodLocationContainer = document.querySelector('.foods-location')
+
+    foods.forEach( () => {
+        // gerando bolinha no html
+        const createLocation = document.createElement('a')
+
+
+        foodLocationContainer.appendChild(createLocation)
+    })
+
+    const locationFood = document.querySelectorAll('.foods-location a')
+
+    locationFood.forEach( location => location.addEventListener('click', foodMarked))
     
-    const foodValue = document.createTextNode(`R$ ${value.toString().replace('.', ',')}`)
-    tagSpanValue.appendChild(foodValue)
-
-
-    /* Adicionando os valores das estrelas */
-
-    // Get porcentage
-    const starPercentage = (rating / 5) * 100
-
-    // Round to nearest 10
-    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
-
-    // Set width of stars-inner to percentage
-    console.log(starPercentageRounded)
-    tagDivStarsInner.style.width = starPercentageRounded
+    document.querySelectorAll('.foods-location a')[0].click()
     
-    
-    
-
-
-    /* Adicionando conteudo no food container */
-
-    // Adicionando div centering na tag a
-    tagA.appendChild(tagDivCentering)
-
-    // Adicionando img na tag centering 
-    tagDivCentering.appendChild(tagImg)
-
-    // Adicionando tag footer 
-    tagDivCentering.appendChild(tagFooter) 
-
-    // Adicionando h6 no footer
-    tagFooter.appendChild(tagH6)
-
-    // adicionando div de controle das estrelas
-    tagFooter.appendChild(tagDivContainerStars)
-
-    
-    // Adicionando div stars-outer 
-    tagDivContainerStars.appendChild(tagDivStarsOuter)
-    
-    // Adicionando div stars-inner 
-    tagDivStarsOuter.appendChild(tagDivStarsInner)
-
-    // Adicionando span Value
-    tagFooter.appendChild(tagSpanValue)
-
-
-
-    // Adicionando o elemento  diretamente no html
-    foodContainer.appendChild(tagA)
-})
-
-
-// location food 
-const foods = document.querySelectorAll(".slider-foods .food")
-const foodLocationContainer = document.querySelector('.foods-location')
-
-foods.forEach( () => {
-    // gerando bolinha no html
-    const createLocation = document.createElement('a')
-
-
-    foodLocationContainer.appendChild(createLocation)
-})
-
-const locationFoodContainer = document.querySelector('.foods-location')
-const locationFood = document.querySelectorAll('.foods-location a')
-
-
-locationFood.forEach( (location, indice) => {
-    location.addEventListener('click', foodMarked)
-})
-
-
+}
 
 
 function foodMarked(e) {
     e.preventDefault()
-
+    const foods = document.querySelectorAll(".slider-foods .food")
+    const locationFood = document.querySelectorAll('.foods-location a')
 
     foods.forEach( food => {
         food.classList.remove('food-selected')
@@ -364,6 +408,7 @@ function foodMarked(e) {
     let indiceFoodSelected 
     locationFood.forEach( (location, indice) => {
         if(location.classList.contains('location-selected'))  {
+            
             foods[indice].classList.add('food-selected')
             indiceFoodSelected = indice
         }
@@ -378,20 +423,21 @@ function foodMarked(e) {
     isScroll = false
 }
 
+sliderFood.addEventListener('scroll', markedLocationScroll)
 
-sliderFood.addEventListener('scroll', markedFoodScroll)
 
+function markedLocationScroll() {
 
-function markedFoodScroll() {
+    const foods = document.querySelectorAll(".slider-foods .food")
+    const locationFood = document.querySelectorAll('.foods-location a')
+
     let windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 8)
    
     if (window.innerWidth >= 800) {
         windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 17)
     }
 
-    if (!isScroll) {
-        return 
-    }
+    if (!isScroll) return 
 
     // Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
     foods.forEach( (food, indice) => {
@@ -407,5 +453,3 @@ function markedFoodScroll() {
     })
 }
 
-
-locationFood[0].click()
