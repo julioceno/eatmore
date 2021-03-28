@@ -148,10 +148,16 @@
 
     height: clamp(7rem, 16vw, 8rem);
     
-    background: #FFFFFF;
-    box-shadow: 0px 5px 8px rgba(174, 182, 222, 0.3);
-    border-radius: 25px;
+    background: var(--color-white);
+    box-shadow: .0rem .5rem .8rem rgba(174, 182, 222, 0.3);
+    border-radius: 2.8rem;
 
+    transition: all 100ms;
+}
+
+.section main .slider-categories .categorie:hover {
+    background: var(--color-white-page);
+    
 }
 
 .section main .slider-categories .categorie img{
@@ -163,6 +169,13 @@
 .section main .slider-categories .categorie-selected {
     color: var(--color-red-dark);
     box-shadow: 0px 5px 8px rgba(255, 0, 54, 0.24);
+
+    border: 1px solid var(--color-red-dark);
+}
+
+.section main .slider-categories .categorie-selected:hover {
+    background: var(--color-white);
+
 }
 
 /* slider food */
@@ -227,7 +240,7 @@
 
     font-size: clamp(1rem, 2vw, 1.16rem);
     
-    background: #FFFFFF;
+    background: var(--color-white);
     box-shadow: 0px 8px 15px rgba(183, 183, 229, 0.3);
 
     border-radius: 34px;
@@ -236,7 +249,12 @@
     width: clamp(16rem, 16vw, 19rem);
     min-height: clamp(19.5rem, 16vw, 25rem);
 
-    transition: all .2s;
+    transition: all 100ms;
+}
+
+.section main .slider-foods .food:hover {
+    background: var(--color-white-page);
+
 }
 
 

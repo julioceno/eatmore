@@ -198,7 +198,7 @@ header .profile img{
 
 /* Sacola de compras */
 
-.purchasing {
+.purchasing-button {
     position: fixed;
     width: clamp(5.6rem, 5vw, 6.8rem);
     height: clamp(5.6rem, 5vw, 6.8rem);
@@ -215,8 +215,187 @@ header .profile img{
     outline: none;
 
     cursor: pointer;
+
+    transition: all 100ms;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.purchasing img {
+.purchasing-button img {
     height: 50%;
+}
+
+.purchasing-button:hover {
+    background: var(--color-ref-button-hover);
+}
+
+.purchasing-car {
+    background: var(--color-red-dark);
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: clamp(30rem, 55vh, 50rem);
+    padding: 4rem 2rem 0;
+
+    flex-direction: column;
+
+    display: none;
+}
+
+.appear-purchasing-car {
+    display: flex;
+}
+ 
+.purchasing-car h5 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-family: var(--font-poppins);
+    font-weight: 400;
+
+    max-width: 40rem;
+
+    color: var(--color-white-soft);
+
+    margin-bottom: 3rem;
+}
+
+.purchasing-car .foods-selected  {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    height: 20rem;
+
+
+}
+
+
+.foods-selected .food  + .food {
+    margin-top: 1rem;
+}
+
+.foods-selected .food {
+    background: var(--color-white-soft);
+
+    display: flex;
+
+
+    align-items: center;
+
+    min-height: 5.5rem;
+    height: 5.5rem;
+
+    border-radius: .8rem;
+}
+
+.foods-selected .food img {
+    height: 3.8rem;
+    margin-left: .8rem;
+}
+
+.foods-selected .food h6 {
+    font-family: var(--font-poppins);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+
+    font-weight: 400;
+}
+
+
+
+.foods-selected .food .amount-this-food {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: 4rem;
+}
+
+.foods-selected .food .amount-this-food button {
+    background: none;
+    border: none;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    outline: none;
+
+
+}
+
+.foods-selected .food .amount-this-food button  img {
+    height: 1.9rem;
+}
+
+.foods-selected .food .amount-this-food button:nth-child(2) {
+    margin: 0 .0;
+
+}
+
+.foods-selected .food .amount-this-food .amount {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+
+    font-size: 1.4rem;
+
+    margin: 0  -.3rem  0 .3rem;
+
+}
+
+.purchasing-car .finish-buy {
+    margin-top: 3rem;
+
+    background: var(--color-white);
+
+    width: 23rem;
+    min-height: 3rem;
+    height: 3.7rem;
+
+    border-radius: 1.7rem;
+
+    align-self: center;
+
+    font-size: 1.5rem;
+    font-family: Poppins;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-black);
+   
+    border: none;
+
+    cursor: pointer;    
+
+    outline: none;
+}
+
+.purchasing-car .finish-buy:hover {
+    background: var(--color-white-soft);
+}
+
+.purchasing-car footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    align-items: center;
+
+}
+
+.purchasing-car footer .total-payable {
+    font-family: var(--font-poppins);
+    font-weight: bold;
+    font-size: 1.4rem;
+
+    color: var(--color-white);
+}
+
+.purchasing-car footer .minimize-purchasing-car {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    outline: none;
+}
+
+.purchasing-car footer .minimize-purchasing-car img {
+    height: 2.3rem;
 }

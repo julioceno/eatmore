@@ -170,7 +170,6 @@ categorieHamburguer.addEventListener("click", e => {
     e.preventDefault()
 })
 
-categorieHamburguer.click()
 
 categoriePizza.addEventListener("click", e => {
     deselectingCategories()
@@ -357,7 +356,7 @@ categorieFruits.addEventListener("click", e => {
 
 // slider food
 let sliderFood = document.querySelector('.slider-foods')
-var isScroll = true
+let isScroll = true
 
 
 let isDownFood = false
@@ -598,3 +597,6 @@ function markedLocationScroll() {
     })
 }
 
+
+// click automatico na categoria pra ser apresentado os alimentos
+categorieHamburguer.click()

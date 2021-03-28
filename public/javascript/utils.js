@@ -2,8 +2,6 @@ const sideMenu = document.querySelector('.menu-options')
 const checkbox = document.getElementById('check')
 
 function appearMenu() {
-    
-
     if (!checkbox.checked) {
         sideMenu.classList.add('appear-menu-options')
         
@@ -24,3 +22,13 @@ function appearMenu() {
 }
 
 
+const purchasingCar = document.querySelector('.purchasing-car')
+
+function appearPurchasingCar() {
+    purchasingCar.classList.add('appear-purchasing-car')
+}
+
+
+function disappearPurchasingCar() {
+    purchasingCar.classList.remove('appear-purchasing-car')
+}
