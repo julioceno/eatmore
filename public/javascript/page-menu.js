@@ -214,8 +214,9 @@ categorieFruits.addEventListener("click", e => {
 
 // slider food
 
+
 let sliderFood = document.querySelector('.slider-foods')
-let isScroll = true
+window.isScroll = true
 
 let isDownFood = false
 let startXFood;
@@ -244,12 +245,12 @@ sliderFood.addEventListener('mousemove', element => {
     const x = element.pageX - sliderFood.offsetLeft
     const walk = (x - startXFood) * 3
     sliderFood.scrollLeft = scrollLeftFood - walk
-
-    isScroll = true
+  
+    window.isScroll = true
 })
 
-sliderFood.addEventListener('touchmove', element => {
-   isScroll = true
+sliderFood.addEventListener('touchmove', () => {
+    window.isScroll = true
 
 })
 
@@ -274,7 +275,7 @@ function updatingFoodsClickingCategory() {
 
         // Criando o container 
         const tagA = document.createElement('a')
-        tagA.setAttribute('href', `/food/${id}`)
+        tagA.setAttribute('href', `/menu/food/${id}`)
         tagA.classList.add('food')
 
         // Criando div centering
@@ -381,11 +382,13 @@ function updatingFoodsClickingCategory() {
     const locationFood = document.querySelectorAll('.foods-location a')
 
     locationFood.forEach( location => location.addEventListener('click', foodMarked))
+
+
+  
+
     
     document.querySelectorAll('.foods-location a')[0].click()
-    
 }
-
 
 function foodMarked(e) {
     e.preventDefault()
@@ -394,14 +397,13 @@ function foodMarked(e) {
 
     foods.forEach( food => {
         food.classList.remove('food-selected')
-
     })
 
     locationFood.forEach( location => {
         location.classList.remove('location-selected')
     })
 
- 
+
 
     e.target.classList.add('location-selected')
 
@@ -416,12 +418,17 @@ function foodMarked(e) {
 
     const to = foods[indiceFoodSelected].offsetLeft
 
+    let sliderFood = document.querySelector('.slider-foods')
+
     sliderFood.scroll({
         left: to,
         behavior: "smooth"
     })
-    isScroll = false
+
+    window.isScroll = false
+
 }
+
 
 sliderFood.addEventListener('scroll', markedLocationScroll)
 
@@ -437,7 +444,8 @@ function markedLocationScroll() {
         windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 17)
     }
 
-    if (!isScroll) return 
+    if (!window.isScroll) return 
+
 
     // Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
     foods.forEach( (food, indice) => {
