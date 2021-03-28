@@ -1,4 +1,4 @@
-@keyframes menu-appear{
+@keyframes appear-menu{
     from {
         opacity: 0;
 
@@ -13,7 +13,27 @@
     }
 }
 
+.animate-appear-menu {
+    animation-name: appear-menu;
+    animation-duration: 300ms;
+}
+
+@keyframes appear-purchasing-car{
+    from {
+        opacity: 0;
+
+        transform: translateY(300px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+}
+
 .animate-menu-appear {
-    animation-name: menu-appear;
+    animation-name: appear-purchasing-car;
     animation-duration: 300ms;
 }

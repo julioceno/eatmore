@@ -30,5 +30,17 @@ function appearPurchasingCar() {
 
 
 function disappearPurchasingCar() {
+
+
+    purchasingCar.animate([
+        {transform: 'translateY(400px)'}
+    ], {
+         duration: 300,
+    }
+ 
+    )
+    setTimeout(() =>{
     purchasingCar.classList.remove('appear-purchasing-car')
+     
+ }, 300)
 }
