@@ -196,3 +196,27 @@ header .profile img{
     display: flex;
 }
 
+/* Sacola de compras */
+
+.purchasing {
+    position: fixed;
+    width: clamp(5.6rem, 5vw, 6.8rem);
+    height: clamp(5.6rem, 5vw, 6.8rem);
+
+    bottom: 3rem;
+    right: 2rem;
+
+    border-radius: 50%;
+
+    background: var(--color-red-dark);
+    border: .1px solid var(--color-white);
+    box-shadow: 0px 5px 8px rgba(255, 0, 54, 0.24);
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.purchasing img {
+    height: 50%;
+}

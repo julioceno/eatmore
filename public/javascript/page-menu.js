@@ -83,6 +83,86 @@ categorieHamburguer.addEventListener("click", e => {
             rating: 2,
             value: 15.55
         },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguerrr',
+            rating: 0,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 1,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 5,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 3,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 3,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 5,
+            value: 15.55
+        },
+
+        {
+            id: 4,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
     ]
 
     updatingFoodsClickingCategory()
@@ -172,6 +252,20 @@ categorieChicken.addEventListener("click", e => {
     const img = categorieChicken.children[0].children[0]
     img.src = "./public/images/categories/chicken-focus.svg"
 
+
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Franguin',
+            rating: 4,
+            value: 20.55
+        },
+       
+    ]
+
+    updatingFoodsClickingCategory()
+
     e.preventDefault()
 })
 
@@ -185,6 +279,19 @@ categorieFriedPastry.addEventListener("click", e => {
     const img = categorieFriedPastry.children[0].children[0]
     img.src = "./public/images/categories/fried-pastry-focus.svg"
 
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pastel do china',
+            rating: 5,
+            value: 10.00
+        },
+       
+    ]
+
+    updatingFoodsClickingCategory()
+
     e.preventDefault()
 })
 
@@ -196,6 +303,27 @@ categorieDrinks.addEventListener("click", e => {
 
     const img = categorieDrinks.children[0].children[0]
     img.src = "./public/images/categories/drinks-focus.svg"
+
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Cocain',
+            rating: 5,
+            value: 5.00
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'refri',
+            rating: 4.5,
+            value: 5.00
+        },
+       
+    ]
+
+    updatingFoodsClickingCategory()
 
     e.preventDefault()
 })
@@ -209,14 +337,28 @@ categorieFruits.addEventListener("click", e => {
     const img = categorieFruits.children[0].children[0]
     img.src = "./public/images/categories/fruits-focus.svg"
 
+    allFoods = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Salada de frutas',
+            rating: 3,
+            value: 8.50
+        },
+
+        
+       
+    ]
+
+    updatingFoodsClickingCategory()
+
     e.preventDefault()
 })
 
 // slider food
-
-
 let sliderFood = document.querySelector('.slider-foods')
-window.isScroll = true
+var isScroll = true
+
 
 let isDownFood = false
 let startXFood;
@@ -245,12 +387,12 @@ sliderFood.addEventListener('mousemove', element => {
     const x = element.pageX - sliderFood.offsetLeft
     const walk = (x - startXFood) * 3
     sliderFood.scrollLeft = scrollLeftFood - walk
-  
-    window.isScroll = true
+
+    isScroll = true
 })
 
 sliderFood.addEventListener('touchmove', () => {
-    window.isScroll = true
+   isScroll = true
 
 })
 
@@ -268,8 +410,6 @@ function updatingFoodsClickingCategory() {
         
     // render food 
     const foodContainer = document.querySelector('.food-category-container .slider-foods')
-
-   
 
     allFoods.forEach( ({ id, img, name,rating, value}) => {
 
@@ -314,7 +454,7 @@ function updatingFoodsClickingCategory() {
         tagSpanValue.classList.add('value')
 
         
-        const foodValue = document.createTextNode(`R$ ${value.toString().replace('.', ',')}`)
+        const foodValue = document.createTextNode(`R$ ${value.toFixed(2).toString().replace('.', ',')}`)
         tagSpanValue.appendChild(foodValue)
 
 
@@ -425,10 +565,8 @@ function foodMarked(e) {
         behavior: "smooth"
     })
 
-    window.isScroll = false
-
+    isScroll = false
 }
-
 
 sliderFood.addEventListener('scroll', markedLocationScroll)
 
@@ -444,8 +582,7 @@ function markedLocationScroll() {
         windowLeft = sliderFood.scrollLeft + ((window.innerWidth * 2 ) / 17)
     }
 
-    if (!window.isScroll) return 
-
+    if (!isScroll) return 
 
     // Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
     foods.forEach( (food, indice) => {
