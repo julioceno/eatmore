@@ -238,7 +238,7 @@ header .profile img{
 
     width: 100%;
     height: clamp(30rem, 55vh, 50rem);
-    padding: 4rem 2rem 0;
+    padding: 4rem 2rem 2rem;
 
     flex-direction: column;
 
@@ -261,57 +261,82 @@ header .profile img{
     margin-bottom: 3rem;
 }
 
-.purchasing-car .foods-selected  {
+.purchasing-car .chosenFoods  {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
 
     height: 20rem;
+    max-width: 50rem;
+    width: 100%;
 
+
+    align-self: center;
 
 }
 
+.purchasing-car .chosenFoods::-webkit-scrollbar{
+    width: .4rem;
 
-.foods-selected .food  + .food {
+    padding-left: 2rem;
+}
+
+.purchasing-car .chosenFoods::-webkit-scrollbar-thumb{
+    background-color: var(--color-white-soft);
+    border-radius: 3px;
+
+}
+
+.chosenFoods .food  + .food {
     margin-top: 1rem;
 }
 
-.foods-selected .food {
+.chosenFoods .food {
     background: var(--color-white-soft);
 
     display: flex;
 
+    margin-right: .5rem;
+
 
     align-items: center;
+    justify-content: space-between;
+
 
     min-height: 5.5rem;
     height: 5.5rem;
 
     border-radius: .8rem;
+
+    padding: 2rem;
+    
 }
 
-.foods-selected .food img {
+.chosenFoods .food main {
+    display: flex;
+
+    align-items: center;
+}
+
+.chosenFoods .food main img {
     height: 3.8rem;
-    margin-left: .8rem;
 }
 
-.foods-selected .food h6 {
+.chosenFoods .food main h6 {
     font-family: var(--font-poppins);
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
 
     font-weight: 400;
 }
 
-
-
-.foods-selected .food .amount-this-food {
+.chosenFoods .food .amount-this-food {
     display: flex;
     flex-direction: row;
 
-    margin-left: 4rem;
+    align-items: center;
 }
 
-.foods-selected .food .amount-this-food button {
+.chosenFoods .food .amount-this-food button {
     background: none;
     border: none;
     margin: 0;
@@ -320,25 +345,26 @@ header .profile img{
     justify-content: center;
     outline: none;
 
+    margin: 0 .5rem;
 
 }
 
-.foods-selected .food .amount-this-food button  img {
-    height: 1.9rem;
+.chosenFoods .food .amount-this-food button  img {
+    height: clamp(1.5rem, 2vw, 2rem);
 }
 
-.foods-selected .food .amount-this-food button:nth-child(2) {
-    margin: 0 .0;
+.chosenFoods .food .amount-this-food button:nth-child(2) {
+    margin: 0 .4rem;
 
 }
 
-.foods-selected .food .amount-this-food .amount {
+.chosenFoods .food .amount-this-food .amount {
     font-family: var(--font-poppins);
     font-weight: 400;
 
-    font-size: 1.4rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
 
-    margin: 0  -.3rem  0 .3rem;
+    margin: 0   0 .3rem;
 
 }
 
@@ -347,15 +373,17 @@ header .profile img{
 
     background: var(--color-white);
 
-    width: 23rem;
+    max-width: 50rem;
+    width: 100%;
+
     min-height: 3rem;
-    height: 3.7rem;
+    height: clamp(3.7rem, 4vw, 4rem);
 
     border-radius: 1.7rem;
 
     align-self: center;
 
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 2vw, 1.8rem);
     font-family: Poppins;
     font-weight: bold;
     text-decoration: none;
@@ -383,7 +411,7 @@ header .profile img{
 .purchasing-car footer .total-payable {
     font-family: var(--font-poppins);
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: clamp(1.6rem, 3vw, 2rem);
 
     color: var(--color-white);
 }
@@ -397,5 +425,5 @@ header .profile img{
 }
 
 .purchasing-car footer .minimize-purchasing-car img {
-    height: 2.3rem;
+    height: clamp(2.8rem, 4vw, 3.5rem);
 }
