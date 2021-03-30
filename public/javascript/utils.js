@@ -77,9 +77,9 @@ chosenFoods.forEach( ({ id, amount }) => {
                 caregorie: 'hamburguer',
                 id: 2,
                 img: './public/images/hamburguer-example.svg' ,
-                name: 'Salada de frutas',
+                name: 'Pastel',
                 rating: 3,
-                value: 8.50
+                value: 10.00
             },
 
             {
@@ -88,7 +88,7 @@ chosenFoods.forEach( ({ id, amount }) => {
                 img: './public/images/hamburguer-example.svg' ,
                 name: 'Salada de frutas',
                 rating: 3,
-                value: 8.50
+                value: 5.50
             },
             
     ]
@@ -163,7 +163,6 @@ chosenFoods.forEach( ({ id, amount }) => {
 // Botões de aumentar e diminuir a  quantidade de alimentos do carrinho
 
 // Diminuir
-
 const buttonsDecreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
 
 buttonsDecreaseAmount.forEach( button => {
@@ -174,16 +173,18 @@ buttonsDecreaseAmount.forEach( button => {
 
         const chosenFoods = JSON.parse(localStorage.chosenFoods)
 
-        localStorage.removeItem(chosenFoods)
+        localStorage.clear()
 
-       const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
+        let indiceDeleteChosenFood;
+
+        const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
             if (food.id === id) {
                 const newAmount = food.amount - 1
 
                 // Removendo elemento se a quantidade da comida chegar em 0
                 if (newAmount === 0) {
                     containerParent.remove()
-                    chosenFoods.splice(indice, 1)
+                    indiceDeleteChosenFood = indice
                 }
 
 
@@ -191,22 +192,21 @@ buttonsDecreaseAmount.forEach( button => {
                 div.innerHTML = newAmount
             }
 
-            console.log(food)
 
-
-            if (food.amount !== 0) return food
-
-            
+            return food
         })
 
 
+        if (indiceDeleteChosenFood || indiceDeleteChosenFood === 0) amountOfChosenFoodsUpdated.splice(indiceDeleteChosenFood, 1)
 
         localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
 
-
+        calculatingValueTotal()
+        
     })
 })
 
+// Aumentar
 const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(3)')
 
 buttonsIncreaseAmount.forEach( button => {
@@ -230,15 +230,73 @@ buttonsIncreaseAmount.forEach( button => {
 
 
         localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
+        
+        calculatingValueTotal()
+
     })
 })
 
+const totalPayableContainer = document.querySelector('.total-payable')
 
+function calculatingValueTotal() {
+
+    const allFoods = [
+        {
+            caregorie: 'hamburguer',
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Hamburgyu',
+            rating: 3,
+            value: 8.50
+        },
+
+        {
+            caregorie: 'pastel',
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pastel',
+            rating: 3,
+            value: 10.00
+        },
+
+        {
+            caregorie: 'frutas',
+            id: 3,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Salada de frutas',
+            rating: 3,
+            value: 5.50
+        },
+        
+    ]
+
+    let totalPayable = 0
+
+    const chosenFoods = JSON.parse(localStorage.chosenFoods)
+
+    chosenFoods.forEach( ({ id, amount }) => {
+
+        allFoods.forEach( food => {
+            if (food.id === id) {
+
+                for (let i = 0; i < amount ; i++) {
+                    totalPayable += food.value
+                }
+
+            }
+        })
+    })
+
+
+    
+
+
+    totalPayableContainer.innerHTML = totalPayable.toFixed(2)
+}
+
+calculatingValueTotal()
 
 function appearPurchasingCar() {
-
-    
-    
     purchasingCar.classList.add('appear-purchasing-car')
 }
 
