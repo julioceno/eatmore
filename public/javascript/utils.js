@@ -46,12 +46,7 @@ const foodsSelectedsTest = [
     {
         id: 3,
         amount: 1
-    },
-
-    {
-        id: 4,
-        amount: 2
-    },
+    }    
 ]
 
 localStorage.chosenFoods = JSON.stringify(foodsSelectedsTest)
@@ -155,8 +150,6 @@ chosenFoods.forEach( ({ id, amount }) => {
     
             tagDivFood.appendChild(tagDivAmountThisFood)
 
-            console.log(tagDivFood)
-    
             containerChosenFoods.appendChild(tagDivFood)
         }
 
@@ -171,16 +164,74 @@ chosenFoods.forEach( ({ id, amount }) => {
 
 // Diminuir
 
-const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
+const buttonsDecreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
 
-buttonsIncreaseAmount.forEach( button => {
+buttonsDecreaseAmount.forEach( button => {
     button.addEventListener('click', button => {
-        const id = button.currentTarget.parentNode
+        const containerParent = button.currentTarget.parentNode.parentNode 
+        const div = button.currentTarget.parentNode.children[1]
+        const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
 
-        console.log(id)
+        const chosenFoods = JSON.parse(localStorage.chosenFoods)
+
+        localStorage.removeItem(chosenFoods)
+
+       const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
+            if (food.id === id) {
+                const newAmount = food.amount - 1
+
+                // Removendo elemento se a quantidade da comida chegar em 0
+                if (newAmount === 0) {
+                    containerParent.remove()
+                    chosenFoods.splice(indice, 1)
+                }
+
+
+                food.amount = newAmount
+                div.innerHTML = newAmount
+            }
+
+            console.log(food)
+
+
+            if (food.amount !== 0) return food
+
+            
+        })
+
+
+
+        localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
+
+
     })
 })
 
+const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(3)')
+
+buttonsIncreaseAmount.forEach( button => {
+    button.addEventListener('click', button => {
+        const div = button.currentTarget.parentNode.children[1]
+        const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
+
+        const chosenFoods = JSON.parse(localStorage.chosenFoods)
+
+       const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
+            if (food.id === id) {
+                const newAmount = food.amount + 1
+
+                food.amount = newAmount
+
+                div.innerHTML = newAmount
+            }
+
+            return food
+        })
+
+
+        localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
+    })
+})
 
 
 
