@@ -291,7 +291,7 @@ function calculatingValueTotal() {
     
 
 
-    totalPayableContainer.innerHTML = totalPayable.toFixed(2)
+    totalPayableContainer.innerHTML = `R$ ${totalPayable.toFixed(2)}`
 }
 
 calculatingValueTotal()
