@@ -38,12 +38,13 @@
     display: block;
 }
 
-.section form{
+.section .wrapper{
     align-self: center;
+    
 }
 
-.section .search-bar {
-    border: none;
+
+.section .search-container {
     border: .2rem solid var(--color-grey);
 
     margin-top: clamp(2rem, 5vw, 10rem);
@@ -55,16 +56,78 @@
 
 
     height: clamp(3.5rem, 5.5vw, 4.5rem);
+    height: auto;
 
     width: clamp(23rem, 70vw, 40rem);
 
     border-radius: clamp(2rem, 4vw, 3rem);
 
-    padding: 0 1rem;
+    padding: 1rem 0;
+    overflow: hidden;
 
-    outline: none;
+
 
 }
+
+.section .search-bar {
+    border: none;
+    
+    background: none;
+
+    margin: 0 1.2rem;
+
+    width: 100%;
+
+    color: var(--color-grey);
+
+
+    outline: none;
+}
+
+.section .search-container .autocom-box {
+    margin-top: 0;
+
+    list-style: none;
+
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+
+
+}
+
+.section .search-container.active  .autocom-box{
+    margin-top: 1rem;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.section .search-container .autocom-box li {
+    align-items: center;
+    padding: .6rem 1.2rem;
+
+    display: none;
+
+
+}
+
+.section .search-container.active  .autocom-box li {
+
+    display: flex;
+}
+
+
+.section .search-container .autocom-box li:hover {
+    background: rgba(255, 255, 255, 0.308);
+    background: #e8e8e8;
+}
+
+.section .search-container .autocom-box li img {
+    height: 3rem;
+    margin-right: .6rem;
+}
+
+
 
 .section main {
     display: flex;
@@ -403,7 +466,7 @@
 }
 
 @media(min-width: 480px) {
-    .section form{
+    .section .wrapper{
         align-self: flex-start;
         margin-left: 10vw;
     } 

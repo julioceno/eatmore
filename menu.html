@@ -95,16 +95,13 @@
         
         <h3>Escolha a comida <strong> que você mais ama </strong> </h3>
         
-        <form action="">
-            <input class="search-bar" type="search" name="search" id="" list="history" placeholder="Procure o que você gosta">
+        <form action="" class="wrapper">
+            <div class="search-container">
+                <input class="search-bar" type="search" name="search" placeholder="Procure o que você gosta">
+                <div class="autocom-box"></div>
+            </div>
        
-            <datalist id="history">
-                <option>  <img src="./public/images/doka.png" alt=""> Hamburguer</option>
-
-                <option style="background-image:url(./public/images/doka.png);">Pastel</option>
-
-            </datalist>
-
+          
         </form>
 
         
@@ -234,5 +231,6 @@
 </div>
 </body>
 <script src="./public/javascript/utils.js"></script>
+<script src="./public/javascript/suggestions.js"></script>
 <script src="./public/javascript/page-menu.js"></script>
 </html>

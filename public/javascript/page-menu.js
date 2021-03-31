@@ -1,3 +1,68 @@
+const searchWrapper = document.querySelector(".search-container")
+const inputBox = document.querySelector('.search-bar')
+const suggBox = document.querySelector('.autocom-box')
+
+inputBox.addEventListener("keyup", letter => {
+    let userData = letter.target.value
+    let emptyArray = []
+
+    if (userData) {
+        emptyArray = suggestions.filter( data => {
+            return data.name.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase())
+        })
+
+        emptyArray = emptyArray.map( data => {
+            return data = `<li> <img src="${data.img}" alt="Imagem ${data.name}"> <p> ${data.name} </p> </li>`
+        })
+
+        searchWrapper.classList.add('active')
+
+    } else {
+        searchWrapper.classList.remove('active')
+
+    }
+    // console.log(emptyArray)
+    showSuggestions(emptyArray)
+})
+
+function showSuggestions(list) {
+    let listData;
+
+    console.log(list)
+    if (!list.length) {
+
+        userValue = inputBox.value;
+        listData = `<li> <img src="${listData.img}" alt="Imagem ${listData.name}"> <p> ${listData.name} </p> </li>`
+        
+    } else {
+        listData = list.join('')
+    }
+
+    suggBox.innerHTML = listData
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const sliderCategorie = document.querySelector('.slider-categories')
 
 let isDownCategorie = false

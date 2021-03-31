@@ -74,7 +74,6 @@ header #check:checked ~ label .menu-hamburguer::after{
     width: 60%;
 
     background: var(--color-white-soft);
-
 }
 
 
