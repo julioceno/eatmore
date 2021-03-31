@@ -4,8 +4,9 @@ const suggBox = document.querySelector('.autocom-box')
 
 inputBox.addEventListener("keyup", letter => {
 
-    const   suggestions = [
+    const suggestions = [
         {
+            categorie: "hamburguer",
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pastel',
@@ -14,6 +15,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -22,6 +25,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'frutas',
@@ -30,6 +35,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguerrr',
@@ -38,6 +45,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'carré',
@@ -46,6 +55,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'chocolate',
@@ -54,6 +65,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -62,6 +75,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -70,6 +85,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'bananaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
@@ -78,6 +95,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -86,6 +105,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -94,6 +115,8 @@ inputBox.addEventListener("keyup", letter => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 4,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -101,7 +124,6 @@ inputBox.addEventListener("keyup", letter => {
             value: 15.55
         },
     ]
-
 
     let userData = letter.target.value
     let emptyArray = []
@@ -112,11 +134,10 @@ inputBox.addEventListener("keyup", letter => {
         })
 
         emptyArray = emptyArray.map( data => {
-            return data = `<li> <img src="${data.img}" alt="Imagem ${data.name}"> <p> ${data.name} </p> </li>`
+            return data = `<li onclick="selectSugg(this)">   <input type="hidden" value= "${data.id}-${data.categorie}"> <img src="${data.img}" alt="Imagem ${data.name}"> <p> ${data.name} </p> </li>`
         })
 
         searchWrapper.classList.add('active')
-
     } else {
         searchWrapper.classList.remove('active')
 
@@ -125,41 +146,28 @@ inputBox.addEventListener("keyup", letter => {
     showSuggestions(emptyArray)
 })
 
+function selectSugg(element) {
+    const id = (element.children[0].value).split('-')[0]
+    const categorie = (element.children[0].value).split('-')[1]
+
+    window.location.href = `/menu/food/${categorie}/${id}`
+}
+
 function showSuggestions(list) {
     let listData;
 
-    console.log(list)
     if (!list.length) {
 
-        userValue = inputBox.value;
-        listData = `<li> <img src="${listData.img}" alt="Imagem ${listData.name}"> <p> ${listData.name} </p> </li>`
-        
+        let userValue = inputBox.value;
+
+        // listData = `<li>> <img src="${userValue.img}" alt="Imagem ${userValue.name}"> <p> ${userValue.name} </p> </li>`
+        listData = `<li> ${userValue} </li>`
     } else {
         listData = list.join('')
     }
 
     suggBox.innerHTML = listData
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -234,6 +242,8 @@ categorieHamburguer.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -242,6 +252,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -250,6 +262,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -258,6 +272,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguerrr',
@@ -266,6 +282,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -274,6 +292,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -282,6 +302,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -290,6 +312,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -298,6 +322,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -306,6 +332,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -314,6 +342,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -322,6 +352,8 @@ categorieHamburguer.addEventListener("click", e => {
         },
 
         {
+            categorie: "hamburguer",
+
             id: 4,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Zinger burguer',
@@ -347,6 +379,8 @@ categoriePizza.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza',
@@ -355,6 +389,8 @@ categoriePizza.addEventListener("click", e => {
         },
 
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza catupiri',
@@ -364,6 +400,8 @@ categoriePizza.addEventListener("click", e => {
 
 
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza catupiri',
@@ -372,6 +410,8 @@ categoriePizza.addEventListener("click", e => {
         },
 
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza',
@@ -380,6 +420,8 @@ categoriePizza.addEventListener("click", e => {
         },
 
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza catupiri',
@@ -389,6 +431,8 @@ categoriePizza.addEventListener("click", e => {
 
 
         {
+            categorie: "pizza",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pizza catupiri',
@@ -419,6 +463,8 @@ categorieChicken.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "chicken",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Franguin',
@@ -445,6 +491,8 @@ categorieFriedPastry.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "friedpastry",
+
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Pastel do china',
@@ -470,6 +518,7 @@ categorieDrinks.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "drink",
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Cocain',
@@ -478,6 +527,7 @@ categorieDrinks.addEventListener("click", e => {
         },
 
         {
+            categorie: "drink",
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'refri',
@@ -503,6 +553,7 @@ categorieFruits.addEventListener("click", e => {
 
     allFoods = [
         {
+            categorie: "fruit",
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
             name: 'Salada de frutas',
@@ -575,11 +626,11 @@ function updatingFoodsClickingCategory() {
     // render food 
     const foodContainer = document.querySelector('.food-category-container .slider-foods')
 
-    allFoods.forEach( ({ id, img, name,rating, value}) => {
+    allFoods.forEach( ({ id, categorie, img, name,rating, value}) => {
 
         // Criando o container 
         const tagA = document.createElement('a')
-        tagA.setAttribute('href', `/menu/food/${id}`)
+        tagA.setAttribute('href', `/menu/food/${categorie}/${id}`)
         tagA.classList.add('food')
 
         // Criando div centering
