@@ -125,8 +125,10 @@ chosenFoods.forEach( ({ id, amount }) => {
             tagImgArrowLeft.src= "./public/images/amount-arrow-left.svg"
     
             const tagDivAmount = document.createElement('div')
+            tagDivAmount.classList.add('amount')
             const textAmountFood = document.createTextNode(amount)
             tagDivAmount.appendChild(textAmountFood)
+
     
             const tagButtonRight = document.createElement('button')
     
@@ -290,7 +292,6 @@ function calculatingValueTotal() {
 
     
 
-
     totalPayableContainer.innerHTML = `R$ ${totalPayable.toFixed(2)}`
 }
 
@@ -303,18 +304,33 @@ function appearPurchasingCar() {
 
 function disappearPurchasingCar() {
 
+        purchasingCar.animate([
+            {transform: 'translateY(600px)'}
+        ], {
+            duration: 350,
+        }
+    
+        )
+        setTimeout(() =>{
+        purchasingCar.classList.remove('appear-purchasing-car')
+        
+     }, 350)
 
-    purchasingCar.animate([
-        {transform: 'translateY(600px)'}
-    ], {
-         duration: 350,
-    }
- 
-    )
-    setTimeout(() =>{
-    purchasingCar.classList.remove('appear-purchasing-car')
+
+    if (window.innerWidth >= 760) {
+        purchasingCar.animate([
+            {transform: 'translateY(0)'},
+            {transform: 'translateX(800px)'},
+        ], {
+             duration: 350,
+        }
      
- }, 350)
+        )
+        setTimeout(() =>{
+        purchasingCar.classList.remove('appear-purchasing-car')
+         
+     }, 350)
+    }
 }
 
  

@@ -37,3 +37,25 @@
     animation-name: appear-purchasing-car;
     animation-duration: 300ms;
 }
+
+@media(min-width: 760px) {
+    @keyframes appear-purchasing-car{
+        from {
+            opacity: 0;
+    
+            transform: translateX(300px);
+    
+        }
+    
+        to {
+            opacity: 1;
+            transform: translateX(0);
+            
+        }
+    }
+    
+    .animate-appear-purchasing-car {
+        animation-name: appear-purchasing-car;
+        animation-duration: 300ms;
+    }
+}
