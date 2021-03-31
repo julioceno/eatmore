@@ -3,6 +3,106 @@ const inputBox = document.querySelector('.search-bar')
 const suggBox = document.querySelector('.autocom-box')
 
 inputBox.addEventListener("keyup", letter => {
+
+    const   suggestions = [
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Pastel',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'frutas',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguerrr',
+            rating: 0,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'carré',
+            rating: 1,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'chocolate',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 5,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'bananaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            rating: 3,
+            value: 15.55
+        },
+
+        {
+            id: 2,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 3,
+            value: 15.55
+        },
+
+        {
+            id: 1,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 5,
+            value: 15.55
+        },
+
+        {
+            id: 4,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Zinger burguer',
+            rating: 2,
+            value: 15.55
+        },
+    ]
+
+
     let userData = letter.target.value
     let emptyArray = []
 
