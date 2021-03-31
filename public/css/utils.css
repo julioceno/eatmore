@@ -189,10 +189,12 @@ header .profile img{
 
 }
 
-
-
 .appear-menu-options {
     display: flex;
+}
+
+nav.nav {
+    display: none;
 }
 
 /* Sacola de compras */
@@ -426,3 +428,46 @@ header .profile img{
 .purchasing-car footer .minimize-purchasing-car img {
     height: clamp(2.8rem, 4vw, 3.5rem);
 }
+
+@media(min-width: 760px) {
+    header {
+        margin-top: 1rem;
+    }
+    
+    .menu-hamburguer-container {
+        display: none;
+    }
+
+
+
+    nav.nav {
+        display: flex;
+
+        font-size: clamp(1.6rem, 1.6vw, 1.8rem);
+        font-family: var(--font-poppins);
+        
+    }
+    
+    nav.nav a + a {
+        margin-left: 2rem;
+    }
+    
+    nav.nav a  {
+        text-decoration: none;
+        color: var(--color-black);
+    }
+
+    nav.nav a:hover {
+        font-weight: bold;
+    }
+
+
+    header .profile img{
+        height: clamp(6.5rem, 6vw, 8rem);
+        width: clamp(6.5rem, 6vw, 8rem);
+
+        border-radius: 50%;
+        border: .2rem solid #fff;
+
+    }
+} 

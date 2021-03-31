@@ -40,7 +40,6 @@
 
 .section .wrapper{
     align-self: center;
-    
 }
 
 
@@ -55,7 +54,6 @@
     color: var(--color-grey);
 
 
-    /* height: clamp(3.5rem, 5.5vw, 4.5rem); */
     height: auto;
 
     width: clamp(23rem, 70vw, 40rem);
@@ -64,10 +62,6 @@
 
     padding: 1rem 0;
     overflow: hidden;
-
-
-
-
 }
 
 .section .search-bar {
@@ -83,10 +77,6 @@
     font-size: clamp(1.2rem, 2vw, 2rem);
 
     outline: none;
-}
-
-.section .search-container.active .search-bar {
-    
 }
 
 .section .search-container .autocom-box {
@@ -131,7 +121,6 @@
     height: 3rem;
     margin-right: .6rem;
 }
-
 
 
 .section main {
@@ -309,7 +298,7 @@
     background: var(--color-white);
     box-shadow: 0px 8px 15px rgba(183, 183, 229, 0.3);
 
-    border-radius: 34px;
+    border-radius: 3rem;
 
 
     width: clamp(16rem, 16vw, 19rem);
@@ -362,7 +351,6 @@
     font-weight: 700;
 
     width: 100%;
-   
 }
 
 
@@ -403,14 +391,12 @@
     font-size: clamp(1.6rem, 2.2vw, 1.8rem);
 
     margin-top: 1.8rem;
-
 }
 
 
 .section main .slider-foods .food.food-selected {
     background: linear-gradient(216.3deg, #FF6787 4.26%, #FF0036 95.39%);
     box-shadow: 0px 8px 15px rgba(255, 0, 54, 0.24);
-
 }
 
 .section main .slider-foods .food.food-selected footer {
@@ -473,4 +459,126 @@
         align-self: flex-start;
         margin-left: 10vw;
     } 
+}
+
+@media(min-width: 760px) {
+    .section {
+        padding-top: 8rem;
+    
+    }
+
+    .section h3 {
+        font-size: clamp(2.5rem, 3vw, 4rem);
+    }
+
+    .section .wrapper {
+        margin-left: clamp(2rem, 4vw, 8rem);
+    }
+
+    .section .search-container {
+        height: auto;
+
+        width: clamp(60rem, 70vw, 100rem);
+
+        border-radius: clamp(2rem, 4vw, 3rem);
+
+        font-size: clamp(1rem, 1.5vw, 1.8rem);
+
+        padding: 1rem 0;
+        overflow: hidden;
+    }
+
+    .section .search-bar {
+        margin: 0 1.9rem;
+
+        font-size: clamp(1.2rem, 1.7vw, 1.8rem);
+    }
+
+
+    .section .search-container .autocom-box li {
+        padding: 1rem 1.4rem;
+    }
+
+    .section .search-container .autocom-box li img {
+        height: 3.3rem;
+        margin-right: .7rem;
+    }
+
+
+    .section main .categories-container {
+        margin-top: 6.3rem;
+    }
+
+    .section main .categories-container h5 {
+        font-size: clamp(1.5rem, 1.8vw, 1.7rem);
+    }
+
+    .section main .slider-categories .categorie + .categorie {
+        margin-left: 2.5rem;
+    } 
+    
+    .section main .slider-categories .categorie {
+        font-size: clamp(1.2rem, 2vw, 1.20rem);
+    
+        width: clamp(12rem, 16vw, 14rem);
+    
+        height: clamp(7rem, 16vw, 8.8rem);
+    }
+
+    .section main .food-category-container h5 {
+        font-size: clamp(1.5rem, 1.8vw, 1.7rem);
+    }
+
+
+    .section main .slider-foods .food + .food {
+        margin-left: 3rem;
+    } 
+
+    .section main .slider-foods .food {
+        font-size: clamp(1.2rem, 2vw, 1.3rem);
+        
+        background: var(--color-white);
+        box-shadow: 0px 8px 15px rgba(183, 183, 229, 0.3);
+
+        width: clamp(17rem, 17vw, 20rem);
+        min-height: clamp(20.5rem, 17vw, 26rem);
+    }
+
+    .section main .slider-foods .food img {
+        height: 6.5rem;
+    
+        margin-top: 3rem;
+    }
+
+    .section main .slider-foods .food footer h6 {
+        font-size: clamp(1.4rem, 1.4vw, 1.7rem);
+    }
+
+    .section main .slider-foods .food  footer .stars-outer {
+        margin-top: .4rem;
+    }
+
+    .section main .slider-foods .food footer .stars-outer::before {
+        font-size: clamp(1.3rem, 1.7vw, 1.5rem);
+    }
+    
+    .section main .slider-foods .food  footer .stars-inner::before {
+        font-size: clamp(1.3rem, 1.7vw, 1.5rem);
+    }
+
+    .section main .slider-foods .food footer .value{
+        font-size: clamp(1.7rem, 2.2vw, 2rem);
+    }
+
+    .section main .slider-foods .food.food-selected footer h6 {
+        font-size: clamp(1.6rem, 1.4vw, 1.9rem);
+    }
+
+    .section main .slider-foods .food.food-selected footer .value {
+        font-size: clamp(2rem, 2.1vw, 2.2rem);
+    }
+    
+    .section main .food-category-container .foods-location {
+        margin-top: 1rem;
+    }
 }
