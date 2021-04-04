@@ -1,0 +1,213 @@
+#page-food {
+    background:#F7FCFF;
+    height: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.section {
+    flex-shrink: 1;
+    padding-top: 3rem;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.section .section-food {
+    display: flex;
+    justify-content: center;
+}
+
+.section .section-food .food {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 25rem;
+    max-width: 40rem;
+    width: 75vw;
+    
+    min-height: 25rem;
+    max-height: 28rem;
+    height: 40vw;
+
+
+    padding: 1rem 0 0;
+ 
+
+    background: #F7F6FF;
+    box-shadow: 0px .8px 15px rgba(183, 183, 229, 0.3);
+    border-radius: 34px;
+
+} 
+
+
+.section .section-food .food  main {
+    width: 100%;
+    margin-top: 3rem;
+
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+
+    margin-left: 2rem;
+}
+
+.section .section-food .food  hr {
+    border: none;
+
+    border-bottom: .45rem solid var(--color-grey);
+    width: 80%;
+
+    margin-top: .8rem;
+
+    align-self: center;
+}
+
+.section .section-food .food  main img {
+    height: clamp(7rem, 10vw, 10rem);
+    width: clamp(11rem, 10vw, 14rem);
+    align-self: center;
+}
+
+.section .section-food .food  main h4 {
+    font-family: var(--font-poppins);
+    font-size: clamp(1.5rem, 2.1vw, 2rem);
+
+    margin-top: 1rem;
+
+    margin-right: 3rem;
+}
+
+
+.section .section-food .food  main .stars-container {
+    margin-top: .3rem;
+}
+
+.section .section-food .food  main .stars-outer {
+    position: relative;
+    display: inline-block;
+
+}
+
+.section  .section-food .food main .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    width: 50%;
+}
+
+.section .section-food .food  main .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 300;
+    color: #FFE120;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+}
+
+.section  .section-food .food main .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005 ";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #FFE120;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+
+}
+
+.section  .section-food .food .images {
+    display: flex;
+
+    margin-top: clamp(1.3rem, 3vw, 2rem);
+
+    overflow-x: scroll;
+    width: 85%;
+
+    align-self: center;
+}
+
+.section  .section-food .food .images::-webkit-scrollbar {
+    height: .4rem;
+}
+
+.section  .section-food .food .images::-webkit-scrollbar-thumb {
+   border-radius: 1rem;
+
+    background-color: var(--color-black);
+}
+
+.section  .section-food .food .images button {
+    background: none;
+    border: none;
+
+    outline: none;
+}
+
+.section  .section-food .food .images button:focus {
+    opacity: .5;
+
+}
+
+.section  .section-food .food .images button + button {
+    margin-left: clamp(.5rem, 2vw, .8rem);
+}
+
+.section  .section-food .food .images button img {
+    height: clamp(4.3rem, 5.8vw, 7rem);
+}
+
+.section  .section-food .food footer {
+    align-self: flex-end;
+
+    margin-top: clamp(.5rem, 3.1vw, 5rem);
+    margin-bottom: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--font-poppins);
+
+    width: 85%;
+    align-self: center;
+
+
+}
+
+.section  .section-food .food footer a {
+    text-decoration: none;
+
+    width: clamp(12.8rem, 27vw, 15rem);
+    height: clamp(3rem, 16vw, 3.5rem);
+
+    background: var(--color-red-dark);
+    border-radius: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: clamp(1rem, 2.1vw, 1.16rem);
+    color: var(--color-white);
+}
+
+.section  .section-food .food footer a:hover {
+    background-color: var(--color-red-button-hover);
+}
+
+.section  .section-food .food footer span.value {
+
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    color: var(--color-black);
+}

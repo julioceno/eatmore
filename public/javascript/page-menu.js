@@ -630,7 +630,8 @@ function updatingFoodsClickingCategory() {
 
         // Criando o container 
         const tagA = document.createElement('a')
-        tagA.setAttribute('href', `/menu/food/${categorie}/${id}`)
+        // tagA.setAttribute('href', `/menu/food/${categorie}/${id}`)
+        tagA.setAttribute('href', `food.html`)
         tagA.classList.add('food')
 
         // Criando div centering
