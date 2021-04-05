@@ -63,7 +63,7 @@
 .section .section-food .food  hr {
     border: none;
 
-    border-bottom: .45rem solid var(--color-grey);
+    border-bottom: .50rem solid var(--color-grey);
     width: 80%;
 
     margin-top: .8rem;
@@ -135,7 +135,7 @@
 }
 
 .section  .section-food .food .images::-webkit-scrollbar {
-    height: .4rem;
+    height: .35rem;
 }
 
 .section  .section-food .food .images::-webkit-scrollbar-thumb {

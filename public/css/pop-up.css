@@ -1,0 +1,53 @@
+.pop-up-food-added {
+    position: fixed;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+}
+
+.animate-food-added-appear {
+    display: flex;
+}
+
+.pop-up-food-added p {
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-black);
+
+    margin-bottom: 14rem;
+}
+
+@keyframes food-added {
+
+
+    0% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    
+
+   
+}
+
+.animate-food-added {
+    animation-name: food-added;
+    animation-fill-mode: backwards;
+    animation-duration: 500ms;
+}
+

@@ -66,7 +66,6 @@ function addFoodList() {
             rating: 3,
             value: 5.50
         },
-        
     ]
 
     let idNewFood
@@ -123,4 +122,14 @@ function addFoodList() {
 
     localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
 
+
+    // criando animação de adicionar ao carrinho
+    const popUpFoodAdded = document.querySelector('.pop-up-food-added')
+
+
+    popUpFoodAdded.classList.add('animate-food-added-appear')
+
+    
+    setTimeout( () => popUpFoodAdded.classList.remove('animate-food-added-appear'), 500) 
 }
+
