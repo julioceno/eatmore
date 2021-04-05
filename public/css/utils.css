@@ -94,7 +94,7 @@ header .profile img{
     
     min-width: 16rem;
     max-width: 23rem;
-    width: 60%;
+    width: 65%;
 
     position: fixed;
     background: var(--color-red-dark);
@@ -107,7 +107,6 @@ header .profile img{
 
     flex-direction: column;
     font-family: var(--font-poppins);
-
 
     display: none;
 }

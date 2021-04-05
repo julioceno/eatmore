@@ -36,7 +36,7 @@
     
     min-height: 25rem;
     max-height: 28rem;
-    height: 40vw;
+    height: 47vw;
 
 
     padding: 1rem 0 0;
@@ -121,7 +121,6 @@
     font-weight: 900;
     color: #FFE120;
     font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-
 }
 
 .section  .section-food .food .images {
@@ -152,7 +151,7 @@
     outline: none;
 }
 
-.section  .section-food .food .images button:focus {
+.section  .section-food .food .images button.active {
     opacity: .5;
 
 }
@@ -180,11 +179,12 @@
     width: 85%;
     align-self: center;
 
-
 }
 
-.section  .section-food .food footer a {
+.section  .section-food .food footer button {
     text-decoration: none;
+    background: none;
+    border: none;
 
     width: clamp(12.8rem, 27vw, 15rem);
     height: clamp(3rem, 16vw, 3.5rem);
@@ -199,9 +199,11 @@
     font-weight: 600;
     font-size: clamp(1rem, 2.1vw, 1.16rem);
     color: var(--color-white);
+
+    outline: none;
 }
 
-.section  .section-food .food footer a:hover {
+.section  .section-food .food footer button:hover {
     background-color: var(--color-red-button-hover);
 }
 
