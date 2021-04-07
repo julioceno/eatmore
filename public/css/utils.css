@@ -228,7 +228,7 @@ nav.nav {
 }
 
 .purchasing-button:hover {
-    background: var(--color-ref-button-hover);
+    background: var(--color-red-button-hover);
 }
 
 .purchasing-car {

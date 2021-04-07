@@ -177,7 +177,7 @@ if (userData.avaliation.rating && userData.avaliation.text) {
 
     </form>`
 
-    avaliationContainer.innerHTML =html
+    avaliationContainer.innerHTML = html
 } else {
     const html= `<h3>O que acha de <strong>avaliar</strong> este prato?</h3>
           
@@ -207,15 +207,15 @@ if (userData.avaliation.rating && userData.avaliation.text) {
 
     </form>`
 
-    avaliationContainer.innerHTML =html
+    avaliationContainer.innerHTML = html
 
     const textarea = document.getElementById('textarea')
 
-textarea.addEventListener('input', (event) => {
-    const currentElement = event.currentTarget
+    textarea.addEventListener('input', (event) => {
+        const currentElement = event.currentTarget
 
-    currentElement.style.height = 'inherit'
-    const height = currentElement.scrollHeight
-    currentElement.style.height = height + "px"
-})
+        currentElement.style.height = 'inherit'
+        const height = currentElement.scrollHeight
+        currentElement.style.height = height + "px"
+    })
 }
