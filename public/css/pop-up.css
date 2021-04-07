@@ -29,7 +29,7 @@
 
     0% {
         opacity: 1;
-        transform: translateY(40px);
+        transform: translateY(55px);
     }
     80% {
         opacity: 0;
@@ -48,6 +48,6 @@
 .animate-food-added {
     animation-name: food-added;
     animation-fill-mode: backwards;
-    animation-duration: 500ms;
+    animation-duration: 800ms;
 }
 

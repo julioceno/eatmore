@@ -18,7 +18,7 @@ foodsButtons.forEach( button => {
 })
 
 function addFoodList() {
-    const id = 5
+    const id = 2
 
 
     const allFoods = [
@@ -26,7 +26,7 @@ function addFoodList() {
             caregorie: 'hamburguer',
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
-            name: 'Hamburgyu1',
+            name: 'hamburguer',
             rating: 3,
             value: 8.50
         },
@@ -68,8 +68,8 @@ function addFoodList() {
         },
     ]
 
+
     let idNewFood
-    
     allFoods.forEach( (food, indice) => {
         if (food.id === id) idNewFood = food
     })
@@ -80,6 +80,13 @@ function addFoodList() {
     if (!idNewFood) return
 
 
+    // Se o localstorage chosenFoods ainda não existir vamos criar ele
+    if (!localStorage.chosenFoods) {
+        localStorage.chosenFoods = JSON.stringify([ { id, amount: 1} ])
+        calculatingValueTotal()
+        generateNewFoods()
+        return
+    }
     const chosenFoods = JSON.parse(localStorage.chosenFoods)
 
 
@@ -118,7 +125,6 @@ function addFoodList() {
 
     }
 
-    console.log(chosenFoods)
 
     localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
 
@@ -126,10 +132,13 @@ function addFoodList() {
     // criando animação de adicionar ao carrinho
     const popUpFoodAdded = document.querySelector('.pop-up-food-added')
 
-
+    popUpFoodAdded.classList.remove('animate-food-added-appear')
     popUpFoodAdded.classList.add('animate-food-added-appear')
 
     
-    setTimeout( () => popUpFoodAdded.classList.remove('animate-food-added-appear'), 500) 
+    setTimeout( () => popUpFoodAdded.classList.remove('animate-food-added-appear'), 780) 
+    
+    calculatingValueTotal()
+    generateNewFoods()
 }
 

@@ -31,25 +31,7 @@ const purchasingCar = document.querySelector('.purchasing-car')
 #####################################################################
 ================ ESSA PARTE DEVERÁ SER REMOVIDA =====================
 #####################################################################
-*/
-const foodsSelectedsTest = [
-    {
-        id: 2,
-        amount: 3
-    },
 
-    {
-        id: 3,
-        amount: 4
-    },
-
-    {
-        id: 4,
-        amount: 1
-    }    
-]
-
-localStorage.chosenFoods = JSON.stringify(foodsSelectedsTest)
 
 /*
 #####################################################################
@@ -58,10 +40,14 @@ localStorage.chosenFoods = JSON.stringify(foodsSelectedsTest)
 */
 
 
-
-
 function generateNewFoods() {
     // Gerando alimentos no carrinho através do JS
+
+    if(!localStorage.chosenFoods) return
+
+    const allChosenFoods = document.querySelectorAll('.chosenFoods .food')
+    allChosenFoods.forEach( food => food.remove() )
+    
     const containerChosenFoods = document.querySelector('.chosenFoods')
     let chosenFoods = JSON.parse(localStorage.chosenFoods) 
 
@@ -93,12 +79,28 @@ function generateNewFoods() {
                     rating: 3,
                     value: 5.50
                 },
+
+                {
+                    caregorie: 'hamburguer',
+                    id: 4,
+                    img: './public/images/hamburguer-example.svg' ,
+                    name: '444',
+                    rating: 3,
+                    value: 5.50
+                },
+
+                {
+                    caregorie: 'hamburguer',
+                    id: 5,
+                    img: './public/images/hamburguer-example.svg' ,
+                    name: '555',
+                    rating: 3,
+                    value: 5.50
+                },
                 
         ]
     
-    
         allFoods.forEach( food => {
-    
             if (food.id === id) {
                
                 const tagDivFood = document.createElement('div')
@@ -157,90 +159,86 @@ function generateNewFoods() {
     
                 containerChosenFoods.appendChild(tagDivFood)
             }
-    
             
+        })
+
+    })
+
+    // Botões de aumentar e diminuir a  quantidade de alimentos do carrinho
+
+    // Diminuir
+    const buttonsDecreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
+
+    buttonsDecreaseAmount.forEach( button => {
+        button.addEventListener('click', button => {
+            const containerParent = button.currentTarget.parentNode.parentNode 
+            const div = button.currentTarget.parentNode.children[1]
+            const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
+
+            const chosenFoods = JSON.parse(localStorage.chosenFoods)
+            
+            // limpo o localstorage
+            // localStorage.clear()
+
+            let indiceDeleteChosenFood;
+            const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
+                if (food.id === id) {
+                    const newAmount = food.amount - 1
+
+                    // Removendo elemento se a quantidade da comida chegar em 0
+                    if (newAmount === 0) {
+                        containerParent.remove()
+                        indiceDeleteChosenFood = indice
+                    }
+
+
+                    food.amount = newAmount
+                    div.innerHTML = newAmount
+                }
+
+                return food
+            })
+
+
+            if (indiceDeleteChosenFood || indiceDeleteChosenFood === 0) amountOfChosenFoodsUpdated.splice(indiceDeleteChosenFood, 1)
+            localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
+
+            calculatingValueTotal()
+        })
+    })
+
+    // Aumentar
+    const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(3)')
+
+    buttonsIncreaseAmount.forEach( button => {
+        button.addEventListener('click', button => {
+            const div = button.currentTarget.parentNode.children[1]
+            const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
+
+            const chosenFoods = JSON.parse(localStorage.chosenFoods)
+            console.log('click aumentar')
+
+
+        const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
+            
+                if (food.id === id) {
+                    const newAmount = food.amount + 1
+                    food.amount = newAmount
+                    div.innerHTML = newAmount
+                }
+
+                return food
+            })
+
+
+            localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
+            
+            calculatingValueTotal()
         })
     })
 }
+generateNewFoods()
 
-
-// Botões de aumentar e diminuir a  quantidade de alimentos do carrinho
-
-// Diminuir
-const buttonsDecreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
-
-buttonsDecreaseAmount.forEach( button => {
-    button.addEventListener('click', button => {
-        const containerParent = button.currentTarget.parentNode.parentNode 
-        const div = button.currentTarget.parentNode.children[1]
-        const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
-
-        const chosenFoods = JSON.parse(localStorage.chosenFoods)
-        // limpo o localstorage
-        localStorage.clear()
-
-        let indiceDeleteChosenFood;
-
-        const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
-            if (food.id === id) {
-                const newAmount = food.amount - 1
-
-                // Removendo elemento se a quantidade da comida chegar em 0
-                if (newAmount === 0) {
-                    containerParent.remove()
-                    indiceDeleteChosenFood = indice
-                }
-
-
-                food.amount = newAmount
-                div.innerHTML = newAmount
-            }
-
-
-            return food
-        })
-
-
-        if (indiceDeleteChosenFood || indiceDeleteChosenFood === 0) amountOfChosenFoodsUpdated.splice(indiceDeleteChosenFood, 1)
-
-        localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
-
-        calculatingValueTotal()
-        generateNewFoods() 
-    })
-})
-
-// Aumentar
-const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(3)')
-
-buttonsIncreaseAmount.forEach( button => {
-    button.addEventListener('click', button => {
-        const div = button.currentTarget.parentNode.children[1]
-        const id = Number(button.currentTarget.parentNode.parentNode.children[0].value)
-
-        const chosenFoods = JSON.parse(localStorage.chosenFoods)
-
-       const amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
-          
-            if (food.id === id) {
-                const newAmount = food.amount + 1
-
-                food.amount = newAmount
-
-                div.innerHTML = newAmount
-            }
-
-            return food
-        })
-
-
-        localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
-        
-        calculatingValueTotal()
-        generateNew()
-
-    })
-})
 
 const totalPayableContainer = document.querySelector('.total-payable')
 
@@ -251,33 +249,51 @@ function calculatingValueTotal() {
             caregorie: 'hamburguer',
             id: 1,
             img: './public/images/hamburguer-example.svg' ,
-            name: 'Hamburgyu',
+            name: 'hamburguer',
             rating: 3,
             value: 8.50
         },
 
         {
-            caregorie: 'pastel',
+            caregorie: 'hamburguer',
             id: 2,
             img: './public/images/hamburguer-example.svg' ,
-            name: 'Pastel',
+            name: 'Pastel2',
             rating: 3,
             value: 10.00
         },
 
         {
-            caregorie: 'frutas',
+            caregorie: 'hamburguer',
             id: 3,
             img: './public/images/hamburguer-example.svg' ,
-            name: 'Salada de frutas',
+            name: 'Salada de frutas3',
             rating: 3,
             value: 5.50
         },
-        
+
+        {
+            caregorie: 'hamburguer',
+            id: 4,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Salada de frutas4',
+            rating: 3,
+            value: 5.50
+        },
+
+        {
+            caregorie: 'hamburguer',
+            id: 5,
+            img: './public/images/hamburguer-example.svg' ,
+            name: 'Salada de frutas5',
+            rating: 3,
+            value: 5.50
+        },
     ]
 
     let totalPayable = 0
 
+    if (!localStorage.chosenFoods) return
     const chosenFoods = JSON.parse(localStorage.chosenFoods)
 
     chosenFoods.forEach( ({ id, amount }) => {
