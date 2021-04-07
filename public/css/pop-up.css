@@ -1,3 +1,4 @@
+/* popup add food */
 .pop-up-food-added {
     position: fixed;
 
@@ -24,30 +25,19 @@
     margin-bottom: 14rem;
 }
 
-@keyframes food-added {
 
+/* popup imagem grande */
 
-    0% {
-        opacity: 1;
-        transform: translateY(55px);
-    }
-    80% {
-        opacity: 0;
-    }
+.pop-up-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
 
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-    }
+    background: rgba(0, 0, 0, 0.1);
 
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-   
+    display: none;
 }
-
-.animate-food-added {
-    animation-name: food-added;
-    animation-fill-mode: backwards;
-    animation-duration: 800ms;
-}
-

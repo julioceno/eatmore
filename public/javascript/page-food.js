@@ -142,3 +142,80 @@ function addFoodList() {
     generateNewFoods()
 }
 
+// avaliação
+
+
+
+
+const userData = {
+
+    avaliation: {
+        rating: 4,
+        // text: 'Eu acho muito dahora e pa tlgd? e assim vai o role'
+        }
+    }
+ 
+const avaliationContainer = document.querySelector('.avaliation-container')
+
+if (userData.avaliation.rating && userData.avaliation.text) {
+
+    const html= `<h3>Veja a avaliação que você deixou</h3>
+          
+    <form action="" method="POST" onsubmit="validate(event)" enctype="multipart/form-data"> <!-- Ficar ligado -->
+       <div>
+            <div class="stars-outer">
+                <div class="stars-inner"></div>
+            </div>
+        </div>
+
+
+        <div class="comment">
+            ${userData.avaliation.text}
+        </div>
+
+        <input type="submit" value="Deletar avaliação">
+
+    </form>`
+
+    avaliationContainer.innerHTML =html
+} else {
+    const html= `<h3>O que acha de <strong>avaliar</strong> este prato?</h3>
+          
+    <form action="" method="POST" onsubmit="validate(event)" enctype="multipart/form-data"> <!-- Ficar ligado -->
+        <div class="stars-container">
+            <div>
+
+                <input type="radio" name="rate" id="star-5">
+                <label for="star-5" class="fas fa-star"></label>
+
+                <input type="radio" name="rate" id="star-4">
+                <label for="star-4" class="fas fa-star"></label>
+
+                <input type="radio" name="rate" id="star-3">
+                <label for="star-3" class="fas fa-star"></label>
+
+                <input type="radio" name="rate" id="star-2">
+                <label for="star-2" class="fas fa-star"></label>
+
+                <input type="radio" name="rate" id="star-1" checked>
+                <label for="star-1" class="fas fa-star"></label>
+            </div>
+        </div>
+
+        <textarea name="" id="textarea" rows="1" required></textarea>
+        <input type="submit" value="Postar avaliação">
+
+    </form>`
+
+    avaliationContainer.innerHTML =html
+
+    const textarea = document.getElementById('textarea')
+
+textarea.addEventListener('input', (event) => {
+    const currentElement = event.currentTarget
+
+    currentElement.style.height = 'inherit'
+    const height = currentElement.scrollHeight
+    currentElement.style.height = height + "px"
+})
+}

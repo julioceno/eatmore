@@ -38,6 +38,32 @@
     animation-duration: 300ms;
 }
 
+
+@keyframes food-added {
+
+
+    0% {
+        opacity: 1;
+        transform: translateY(55px);
+    }
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+.animate-food-added {
+    animation-name: food-added;
+    animation-fill-mode: backwards;
+    animation-duration: 800ms;
+}
+
+
+
 @media(min-width: 760px) {
     @keyframes appear-purchasing-car{
         from {
