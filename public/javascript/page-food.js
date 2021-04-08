@@ -155,7 +155,7 @@ const userData = {
         }
     }
  
-const avaliationContainer = document.querySelector('.avaliation-container')
+const avaliationContainer = document.querySelector('.your-evaluation-container')
 
 if (userData.avaliation.rating && userData.avaliation.text) {
 
@@ -169,9 +169,9 @@ if (userData.avaliation.rating && userData.avaliation.text) {
         </div>
 
 
-        <div class="comment">
+        <p class="comment">
             ${userData.avaliation.text}
-        </div>
+        </p>
 
         <input type="submit" value="Deletar avaliação">
 

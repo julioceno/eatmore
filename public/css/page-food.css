@@ -12,11 +12,13 @@
 .section {
     flex-shrink: 1;
     padding-top: 3rem;
+    padding-bottom: 10rem;
 
     height: 100%;
 
     display: flex;
     flex-direction: column;
+
 
 }
 
@@ -216,9 +218,9 @@
     color: var(--color-black);
 }
 
-/* avaliation */
+/* evaluation */
 
-.avaliation-container {
+.your-evaluation-container {
     margin-top: 5rem;
 
     display: flex;
@@ -226,7 +228,7 @@
 
 }
 
-.avaliation-container h3 {
+.your-evaluation-container h3 {
     color: var(--color-black);
     font-family: var(--font-poppins);
     font-weight: 400;
@@ -236,29 +238,29 @@
     width: clamp(25rem, 40vw, 37rem);
 }
 
-.avaliation-container h3 strong {
+.your-evaluation-container h3 strong {
     font-weight: 700;
 }
 
-.avaliation-container form  {
+.your-evaluation-container form  {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
 
 }
 
-.avaliation-container form .stars-container div{
+.your-evaluation-container form .stars-container div{
     display: flex;
     flex-direction: row-reverse;
 
     float: left;
 }
 
-.avaliation-container form .stars-container input[type="radio"] {
+.your-evaluation-container form .stars-container input[type="radio"] {
     display: none;
 }
 
-.avaliation-container form .stars-container label {
+.your-evaluation-container form .stars-container label {
     font-weight: 300;
     color: #FFE120;
     
@@ -266,23 +268,22 @@
     transition: all .2 ease;
 }
 
-.stars-container label:not(:checked) ~ label:hover,
-.stars-container label:not(:checked) ~ label:hover ~ label {
+.stars-container input:not(:checked) ~ label:hover,
+.stars-container input:not(:checked) ~ label:hover ~ label {
     font-weight: 900;
-
 }
+
 
 .stars-container input:checked ~ label {
     font-weight: 900;
 }
 
-
 .stars-container input#star-5:checked ~ label {
     font-weight: 900;
-    text-shadow: 0 0 20px #952;
+    text-shadow: 0 0 10px #FFE120;
 }
 
-.avaliation-container form textarea {
+.your-evaluation-container form textarea {
     border: none;
     border-bottom: 2px solid var(--color-grey);
 
@@ -304,7 +305,7 @@
     display: flex;
 }
 
-.avaliation-container form input[type="submit"] {
+.your-evaluation-container form input[type="submit"] {
     border: none;
 
     margin-top: 1.5rem;
@@ -326,19 +327,19 @@
     outline: none;
 }
 
-.avaliation-container form input[type="submit"]:hover {
+.your-evaluation-container form input[type="submit"]:hover {
     background: var(--color-red-button-hover);
 
 }
 
 /* exibindo comentário */
 
-.avaliation-container .stars-outer {
+.your-evaluation-container .stars-outer {
     position: relative;
     display: inline-block;
 }
 
-.avaliation-container .stars-inner {
+.your-evaluation-container .stars-inner {
     position: absolute;
     top: 0;
     left: 0;
@@ -348,7 +349,7 @@
     width: 90%;
 }
 
-.avaliation-container .stars-outer::before {
+.your-evaluation-container .stars-outer::before {
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 300;
@@ -356,7 +357,7 @@
     font-size: clamp(1.2rem, 3vw, 1.4rem);
 }
 
-.avaliation-container .stars-inner::before {
+.your-evaluation-container .stars-inner::before {
     content: "\f005 \f005 \f005 \f005 \f005 ";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -364,7 +365,7 @@
     font-size: clamp(1.2rem, 3vw, 1.4rem);
 }
 
-.avaliation-container .comment {
+.your-evaluation-container .comment {
     margin-top: 1rem;
 
     font-family: var(--font-poppins);
@@ -376,8 +377,113 @@
     width: clamp(25rem, 36vw, 35rem);
 }
 
+.other-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 6rem;
+}
+
+.other-reviews h3 {
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: clamp(1.85rem, 3.5vw, 4rem);
+
+    margin-bottom: 3rem;
+}
+
+.other-reviews .evaluation-container {
+    background: var(--color-white-soft);
+    width: clamp(25rem, 70vw, 60rem);
+
+
+    background: #F7F6FF;
+    border: 1px solid #7A7B7B;
+
+    border-radius: 1rem;
+    padding: 1rem;
+
+    font-family: var(--font-poppins);
+}
+
+.other-reviews .evaluation-container header {
+    padding: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: clamp(.8rem, 1.5vw, 1.2rem);
+}
+
+.other-reviews .evaluation-container header img {
+    height: clamp(4rem, 8vw, 6rem);
+    width: clamp(4rem, 8vw, 6rem);
+
+    border-radius: 50%;
+    border: .2rem solid #fff;
+}
+
+.other-reviews .evaluation-container header h6 {
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    margin-left: 1rem;
+
+    font-weight: 400;
+}
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date {
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date .stars-outer {
+    position: relative;
+    display: inline-block;
+}
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    width: 90%;
+}
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 300;
+    color: #FFE120;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005 ";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #FFE120;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.other-reviews .evaluation-container .line-up-star-rating-and-date span {
+    color: var(--color-grey-font);
+    margin-left: 1rem;
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+
+}
+
+.other-reviews .evaluation-container .user-comment {
+    color: var(--color-grey-font);
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+
+}
+
 @media(min-width: 400px) {
-    .avaliation-container {
+    .your-evaluation-container {
         align-self: flex-start;
     
         margin-left: clamp(3rem, 7vw, 6rem);
