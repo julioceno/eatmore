@@ -11,15 +11,13 @@
 
 .section {
     flex-shrink: 1;
-    padding-top: 3rem;
+    padding-top: clamp(3rem, 8vw, 11rem);
     padding-bottom: 10rem;
 
     height: 100%;
 
     display: flex;
     flex-direction: column;
-
-
 }
 
 .section .section-food {
@@ -115,7 +113,7 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 300;
     color: #FFE120;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
 }
 
 .section  .section-food .food main .stars-inner::before {
@@ -123,7 +121,7 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     color: #FFE120;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
 }
 
 .section  .section-food .food .images {
@@ -225,17 +223,15 @@
 
     display: flex;
     flex-direction: column;
-
 }
 
 .your-evaluation-container h3 {
     color: var(--color-black);
     font-family: var(--font-poppins);
     font-weight: 400;
-    font-size: clamp(1.7rem, 2.8vw, 4rem);
+    font-size: clamp(1.7rem, 2.8vw, 3.2rem);
 
-
-    width: clamp(25rem, 40vw, 37rem);
+    width: clamp(25rem, 42vw, 50rem);
 }
 
 .your-evaluation-container h3 strong {
@@ -264,7 +260,8 @@
     font-weight: 300;
     color: #FFE120;
     
-    font-size: clamp(1.45rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+
     transition: all .2 ease;
 }
 
@@ -290,11 +287,11 @@
     background: none;
     resize: none;
 
-    margin-top: 1rem;
+    margin-top: clamp(1rem, 2vw, 1.5rem);
 
     font-family: var(--font-poppins);
     color: var(--color-grey);
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
 
     outline: none;
 
@@ -382,22 +379,25 @@
     flex-direction: column;
     align-items: center;
 
-    margin-top: 6rem;
+    margin-top: clamp(6rem, 8vw, 11rem);
 }
 
 .other-reviews h3 {
     color: var(--color-black);
     font-family: var(--font-poppins);
     font-weight: 400;
-    font-size: clamp(1.85rem, 3.5vw, 4rem);
+    font-size: clamp(1.85rem, 3.5vw, 4.5rem);
 
     margin-bottom: 3rem;
 }
 
+.other-reviews .evaluation-container + .evaluation-container {
+    margin-top: clamp(2rem, 4vw, 3rem);
+}
+
 .other-reviews .evaluation-container {
     background: var(--color-white-soft);
-    width: clamp(25rem, 70vw, 60rem);
-
+    width: clamp(25rem, 70vw, 54rem);
 
     background: #F7F6FF;
     border: 1px solid #7A7B7B;
@@ -492,7 +492,96 @@
 
 @media(min-width: 580px) {
 
+    .section .section-food .food {
+        max-width: 60rem;
+        width: 75vw;
+        
+        max-height: 38rem;
+        height: 47vw;
+    
+
+        align-self: flex-start;
+        margin-left: clamp(4rem, 7vw, 7rem);
+    
+    } 
+
+    .section .section-food .food  main img {
+        height: clamp(7rem, 12vw, 10rem);
+        width: clamp(11rem, 12vw, 14rem);
+    }
+
+    .section .section-food .food  main h4 {
+        font-size: clamp(1.8rem, 2.3vw, 2.3rem);
+    }
+
+    .section .section-food .food  hr {
+        border-bottom: .50rem solid var(--color-grey);
+        margin-top: 1.8rem;
+    }
+
+    .section  .section-food .food .images {
+        margin-top: clamp(1.3rem, 3vw, 2rem);
+        width: 85%;
+    }
+
+    
+
+    .section  .section-food .food .images button img {
+        height: clamp(5rem, 8vw, 6rem);
+    }
+
     .section  .section-food .food footer {
-        margin-top: clamp(.5rem, 7vw, 5rem);
+        margin-top: clamp(.9rem, 4vw, 7rem);
+    }
+
+    .section  .section-food .food footer button {
+        width: clamp(12.8rem, 27vw, 19rem);
+        height: clamp(3rem, 16vw, 4.5rem);
+
+        font-size: clamp(1.20rem, 2.4vw, 1.45rem);
+    }
+
+    .section  .section-food .food footer span.value {
+
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
+    }
+
+
+    .your-evaluation-container form input[type="submit"] {
+        margin-top: 2.5rem;
+    
+        width: clamp(12.8rem, 27vw, 19rem);
+        height: clamp(3rem, 16vw, 4.5rem);
+
+        font-size: clamp(1.20rem, 2.4vw, 1.6rem);
+    }
+
+    .your-evaluation-container {
+        margin-top: 13rem;
+        margin-left: clamp(4rem, 7vw, 7rem);
+    }
+
+    .other-reviews h3 {
+    
+        align-self: flex-start;
+        margin-left: clamp(5rem, 6vw, 12rem);
+
+        margin-bottom: 6rem;
+    }
+
+   
+
+    
+}
+
+@media(min-width: 1200px) {
+    .other-reviews .evaluation-container + .evaluation-container {
+        margin-top: 0;
+    }
+    .line-up-grid-reviews {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3rem 1.8rem;
+        margin-left: 6rem;
     }
 }
