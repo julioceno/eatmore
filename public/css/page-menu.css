@@ -176,16 +176,6 @@
     display: none;
 }
 
-.slider-categories .centering {
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .section main .slider-categories .categorie + .categorie {
     margin-left: 2rem;
 } 
@@ -210,9 +200,18 @@
     transition: all 100ms;
 }
 
+.section main .slider-categories .categorie  .centering {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .section main .slider-categories .categorie:hover {
     background: var(--color-white-page);
-    
 }
 
 .section main .slider-categories .categorie img{
@@ -221,16 +220,17 @@
     margin-bottom: .2rem;
 }
 
-.section main .slider-categories .categorie-selected {
+
+.section main .slider-categories .categorie-selected:hover {
+    background: var(--color-white);
+    
+}
+
+.section main .slider-categories .categorie.categorie-selected {
     color: var(--color-red-dark);
     box-shadow: 0px 5px 8px rgba(255, 0, 54, 0.24);
 
     border: 1px solid var(--color-red-dark);
-}
-
-.section main .slider-categories .categorie-selected:hover {
-    background: var(--color-white);
-
 }
 
 /* slider food */

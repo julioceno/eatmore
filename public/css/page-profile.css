@@ -62,7 +62,319 @@
 }
 
 .section .user-data .line-up-user-data p{
-    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+    font-size: clamp(1.2rem, 2.6vw, 2rem);
+}
+
+.section .options-container {
+    margin-top: clamp(4.3rem, 8vw, 10rem);
+    margin-left: clamp(2.5rem, 3vw, 8rem);
+    margin-right: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section .options-container h5 {
+    font-family: var(--font-poppins);
+    font-weight: bold;
+
+    color: var(--color-black);
+    font-size: clamp(1.25rem, 2vw, 1.35rem);
+
+
+    margin-bottom: 2rem;
+}
+
+.section .options-container .line-up-caegories .option + .option {
+    margin-left: 2rem;
+}
+
+.section .options-container .line-up-caegories .option {
+    display: inline-block;
+
+    text-decoration: none;
+    font-family: var(--font-poppins);
+    color: var(--color-grey);
+
+    font-size: clamp(1rem, 2vw, 1.16rem);
+
+    width: clamp(12rem, 16vw, 14rem);
+
+    height: clamp(8rem, 16vw, 9rem);
+    
+    background: var(--color-white);
+    box-shadow: .0rem .5rem .8rem rgba(174, 182, 222, 0.3);
+    border-radius: 2.8rem;
+
+    transition: all 100ms;
+
+}
+
+.section .options-container .line-up-caegories {
+    display: flex;
+}
+
+.section .options-container .line-up-caegories .centering {
+    height: 100%; 
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.section .options-container .line-up-caegories .option:nth-child(1) {
+    width: clamp(14rem, 16vw, 15rem);
+}
+
+.section .options-container .line-up-caegories .option:nth-child(1) img {
+    height: clamp(5.3rem, 5vw, 4rem);
+    margin-bottom: .1rem;
+
+}
+
+.section .options-container .line-up-caegories .option img {
+    height: clamp(4rem, 5vw, 4rem);
+    display: block;
+    margin-bottom: .6rem;
+}
+
+.section .options-container .line-up-caegories .option:hover {
+    background: var(--color-white-page);
+}
+
+.section .options-container .line-up-caegories .option.option-selected {
+    color: var(--color-red-dark);
+    box-shadow: 0px 5px 8px rgba(255, 0, 54, 0.24);
+
+    border: 1px solid var(--color-red-dark);
+}
+
+
+.section .filtering-option-container {
+    margin-top: clamp(3rem, 9vw, 8rem);
+    margin-left: clamp(2.5rem, 3vw, 8rem);
+}
+
+.section .filtering-option-container h5 {
+    font-family: var(--font-poppins);
+    font-weight: bold;
+
+    color: var(--color-black);
+    font-size: clamp(1.25rem, 2vw, 1.35rem);
+}
+
+
+/* slider food */
+.section .filtering-option-container {
+    margin-top: 4.3rem;
+    margin-left: clamp(3rem, 4vw, 9rem);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section .filtering-option-container h5 {
+    font-family: var(--font-poppins);
+    font-weight: bold;
+
+    color: var(--color-black);
+    font-size: clamp(1.25rem, 2vw, 1.35rem);
+}
+.section .filtering-option-container .slider-foods {
+
+    overflow-x: scroll;
+    white-space: nowrap;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+
+    width: 100%;
+
+    margin-top: 0rem;
+
+    padding: 1.8rem;
+    padding-left: .2rem;
+}
+
+.section .filtering-option-container .slider-foods::-webkit-scrollbar {
+    display: none;
+}
+
+
+.section .filtering-option-container .food + .food {
+    margin-left: 2rem;
+} 
+
+.section .filtering-option-container .food {
+    display: inline-block;
+
+    text-decoration: none;
+    font-family: var(--font-poppins);
+    color: var(--color-grey);
+
+    font-size: clamp(1rem, 2vw, 1.16rem);
+    
+    background: var(--color-white);
+    box-shadow: 0px 8px 15px rgba(183, 183, 229, 0.3);
+
+    border-radius: 3rem;
+
+
+    width: clamp(16rem, 16vw, 19rem);
+    min-height: clamp(19.5rem, 16vw, 25rem);
+
+    transition: all 100ms;
+}
+
+.section .filtering-option-container .slider-foods .food:hover {
+    background: var(--color-white-page);
+}
+
+.slider-foods .food  .centering {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section .filtering-option-container .slider-foods .food img {
+    height: 6rem;
+
+    margin-top: 3rem;
+}
+
+.section .filtering-option-container .slider-foods .food footer {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 2rem;
+    margin: 2rem;
+    margin-top: 1.5rem;
+    color: var(--color-black);
+
+    font-family: var(--font-poppins);
+    white-space: normal;
+    word-break: break-all;
+}
+
+.section .filtering-option-container .slider-foods .food footer h6 {
+    font-size: clamp(1.3rem, 1.4vw, 1.5rem);
+    font-weight: 700;
+
+    width: 100%;
+}
+
+
+.section .filtering-option-container .slider-foods .food  footer .stars-outer {
+    position: relative;
+    display: inline-block;
+
+    margin-top: .2rem;
+}
+
+.section .filtering-option-container .slider-foods .food footer .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.section .filtering-option-container .slider-foods .food footer .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005 ";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 300;
+    color: #FFE120;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.section .filtering-option-container .slider-foods .food  footer .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005 ";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #FFE120;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.section .filtering-option-container .slider-foods .food footer .value{
+    font-weight: 700;
+    font-size: clamp(1.6rem, 2.2vw, 1.8rem);
+
+    margin-top: 1.8rem;
+}
+
+
+.section .filtering-option-container .slider-foods .food.food-selected {
+    background: linear-gradient(216.3deg, #FF6787 4.26%, #FF0036 95.39%);
+    box-shadow: 0px 8px 15px rgba(255, 0, 54, 0.24);
+}
+
+.section .filtering-option-container .slider-foods .food.food-selected footer {
+    color: var(--color-white-soft);
+}
+
+.section .filtering-option-container .slider-foods .food.food-selected footer h6 {
+    font-size: clamp(1.4rem, 1.75vw, 1.7rem);
+
+}
+
+.section .filtering-option-container .slider-foods .food.food-selected footer .value {
+    font-size: clamp(1.8rem, 2.2vw, 2rem);
+}
+
+.section .filtering-option-container .foods-location {
+    display: flex;
+    flex-direction: row;
+ 
+    align-self: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+
+    min-width: 22rem;
+    width: 50vw;
+
+    word-wrap: break-word;
+    white-space: normal;
+
+}
+
+.section .filtering-option-container .foods-location a + a {
+    margin-left: clamp(.3rem, .5vw, .5rem);
+}
+
+.section .filtering-option-container .foods-location a {
+    height: clamp(1rem, 1.2vw, 1.4rem);
+    width: clamp(1rem, 1.2vw, 1.4rem);
+
+
+    border: .1rem solid var(--color-grey);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+    margin-bottom: .70rem;
+
+    
+}
+
+.section .filtering-option-container  .foods-location a.location-selected {
+    border: none;
+    background: var(--color-red-dark);
+
 }
 
 @media(min-width: 400px) {
@@ -74,6 +386,7 @@
 }
 
 @media(min-width: 760px) {
+    
     .section .user-data {
         margin-top: 0;
 
@@ -88,5 +401,14 @@
     
     .section .user-data  img {
         margin-right: clamp(2rem, 5vw, 4rem);
+    }
+
+    .section .options-container {
+        margin-left: clamp(3rem, 6vw, 8rem);
+    }
+
+    .section .options-container h5 {
+        font-size: clamp(1.5rem, 1.8vw, 1.7rem);
+    
     }
 }
