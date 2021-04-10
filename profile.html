@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="./public/css/main.css">
     <link rel="stylesheet" href="./public/css/utils.css">
     <link rel="stylesheet" href="./public/css/animations.css">
-    <link rel="stylesheet" href="./public/css/page-menu.css">
+    <link rel="stylesheet" href="./public/css/pop-up.css">
+    <link rel="stylesheet" href="./public/css/page-profile.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" crossorigin="anonymous"/>
-
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 </head>
-<body id="page-menu">
+<body id="page-food">
 <div id="container">
     <header class="header">
 
@@ -34,12 +34,11 @@
         </div>
 
         <nav class="nav">
-
             <a href="./menu.html">
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <p>Perfil</p>
             </a>
             
@@ -63,9 +62,10 @@
         </nav>
       
 
-        <a class="profile" href="#">
-            <img src="./public/images/doka.png" alt="perfil">
+        <a class="come-back" href="">
+            <img src="./public/images/come-back.svg" alt="Voltar">
         </a>
+
 
     </header>
 
@@ -78,7 +78,7 @@
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <img src="./public/images/menu-profile.svg" alt="menu-profile">
 
                 <p>Perfil</p>
@@ -128,97 +128,19 @@
 
 
     <section class="section">
-        
-        <h3>Escolha a comida <strong> que você mais ama </strong> </h3>
-        
-        <div class="wrapper">
-            <div class="search-container">
-                <input class="search-bar" type="text" placeholder="Procure o que você gosta">
-                <div class="autocom-box"></div>
-            </div>
+       <main class="user-data">
+           <img src="./public/images/doka.png" alt="Foto de perfil">
+
+           <div class="line-up-user-data">
+               <h5>Sidoka</h5>
+               <p>doka@disoka.com.br</p>
+               <p>(22)973829473</p>
+               <p>Rua dos dokas, próximo ao bairro do dj Onga número 21 LT 72 QD 92</p>
+           </div>
+       </main>
        
-          
-        </div>
-
-        
-
-        <main>
-
-            <div class="categories-container">
-
-                <h5>Categorias</h5>
-
-                <div class="slider-categories">
-
-                    <a href="" class="categorie">
-                        
-                        <div class="centering">
-                            <img src="./public/images/categories/hamburguer.svg" alt=""> Hambúrguer
-                        </div>
-                      
-                    </a>
-
-                    <a href="" class="categorie">
-
-                        <div class="centering">
-
-                            <img src="./public/images/categories/pizza.svg" alt=""> Pizza
-
-                        </div>
-                        
-                      
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-
-                            <img src="./public/images/categories/chicken.svg" alt=""> Frango
-
-                        </div>
-
-                     
-                    </a>
-
-                    <a href="" class="categorie">
-
-                        <div class="centering">
-
-                            <img src="./public/images/categories/fried-pastry.svg" alt="">  Pastel
-
-                        </div>
-
-                  
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-                            <img src="./public/images/categories/drinks.svg" alt=""> Bebidas
-                        </div>
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-                            <img src="./public/images/categories/fruits.svg" alt=""> Frutas
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="food-category-container">
-
-                <h5>Hamburguers</h5>
-
-                <div class="slider-foods"></div>
-
-                <div class="foods-location"></div>
-
-            </div>
-
-        </main>
-        
-
     </section>
+
 
 
     <button type="button"  onclick="appearPurchasingCar()" class="purchasing-button">
@@ -229,25 +151,7 @@
         <h5>Isso é o que você escolheu até agora</h5>
     
         <div class="chosenFoods">
-<!--            
-            <div class="food">
-                <main>
-                    <img src="./public/images/hamburguer-example.svg" alt="">
-                    <h6>Zinger burguer</h6>
-                </main>
-             
-                
-                <div class="amount-this-food">
-                    <button> 
-                        <img src="./public/images/amount-arrow-left.svg" alt="Adicionar">
-                    </button>
-                    <div class="amount">23</div>
-                    <button> 
-                        <img src="./public/images/amount-arrow-right.svg" alt="Remover">
-                    </button>
-                </div>
 
-            </div> -->
 
 
         </div>
@@ -263,10 +167,17 @@
         </footer>
     </aside>
 
+    <div class="pop-up-food-added animate-food-added">
+        <p>Comida adicionada</p>
+    </div>
+
+    <div class="pop-up-container">
+     
+    </div>
 
 </div>
 </body>
 <script src="./public/javascript/utils.js"></script>
-<script src="./public/javascript/page-menu.js"></script>
+<script src="./public/javascript/page-profile.js"></script>
 </html>
 

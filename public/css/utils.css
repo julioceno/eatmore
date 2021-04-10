@@ -77,7 +77,7 @@ header #check:checked ~ label .menu-hamburguer::after{
 }
 
 
-header .profile img{
+header .profile img {
     height: clamp(5rem, 8vw, 9rem);
     width: clamp(5rem, 8vw, 9rem);
 
@@ -86,6 +86,10 @@ header .profile img{
 
 }
 
+header .come-back img {
+    height: clamp(3.3rem, 5vw, 4rem);
+    margin-top: .5rem;
+}
 
 /* menu */
 
