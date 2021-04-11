@@ -378,73 +378,12 @@ categoriePizza.addEventListener("click", e => {
     img.src = "./public/images/categories/pizza-focus.svg"
 
     allFoods = [
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza catupiri',
-            rating: 2,
-            value: 15.55
-        },
-
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza catupiri',
-            rating: 3,
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 5,
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza catupiri',
-            rating: 2,
-            value: 15.55
-        },
-
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza catupiri',
-            rating: 2,
-            value: 15.55
-        },
-       
+    
        
     ]
 
     updatingFoodsClickingCategory()
-    
+   
     
 
     e.preventDefault()
@@ -613,6 +552,31 @@ sliderFood.addEventListener('touchmove', () => {
 
 
 function updatingFoodsClickingCategory() {
+
+
+    const section = document.getElementById('section')
+    if(!allFoods.length) {
+        section.innerHTML = `
+            <div class="without-occurrence">
+            <img src="/public/images/empty-cart.svg" alt="Carrinho vazio">
+            <h6>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</h6>
+            </div>
+        `
+        return
+    } else {
+        section.innerHTML = `
+        <div class="food-category-container">
+
+        <h5>Hamburguers</h5>
+
+        <div class="slider-foods"></div>
+
+        <div class="foods-location"></div>
+
+    </div>
+        `
+
+    }
 
     // Removendo os alimentos da categoria selecionada anteriormente
     document.querySelectorAll(".slider-foods .food").forEach( (food) => {
