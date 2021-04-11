@@ -554,9 +554,9 @@ sliderFood.addEventListener('touchmove', () => {
 function updatingFoodsClickingCategory() {
 
 
-    const section = document.getElementById('section')
+    const sectionResultFoods = document.getElementById('section-result-foods')
     if(!allFoods.length) {
-        section.innerHTML = `
+        sectionResultFoods.innerHTML = `
             <div class="without-occurrence">
             <img src="/public/images/empty-cart.svg" alt="Carrinho vazio">
             <h6>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</h6>
@@ -564,7 +564,7 @@ function updatingFoodsClickingCategory() {
         `
         return
     } else {
-        section.innerHTML = `
+        sectionResultFoods.innerHTML = `
         <div class="food-category-container">
 
         <h5>Hamburguers</h5>
@@ -575,7 +575,6 @@ function updatingFoodsClickingCategory() {
 
     </div>
         `
-
     }
 
     // Removendo os alimentos da categoria selecionada anteriormente
@@ -648,9 +647,6 @@ function updatingFoodsClickingCategory() {
 
         // Set width of stars-inner to percentage
         tagDivStarsInner.style.width = starPercentageRounded
-        
-        
-        
 
 
         /* Adicionando conteudo no food container */

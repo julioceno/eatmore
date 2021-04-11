@@ -161,6 +161,29 @@ sliderFoodFiltering.addEventListener('touchmove', () => {
 
 function updatingFoodsClickingCategoryFiltering() {
 
+    const sectionResultFoods = document.getElementById('section-result-foods')
+    if(!allFoods.length) {
+        section.innerHTML = `
+            <div class="without-occurrence">
+            <img src="/public/images/without-occurrence.svg" alt="Carrinho vazio">
+            <h6>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</h6>
+            </div>
+        `
+        return
+    } else {
+        sectionResultFoods.innerHTML = `
+        <div class="food-category-container">
+
+        <h5>Opções de filtro</h5>
+
+        <div class="slider-foods"></div>
+
+        <div class="foods-location"></div>
+
+    </div>
+        `
+    }
+
     // Removendo os alimentos da categoria selecionada anteriormente
     document.querySelectorAll(".slider-filtering-foods .food").forEach( (food) => {
         food.remove()
