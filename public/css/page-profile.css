@@ -362,6 +362,29 @@
 
 }
 
+.section .without-occurrence {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 11rem;
+}
+
+.section .without-occurrence img {
+    height: clamp(10rem, 24vw, 15rem);
+}
+
+.section .without-occurrence h6 {
+    font-family: var(--font-poppins);
+    text-align: center;
+    color: var(--color-grey);
+
+    font-size: clamp(1rem, 1.8vw, 1.8rem);
+
+    margin-top: 1.8rem;
+
+    width: clamp(20rem, 80vw, 90rem);
+}
 /*
 ##################
 ##################
@@ -579,6 +602,8 @@
     border: none;
     background: var(--color-red-dark);
 }
+
+
 
 @media(min-width: 400px) {
     .section .user-data .line-up-user-data{

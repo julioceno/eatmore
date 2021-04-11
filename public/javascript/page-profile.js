@@ -13,7 +13,7 @@ function deselectingCategories() {
     optionFavoriteFoods.children[0].children[0].src = "./public/images/star-favorite.svg"
 }
 
-
+let allFoods
 requestHistory.addEventListener("click", e => {
     deselectingCategories()
 
@@ -102,15 +102,6 @@ optionFavoriteFoods.addEventListener("click", e => {
     img.src = "./public/images/star-favorite-focus.svg"
 
     allFoods = [
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            value: 15.55
-        },
 
         
     ]
@@ -162,23 +153,25 @@ sliderFoodFiltering.addEventListener('touchmove', () => {
 function updatingFoodsClickingCategoryFiltering() {
 
     const sectionResultFoods = document.getElementById('section-result-foods')
+    console.log(!allFoods.length)
     if(!allFoods.length) {
-        section.innerHTML = `
+        sectionResultFoods.innerHTML = `
             <div class="without-occurrence">
             <img src="/public/images/without-occurrence.svg" alt="Carrinho vazio">
-            <h6>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</h6>
+            <h6>Não temos nada por aqui</h6>
             </div>
         `
         return
     } else {
+
         sectionResultFoods.innerHTML = `
-        <div class="food-category-container">
+        <div class="filtering-option-container">
 
-        <h5>Opções de filtro</h5>
+        <h5>O que você já pediu</h5>
 
-        <div class="slider-foods"></div>
+        <div class="slider-filtering-foods"></div>
 
-        <div class="foods-location"></div>
+        <div class="foods-filtering-location"></div>
 
     </div>
         `
