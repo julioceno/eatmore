@@ -367,18 +367,31 @@
     flex-direction: column;
     align-items: center;
 
-    margin-top: 11rem;
+    margin-top: 8rem;
+}
+
+.section .without-occurrence h5 {
+    font-family: var(--font-poppins);
+    font-weight: bold;
+
+    color: var(--color-black);
+    font-size: clamp(1.25rem, 2vw, 1.35rem);
+
+    align-self: flex-start;
+    margin-left: clamp(3rem, 4vw, 9rem);
+    margin-bottom: 2rem;
+
 }
 
 .section .without-occurrence img {
     height: clamp(10rem, 24vw, 15rem);
 }
 
-.section .without-occurrence h6 {
+.section .without-occurrence p {
     font-family: var(--font-poppins);
     text-align: center;
     color: var(--color-grey);
-
+    font-weight: 700;
     font-size: clamp(1rem, 1.8vw, 1.8rem);
 
     margin-top: 1.8rem;
@@ -640,6 +653,13 @@
     .section .filtering-option-container h5 {
         font-size: clamp(1.5rem, 1.8vw, 1.7rem);
     }
+
+    .section .without-occurrence h5 {
+        font-size: clamp(1.5rem, 1.8vw, 1.7rem);
+        margin-left: clamp(3rem, 6vw, 8rem);
+    
+    }
+    
 
   
 }

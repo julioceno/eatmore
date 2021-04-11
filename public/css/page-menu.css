@@ -466,7 +466,7 @@
     height: clamp(10rem, 24vw, 15rem);
 }
 
-.section main .without-occurrence h6 {
+.section main .without-occurrence p {
     font-family: var(--font-poppins);
     text-align: center;
     color: var(--color-grey);

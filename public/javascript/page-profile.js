@@ -1,3 +1,11 @@
+// Colocando a url anterior na arrow come back
+const comeBack = document.querySelector('.come-back')
+if (document.referrer) {
+    comeBack.href = document.referrer
+} else {
+    comeBack.href = "http://127.0.0.1:5500/menu.html"
+}
+
 // Seleção de opção de filtragem
 const options = document.querySelectorAll('.options-container .option')
 
@@ -12,6 +20,8 @@ function deselectingCategories() {
     requestHistory.children[0].children[0].src = "./public/images/plate-and-cutlery.svg"
     optionFavoriteFoods.children[0].children[0].src = "./public/images/star-favorite.svg"
 }
+
+
 
 let allFoods
 requestHistory.addEventListener("click", e => {
@@ -87,9 +97,12 @@ requestHistory.addEventListener("click", e => {
        
        
     ]
-
-    updatingFoodsClickingCategoryFiltering()
+  
+    updatingFoodsClickingCategoryFiltering("Você ainda não fez nenhum pedido, peça alguma comida que você gosta e seu histórico comecará ficar cheio")
     
+    let titleFiltering = document.getElementById('title-filtering')
+    titleFiltering.innerHTML = 'O que você já pediu'
+
     e.preventDefault()
 })
 
@@ -106,7 +119,11 @@ optionFavoriteFoods.addEventListener("click", e => {
         
     ]
 
-    updatingFoodsClickingCategoryFiltering()
+    updatingFoodsClickingCategoryFiltering("Você ainda não tem nenhuma comida favorita, para comidas aparecerem aqui você deve dar uma estrela entre 4 e 5 ")
+
+    // Tem que ser aqui em baixo pois quando eu rodo a função updatingFoodsClickingCategoryFiltering ele vai remover o conteudo do h5
+    let titleFiltering = document.getElementById('title-filtering')
+    titleFiltering.innerHTML = 'Seus favoritos'
 
     e.preventDefault()
 })
@@ -150,15 +167,16 @@ sliderFoodFiltering.addEventListener('touchmove', () => {
 })
 
 
-function updatingFoodsClickingCategoryFiltering() {
+function updatingFoodsClickingCategoryFiltering(message) {
 
-    const sectionResultFoods = document.getElementById('section-result-foods')
-    console.log(!allFoods.length)
+    const sectionResultFoods = document.getElementById('section-result-foods-filtering')
     if(!allFoods.length) {
         sectionResultFoods.innerHTML = `
             <div class="without-occurrence">
+            <h5 id="title-filtering"></h5>
+
             <img src="/public/images/without-occurrence.svg" alt="Carrinho vazio">
-            <h6>Não temos nada por aqui</h6>
+            <p>${message}</p>
             </div>
         `
         return
@@ -167,7 +185,7 @@ function updatingFoodsClickingCategoryFiltering() {
         sectionResultFoods.innerHTML = `
         <div class="filtering-option-container">
 
-        <h5>O que você já pediu</h5>
+        <h5 id="title-filtering"></h5>
 
         <div class="slider-filtering-foods"></div>
 
@@ -386,128 +404,162 @@ pontas soltas
 */ 
 
 
+(function() {
+
 // Slider food interactions
+// const allFoodsInteractions = [
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddd",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 5,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsa",
+
+//         value: 15.55
+//     },
+
+//     {
+//         categorie: "pizza",
+
+//         id: 1,
+//         img: './public/images/hamburguer-example.svg' ,
+//         name: 'Pizza',
+//         rating: 2,
+//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
+
+//         value: 15.55
+//     },
+// ]
+
 const allFoodsInteractions = [
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddd",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 5,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsa",
-
-            value: 15.55
-        },
-
-        {
-            categorie: "pizza",
-
-            id: 1,
-            img: './public/images/hamburguer-example.svg' ,
-            name: 'Pizza',
-            rating: 2,
-            text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
-
-            value: 15.55
-        },
+   
 ]
 
+
+const sectionResultFoods = document.getElementById('section-result-foods-interactions')
+if(!allFoodsInteractions.length) {
+    sectionResultFoods.innerHTML = `
+        <div class="without-occurrence">
+       <h5>Onde você já interagiu</h5>
+
+        <img src="/public/images/without-occurrence.svg" alt="Carrinho vazio">
+        <p>Você não tem um histórico de comidas onde você interagiu</p>
+        </div>
+    `
+    return
+} else {
+
+    sectionResultFoods.innerHTML = `
+    <div class="interactions-container">
+
+    <h5>Onde você já interagiu</h5>
+
+    <div class="slider-foods-intetactions">
+
+    </div>
+
+    <div class="foods-intetactions-location"></div>
+
+</div>
+    `
+}
 
 let sliderFoodInteractions = document.querySelector('.slider-foods-intetactions')
 let isScrollInteractions = true
@@ -517,266 +569,268 @@ let startXFoodInteractions;
 let scrollLeftFoodInteractions;
 
 sliderFoodInteractions.addEventListener('mousedown', element => {
-    isDownFoodInteractions = true 
-    startXFoodInteractions = element.pageX - sliderFoodInteractions.offsetLeft
-    scrollLeftFoodInteractions = sliderFoodInteractions.scrollLeft
+isDownFoodInteractions = true 
+startXFoodInteractions = element.pageX - sliderFoodInteractions.offsetLeft
+scrollLeftFoodInteractions = sliderFoodInteractions.scrollLeft
 })
 
 sliderFoodInteractions.addEventListener('mouseleave', () => {
-    isDownFoodInteractions = false
+isDownFoodInteractions = false
 
 })
 
 sliderFoodInteractions.addEventListener('mouseup', () => {
-    isDownFoodInteractions = false
+isDownFoodInteractions = false
 })
 
 sliderFoodInteractions.addEventListener('mousemove', element => {
-    if (!isDownFoodInteractions) return 
-    element.preventDefault()
-    const x = element.pageX - sliderFoodInteractions.offsetLeft
-    const walk = (x - startXFoodInteractions) * 3
-    sliderFoodInteractions.scrollLeft = scrollLeftFoodInteractions - walk
+if (!isDownFoodInteractions) return 
+element.preventDefault()
+const x = element.pageX - sliderFoodInteractions.offsetLeft
+const walk = (x - startXFoodInteractions) * 3
+sliderFoodInteractions.scrollLeft = scrollLeftFoodInteractions - walk
 
-    isScrollInteractions = true
+isScrollInteractions = true
 })
 
 sliderFoodInteractions.addEventListener('touchmove', () => {
-   isScrollInteractions = true
+isScrollInteractions = true
 
 })
 
-    // Removendo os alimentos da categoria selecionada anteriormente
-    document.querySelectorAll(".slider-filtering-foods .food").forEach( (food) => {
-        food.remove()
-    })
+// Removendo os alimentos da categoria selecionada anteriormente
+document.querySelectorAll(".slider-filtering-foods .food").forEach( (food) => {
+    food.remove()
+})
 
-    document.querySelectorAll(".foods-filtering-location a").forEach( (location) => {
-        location.remove()
-    })
-        
-    // render food 
-    const foodContainer = document.querySelector('.interactions-container .slider-foods-intetactions')
-
-    allFoodsInteractions.forEach( ({ id, categorie, img, name, rating, text}) => {
-
-
-        // Criando o container 
-        const tagA = document.createElement('a')
-        // tagA.setAttribute('href', `/menu/food/${categorie}/${id}`)
-        tagA.setAttribute('href', `food.html`)
-        tagA.classList.add('food')
-
-        // Criando div centering
-        const tagDivCentering = document.createElement('div')
-        tagDivCentering.classList.add('centering')
-
-        // criando div de alinhamento
-        const tagDivLineUpDataFoodInteraction = document.createElement('div')
-        tagDivLineUpDataFoodInteraction.classList.add('line-up-data-food-interaction')
-
-        // criando div de alinhamento que estão a esquerda
-        const tagDivAlingLeft = document.createElement('div')
-        tagDivAlingLeft.classList.add('aling-left')
-
-
-        // criando tag img 
-        const tagImg = document.createElement('img')
-        tagImg.src = img 
-        tagImg.alt = `Imagem da comida` 
-
-
-        // Criando tag h6
-        const tagH6 = document.createElement('h6')
-
-        const foodName = document.createTextNode(name)
-        tagH6.appendChild(foodName)
-
-        // Criando div container star
-        const tagDivContainerStar = document.createElement('div')
-
-        // Criando div stars-outer
-        const tagDivStarsOuter = document.createElement('div')
-        tagDivStarsOuter.classList.add('stars-outer')
-
-        // Criando div stars-inner
-        const tagDivStarsInner = document.createElement('div')
-        tagDivStarsInner.classList.add('stars-inner')
-
-        // Ajustando o container das estrelas
-       
-
-        // Criando div user-comment 
-        const tagPUserComment = document.createElement('p')
-        tagPUserComment.classList.add('user-comment')
-      
-
-        let formatedText = text
-
-       
-        if (text.split('').length > 23 && window.innerWidth < 1000) {
-            formatedText = text.split('')
-            formatedText.splice(23, formatedText.length - 23)
-            
-            formatedText = `${formatedText.join('')}...`
-        } else if (text.split('').length > 28) {
-            formatedText = text.split('')
-            formatedText.splice(28, formatedText.length - 28)
-
-            formatedText = `${formatedText.join('')}...`
-        }
-
-        const tagPUserCommentText = document.createTextNode(formatedText)
-        tagPUserComment.appendChild(tagPUserCommentText)
-
-
-        /* Adicionando os valores das estrelas */
-
-        // Get porcentage
-        const starPercentage = (rating / 5) * 100
-
-        // Round to nearest 10
-        const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
-
-        // Set width of stars-inner to percentage
-        tagDivStarsInner.style.width = starPercentageRounded
-
-       
-
-        // Adicionando imagem do lanche no tagDivLineUpDataFoodInteraction
-        tagDivLineUpDataFoodInteraction.appendChild(tagImg)
- 
-        // Adicionando div aling left no tagDivLineUpDataFoodInteraction
-        tagDivLineUpDataFoodInteraction.appendChild(tagDivAlingLeft)
-
-        // Adicionando nome do lanche no tagDivAlingLeft 
-        tagDivAlingLeft.appendChild(tagH6)
-
-        // Adicionando estrelas no tagDivAlingLeft 
-        tagDivStarsOuter.appendChild(tagDivStarsInner)
-        tagDivContainerStar.appendChild(tagDivStarsOuter)
-        tagDivAlingLeft.appendChild(tagDivContainerStar)
-
-        // Adicionando tagDivLineUpDataFoodInteraction no tagDivCentering
-        tagDivCentering.appendChild(tagDivLineUpDataFoodInteraction)
-
-        // Adicionando tagPUserComment no tagDivCentering
-        tagDivCentering.appendChild(tagPUserComment)
-
-        // Adicionando tagDivCentering na tagA
-        tagA.appendChild(tagDivCentering)
-
-        // Adicionando o elemento  diretamente no html
-        foodContainer.appendChild(tagA)
-
-
-   //     <a href="food.html" class="food">
-    //     <div class="centering">
-           
-    //        <div class="line-up-data-food-interaction">
-    //             <img src="./public/images/hamburguer-example.svg">
-    //             <div class="aling-left">
-                    
-    //                 <h6>Pizza catupirisssssssss s</h6>
-    //                 <div>
-    //                     <div class="stars-outer">
-    //                         <div class="stars-inner"></div>
-    //                     </div>
-    //                 </div>
-
-    //             </div>
-    //        </div>
-
-    //        <p class="user-comment">Bla bla BLA BLA bla bla bla bla bla </p>
-            
-    //     </div>
-    // </a>
-
-
-        
-    })
-
-
-    // location food 
-    const foods = document.querySelectorAll(".slider-foods-intetactions .food")
-    const foodLocationContainer = document.querySelector('.foods-intetactions-location')
-
-    foods.forEach( () => {
-        // gerando bolinha no html
-        const createLocation = document.createElement('a')
-        foodLocationContainer.appendChild(createLocation)
-    })
-
-    const locationFood = document.querySelectorAll('.foods-intetactions-location a')
-
-    locationFood.forEach( location => location.addEventListener('click', foodMarkedInteractions))
+document.querySelectorAll(".foods-filtering-location a").forEach( (location) => {
+    location.remove()
+})
     
-    document.querySelectorAll('.foods-intetactions-location a')[0].click()
+// render food 
+const foodContainer = document.querySelector('.interactions-container .slider-foods-intetactions')
+
+allFoodsInteractions.forEach( ({ id, categorie, img, name, rating, text}) => {
+
+
+    // Criando o container 
+    const tagA = document.createElement('a')
+    // tagA.setAttribute('href', `/menu/food/${categorie}/${id}`)
+    tagA.setAttribute('href', `food.html`)
+    tagA.classList.add('food')
+
+    // Criando div centering
+    const tagDivCentering = document.createElement('div')
+    tagDivCentering.classList.add('centering')
+
+    // criando div de alinhamento
+    const tagDivLineUpDataFoodInteraction = document.createElement('div')
+    tagDivLineUpDataFoodInteraction.classList.add('line-up-data-food-interaction')
+
+    // criando div de alinhamento que estão a esquerda
+    const tagDivAlingLeft = document.createElement('div')
+    tagDivAlingLeft.classList.add('aling-left')
+
+
+    // criando tag img 
+    const tagImg = document.createElement('img')
+    tagImg.src = img 
+    tagImg.alt = `Imagem da comida` 
+
+
+    // Criando tag h6
+    const tagH6 = document.createElement('h6')
+
+    const foodName = document.createTextNode(name)
+    tagH6.appendChild(foodName)
+
+    // Criando div container star
+    const tagDivContainerStar = document.createElement('div')
+
+    // Criando div stars-outer
+    const tagDivStarsOuter = document.createElement('div')
+    tagDivStarsOuter.classList.add('stars-outer')
+
+    // Criando div stars-inner
+    const tagDivStarsInner = document.createElement('div')
+    tagDivStarsInner.classList.add('stars-inner')
+
+    // Ajustando o container das estrelas
+   
+
+    // Criando div user-comment 
+    const tagPUserComment = document.createElement('p')
+    tagPUserComment.classList.add('user-comment')
+  
+
+    let formatedText = text
+
+   
+    if (text.split('').length > 23 && window.innerWidth < 1000) {
+        formatedText = text.split('')
+        formatedText.splice(23, formatedText.length - 23)
+        
+        formatedText = `${formatedText.join('')}...`
+    } else if (text.split('').length > 28) {
+        formatedText = text.split('')
+        formatedText.splice(28, formatedText.length - 28)
+
+        formatedText = `${formatedText.join('')}...`
+    }
+
+    const tagPUserCommentText = document.createTextNode(formatedText)
+    tagPUserComment.appendChild(tagPUserCommentText)
+
+
+    /* Adicionando os valores das estrelas */
+
+    // Get porcentage
+    const starPercentage = (rating / 5) * 100
+
+    // Round to nearest 10
+    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
+
+    // Set width of stars-inner to percentage
+    tagDivStarsInner.style.width = starPercentageRounded
+
+   
+
+    // Adicionando imagem do lanche no tagDivLineUpDataFoodInteraction
+    tagDivLineUpDataFoodInteraction.appendChild(tagImg)
+
+    // Adicionando div aling left no tagDivLineUpDataFoodInteraction
+    tagDivLineUpDataFoodInteraction.appendChild(tagDivAlingLeft)
+
+    // Adicionando nome do lanche no tagDivAlingLeft 
+    tagDivAlingLeft.appendChild(tagH6)
+
+    // Adicionando estrelas no tagDivAlingLeft 
+    tagDivStarsOuter.appendChild(tagDivStarsInner)
+    tagDivContainerStar.appendChild(tagDivStarsOuter)
+    tagDivAlingLeft.appendChild(tagDivContainerStar)
+
+    // Adicionando tagDivLineUpDataFoodInteraction no tagDivCentering
+    tagDivCentering.appendChild(tagDivLineUpDataFoodInteraction)
+
+    // Adicionando tagPUserComment no tagDivCentering
+    tagDivCentering.appendChild(tagPUserComment)
+
+    // Adicionando tagDivCentering na tagA
+    tagA.appendChild(tagDivCentering)
+
+    // Adicionando o elemento  diretamente no html
+    foodContainer.appendChild(tagA)
+
+
+//     <a href="food.html" class="food">
+//     <div class="centering">
+       
+//        <div class="line-up-data-food-interaction">
+//             <img src="./public/images/hamburguer-example.svg">
+//             <div class="aling-left">
+                
+//                 <h6>Pizza catupirisssssssss s</h6>
+//                 <div>
+//                     <div class="stars-outer">
+//                         <div class="stars-inner"></div>
+//                     </div>
+//                 </div>
+
+//             </div>
+//        </div>
+
+//        <p class="user-comment">Bla bla BLA BLA bla bla bla bla bla </p>
+        
+//     </div>
+// </a>
+
+
+    
+})
+
+
+// location food 
+const foods = document.querySelectorAll(".slider-foods-intetactions .food")
+const foodLocationContainer = document.querySelector('.foods-intetactions-location')
+
+foods.forEach( () => {
+    // gerando bolinha no html
+    const createLocation = document.createElement('a')
+    foodLocationContainer.appendChild(createLocation)
+})
+
+const locationFood = document.querySelectorAll('.foods-intetactions-location a')
+
+locationFood.forEach( location => location.addEventListener('click', foodMarkedInteractions))
+
+document.querySelectorAll('.foods-intetactions-location a')[0].click()
 
 function foodMarkedInteractions(e) {
-    e.preventDefault()
-    const foods = document.querySelectorAll(".slider-foods-intetactions .food")
-    const locationFood = document.querySelectorAll('.foods-intetactions-location a')
+e.preventDefault()
+const foods = document.querySelectorAll(".slider-foods-intetactions .food")
+const locationFood = document.querySelectorAll('.foods-intetactions-location a')
 
-    foods.forEach( food => {
-        food.classList.remove('food-selected')
-    })
+foods.forEach( food => {
+    food.classList.remove('food-selected')
+})
 
-    locationFood.forEach( location => {
-        location.classList.remove('location-selected')
-    })
+locationFood.forEach( location => {
+    location.classList.remove('location-selected')
+})
 
-    e.target.classList.add('location-selected')
+e.target.classList.add('location-selected')
 
-    let indiceFoodSelected 
-    locationFood.forEach( (location, indice) => {
-        if(location.classList.contains('location-selected'))  {
-            
-            foods[indice].classList.add('food-selected')
-            indiceFoodSelected = indice
-        }
-    })
+let indiceFoodSelected 
+locationFood.forEach( (location, indice) => {
+    if(location.classList.contains('location-selected'))  {
+        
+        foods[indice].classList.add('food-selected')
+        indiceFoodSelected = indice
+    }
+})
 
-    const to = foods[indiceFoodSelected].offsetLeft
+const to = foods[indiceFoodSelected].offsetLeft
 
-    let sliderFoodInteractions = document.querySelector('.slider-foods-intetactions')
+let sliderFoodInteractions = document.querySelector('.slider-foods-intetactions')
 
-    sliderFoodInteractions.scroll({
-        left: to,
-        behavior: "smooth"
-    })
+sliderFoodInteractions.scroll({
+    left: to,
+    behavior: "smooth"
+})
 
-    isScrollInteractions = false
+isScrollInteractions = false
 
 }
 
 sliderFoodInteractions.addEventListener('scroll', markedLocationScrollFoodsInteractions)
 
 function markedLocationScrollFoodsInteractions() {
-    const foods = document.querySelectorAll(".slider-foods-intetactions .food")
-    const locationFood = document.querySelectorAll('.foods-intetactions-location a')
+const foods = document.querySelectorAll(".slider-foods-intetactions .food")
+const locationFood = document.querySelectorAll('.foods-intetactions-location a')
 
-    let windowLeft = sliderFoodInteractions.scrollLeft + ((window.innerWidth * 2 ) / 8)
-   
-    if (window.innerWidth >= 800) {
-        windowLeft = sliderFoodInteractions.scrollLeft + ((window.innerWidth * 2 ) / 17)
-    }
+let windowLeft = sliderFoodInteractions.scrollLeft + ((window.innerWidth * 2 ) / 8)
 
-    if (!isScrollInteractions) return 
+if (window.innerWidth >= 800) {
+    windowLeft = sliderFoodInteractions.scrollLeft + ((window.innerWidth * 2 ) / 17)
+}
 
-    // Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
-    foods.forEach( (food, indice) => {
+if (!isScrollInteractions) return 
 
-        if (windowLeft > food.offsetLeft) {
+// Eu me baseio na comida que está próximo a viewport pra marcar a localização nas bolinhas
+foods.forEach( (food, indice) => {
 
-            locationFood.forEach( location => {
-                location.classList.remove('location-selected')
-            } )
-           
-            locationFood[indice].classList.add('location-selected')
-        } 
-    })
+    if (windowLeft > food.offsetLeft) {
+
+        locationFood.forEach( location => {
+            location.classList.remove('location-selected')
+        } )
+       
+        locationFood[indice].classList.add('location-selected')
+    } 
+})
 }
 
 // Clicando na categoria request history pra dados serem apresentados na tela
+})()
+
 requestHistory.click()

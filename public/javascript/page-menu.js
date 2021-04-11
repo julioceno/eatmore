@@ -213,6 +213,7 @@ const categorieChicken = document.querySelector('.slider-categories .categorie:n
 const categorieFriedPastry = document.querySelector('.slider-categories .categorie:nth-child(4)') 
 const categorieDrinks = document.querySelector('.slider-categories .categorie:nth-child(5)') 
 const categorieFruits = document.querySelector('.slider-categories .categorie:nth-child(6)') 
+const categoriecandy = document.querySelector('.slider-categories .categorie:nth-child(7)') 
 
 function deselectingCategories() {
     categories.forEach( categorie => {
@@ -226,6 +227,7 @@ function deselectingCategories() {
     categorieFriedPastry.children[0].children[0].src = "./public/images/categories/fried-pastry.svg"
     categorieDrinks.children[0].children[0].src = "./public/images/categories/drinks.svg"
     categorieFruits.children[0].children[0].src = "./public/images/categories/fruits.svg"
+    categoriecandy.children[0].children[0].src = "./public/images/categories/candy.svg"
 
 }
 
@@ -363,6 +365,8 @@ categorieHamburguer.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood) titleCatergoryFood.innerHTML = 'Hambúrguers'
 
     e.preventDefault()
 })
@@ -383,7 +387,8 @@ categoriePizza.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
-   
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood) titleCatergoryFood.innerHTML = 'Pizzas'
     
 
     e.preventDefault()
@@ -414,6 +419,8 @@ categorieChicken.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood)  titleCatergoryFood.innerHTML = 'Frangos'
 
     e.preventDefault()
 })
@@ -442,7 +449,8 @@ categorieFriedPastry.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
-
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood)  titleCatergoryFood.innerHTML = 'Pastéis'
     e.preventDefault()
 })
 
@@ -477,6 +485,8 @@ categorieDrinks.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood) titleCatergoryFood.innerHTML = 'Bebidas'
 
     e.preventDefault()
 })
@@ -505,6 +515,27 @@ categorieFruits.addEventListener("click", e => {
     ]
 
     updatingFoodsClickingCategory()
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood)  titleCatergoryFood.innerHTML = 'Frutas'
+
+    e.preventDefault()
+})
+
+categoriecandy.addEventListener("click", e => {
+    deselectingCategories()
+
+    categoriecandy.classList.add('categorie-selected')
+
+    const img = categoriecandy.children[0].children[0]
+    img.src = "./public/images/categories/candy-focus.svg"
+
+    allFoods = [
+       
+    ]
+
+    updatingFoodsClickingCategory()
+    let titleCatergoryFood = document.getElementById('title-category-food')
+    if(titleCatergoryFood) titleCatergoryFood.innerHTML = 'Doces'
 
     e.preventDefault()
 })
@@ -559,7 +590,7 @@ function updatingFoodsClickingCategory() {
         sectionResultFoods.innerHTML = `
             <div class="without-occurrence">
             <img src="/public/images/empty-cart.svg" alt="Carrinho vazio">
-            <h6>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</h6>
+            <p>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</p>
             </div>
         `
         return
@@ -567,7 +598,7 @@ function updatingFoodsClickingCategory() {
         sectionResultFoods.innerHTML = `
         <div class="food-category-container">
 
-        <h5>Hamburguers</h5>
+        <h5 id="title-category-food"></h5>
 
         <div class="slider-foods"></div>
 
