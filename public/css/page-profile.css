@@ -153,24 +153,9 @@
     border: 1px solid var(--color-red-dark);
 }
 
-
-.section .filtering-option-container {
-    margin-top: clamp(3rem, 9vw, 8rem);
-    margin-left: clamp(2.5rem, 3vw, 8rem);
-}
-
-.section .filtering-option-container h5 {
-    font-family: var(--font-poppins);
-    font-weight: bold;
-
-    color: var(--color-black);
-    font-size: clamp(1.25rem, 2vw, 1.35rem);
-}
-
-
 /* slider food */
 .section .filtering-option-container {
-    margin-top: 4.3rem;
+    margin-top: clamp(4.3rem, 20vw, 8rem);
     margin-left: clamp(3rem, 4vw, 9rem);
 
     display: flex;
@@ -403,12 +388,15 @@
         margin-right: clamp(2rem, 5vw, 4rem);
     }
 
-    .section .options-container {
+    .section .options-container,
+    .section .filtering-option-container {
         margin-left: clamp(3rem, 6vw, 8rem);
     }
 
-    .section .options-container h5 {
+    .section .options-container h5,
+    .section .filtering-option-container h5 {
         font-size: clamp(1.5rem, 1.8vw, 1.7rem);
-    
     }
+
+  
 }

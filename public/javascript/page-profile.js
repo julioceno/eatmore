@@ -305,7 +305,6 @@ function foodMarked(e) {
     })
 
 
-
     e.target.classList.add('location-selected')
 
     let indiceFoodSelected 
@@ -358,3 +357,4 @@ function markedLocationScroll() {
         } 
     })
 }
+requestHistory.click()
