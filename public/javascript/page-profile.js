@@ -119,7 +119,7 @@ optionFavoriteFoods.addEventListener("click", e => {
         
     ]
 
-    updatingFoodsClickingCategoryFiltering("Você ainda não tem nenhuma comida favorita, para comidas aparecerem aqui você deve dar uma estrela entre 4 e 5 ")
+    updatingFoodsClickingCategoryFiltering("Você ainda não tem nenhuma comida favorita, para comidas aparecerem aqui você deve dar uma classifiação de estrelas entre 4 e 5 ")
 
     // Tem que ser aqui em baixo pois quando eu rodo a função updatingFoodsClickingCategoryFiltering ele vai remover o conteudo do h5
     let titleFiltering = document.getElementById('title-filtering')
@@ -407,130 +407,128 @@ pontas soltas
 (function() {
 
 // Slider food interactions
-// const allFoodsInteractions = [
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddd",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 5,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsa",
-
-//         value: 15.55
-//     },
-
-//     {
-//         categorie: "pizza",
-
-//         id: 1,
-//         img: './public/images/hamburguer-example.svg' ,
-//         name: 'Pizza',
-//         rating: 2,
-//         text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
-
-//         value: 15.55
-//     },
-// ]
-
 const allFoodsInteractions = [
-   
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sahd si,ahdiosa doihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddddoihsadddddddddddddddddddddddddddddddddddddd",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 5,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
+
+        value: 15.55
+    },
+
+    {
+        categorie: "pizza",
+
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
+
+        value: 15.55
+    },
 ]
+
+
 
 
 const sectionResultFoods = document.getElementById('section-result-foods-interactions')

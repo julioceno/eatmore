@@ -1,207 +1,13 @@
-const idFood = 1
-
-const imageMain = document.querySelector('.food main img')
-const foodName = document.querySelector('.food main div h4')
-const starRating = document.querySelector('.food main div .stars-outer .stars-inner')
-const foodsButtonsContainer = document.querySelector('.images')
-const foodsButtonsImgs = document.querySelectorAll('.images button img')
-const foodValue = document.querySelector('.food footer span')
-
-const allFoods = [
-    {
-        caregorie: 'hamburguer',
-        id: 1,
-        imgs: [
-            './public/images/hamburguer-example.svg',
-            './public/images/food-plate.svg',
-            './public/images/hamburguer-example.svg',
-            './public/images/food-plate.svg',
-        ] ,
-        name: 'hamburguer',
-        rating: 2,
-        value: 8.50,
-
-    },
-
-    {
-        caregorie: 'hamburguer',
-        id: 2,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Pastel2',
-        rating: 3,
-        value: 10.00
-    },
-
-    {
-        caregorie: 'hamburguer',
-        id: 3,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Salada de frutas3',
-        rating: 3,
-        value: 5.50
-    },
-
-    {
-        caregorie: 'hamburguer',
-        id: 4,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Salada de frutas4',
-        rating: 3,
-        value: 5.50
-    },
-
-    {
-        caregorie: 'hamburguer',
-        id: 5,
-        img: './public/images/hamburguer-example.svg' ,
-        name: 'Salada de frutas5',
-        rating: 3,
-        value: 5.50
-    },
-]
-
-allFoods.forEach( food => {
-    if ( food.id === idFood ) {
-        const imgs = food.imgs
-        imageMain.src = imgs[0]
-        foodName.innerHTML = food.name
-
-        /* Adicionando os valores das estrelas */
-
-        // Get porcentage
-        const starPercentage = (food.rating / 5) * 100
-
-        // Round to nearest 10
-        const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
-
-        // Set width of stars-inner to percentage
-        starRating.style.width = starPercentageRounded
-
-
-        imgs.forEach( (img, indice) => {
-            const elementButton = document.createElement('button')
-
-            const elementImg = document.createElement('img')
-            elementImg.src = img
-            elementImg.alt = `Imagem ${indice + 1}`
-
-
-            elementButton.appendChild(elementImg)
-            foodsButtonsContainer.appendChild(elementButton)
-        })
-
-        foodValue.innerHTML = `R$ ${food.value.toFixed(2).toString().replace('.', ',')}`
-
-    }
-})
-
-const foodsButtons = document.querySelectorAll('.images button')
-
-
-
-foodsButtons.forEach( button => {
-    
-    button.addEventListener('click', event => {
-        const currentImage = event.currentTarget
-        const src = event.target.src
-
-        foodsButtons.forEach( button => {
-            button.classList.remove('active')
-        })
-
-        currentImage.classList.add('active')
-
-        imageMain.src = src
-    })
-})
-
-function addFoodList() {
-    const id = 1
-
-
-
-    let idNewFood
-    allFoods.forEach( (food, indice) => {
-        if (food.id === id) idNewFood = food
-    })
-
-
-    // Se o id que vier da url não for encontrado na lista de alimentos eu não vou 
-    // prosseguir com a execução da função
-    if (!idNewFood) return
-
-
-    // Se o localstorage chosenFoods ainda não existir vamos criar ele
-    if (!localStorage.chosenFoods) {
-        localStorage.chosenFoods = JSON.stringify([ { id, amount: 1} ])
-        calculatingValueTotal()
-        generateNewFoods()
-        return
-    }
-    const chosenFoods = JSON.parse(localStorage.chosenFoods)
-
-
-    // Aqui eu verifico se a comida que ele está escolhendo está no carrinho de compras
-    let foodAlreadyExsts
-    chosenFoods.forEach( food => {
-        if (food.id === id)  foodAlreadyExsts = true
-    })
-
-
-
-    let amountOfChosenFoodsUpdated 
-    if (foodAlreadyExsts) {
-        amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
-            if (food.id === id) {
-                const newAmount = food.amount + 1
-                food.amount = newAmount
-            }
-
-            return food
-        })
-    } else {
-        amountOfChosenFoodsUpdated = chosenFoods.map( (food, indice) => {
-            if (food.id === id) {
-                const newAmount = food.amount + 1
-                food.amount = newAmount
-            }
-
-            return food
-        })
-
-        amountOfChosenFoodsUpdated.push({
-            id, 
-            amount: 1
-        })
-
-    }
-
-
-    localStorage.chosenFoods = JSON.stringify(amountOfChosenFoodsUpdated)
-
-
-    // criando animação de adicionar ao carrinho
-    const popUpFoodAdded = document.querySelector('.pop-up-food-added')
-
-    popUpFoodAdded.classList.remove('animate-food-added-appear')
-    popUpFoodAdded.classList.add('animate-food-added-appear')
-
-    
-    setTimeout( () => popUpFoodAdded.classList.remove('animate-food-added-appear'), 780) 
-    
-    calculatingValueTotal()
-    generateNewFoods()
-}
 
 // avaliação
 
 const userData = {
 
     avaliation: {
-        rating: 4,
-        // text: 'Eu acho muito dahora e pa tlgd? e assim vai o role'
+        rating: 2.4,
+        text: 'Eu acho muito dahora e pa tlgd? e assim vai o role'
         }
-    }
+}
  
 const avaliationContainer = document.querySelector('.your-evaluation-container')
 
@@ -225,8 +31,11 @@ if (userData.avaliation.rating && userData.avaliation.text) {
 
     </form>`
 
+
+
     avaliationContainer.innerHTML = html
 
+    
     /* Adicionando os valores das estrelas */
 
     // Get porcentage
@@ -238,7 +47,7 @@ if (userData.avaliation.rating && userData.avaliation.text) {
     // Set width of stars-inner to percentage
     document.querySelector('.stars-inner').style.width = starPercentageRounded
 } else {
-    const html= `<h3>O que acha de <strong>avaliar</strong> este prato?</h3>
+    const html= `<h3>Chegou na hora de você avaliar o nosso atendimento</h3>
           
     <form action="" method="POST" onsubmit="validate(event)" enctype="multipart/form-data"> <!-- Ficar ligado -->
         <div class="stars-container">

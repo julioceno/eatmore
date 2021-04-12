@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="./public/css/main.css">
     <link rel="stylesheet" href="./public/css/utils.css">
     <link rel="stylesheet" href="./public/css/animations.css">
-    <link rel="stylesheet" href="./public/css/page-menu.css">
+    <link rel="stylesheet" href="./public/css/pop-up.css">
+    <link rel="stylesheet" href="./public/css/page-feedback.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" crossorigin="anonymous"/>
-
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 </head>
-<body id="page-menu">
+<body id="page-food">
 <div id="container">
     <header class="header">
 
@@ -34,12 +34,11 @@
         </div>
 
         <nav class="nav">
-
             <a href="./menu.html">
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <p>Perfil</p>
             </a>
             
@@ -62,11 +61,9 @@
 
         </nav>
       
-
-        <a class="profile" href="#">
+        <a class="profile" href="./profile.html">
             <img src="./public/images/doka.png" alt="perfil">
         </a>
-
     </header>
 
     <aside class="menu-options animate-appear-menu ">
@@ -78,7 +75,7 @@
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <img src="./public/images/menu-profile.svg" alt="menu-profile">
 
                 <p>Perfil</p>
@@ -128,108 +125,43 @@
 
 
     <section class="section">
-        
-        <h3>Escolha a comida <strong> que você mais ama </strong> </h3>
-        
-        <div class="wrapper">
-            <div class="search-container">
-                <input class="search-bar" type="text" placeholder="Procure o que você gosta">
-                <div class="autocom-box"></div>
-            </div>
        
-          
-        </div>
-
-        
-
         <main>
+            <div class="your-evaluation-container"></div>
 
-            <div class="categories-container">
+            <div class="social-networks">
 
-                <h5>Categorias</h5>
+              <h4>Também estamos disponiveis em</h4> 
+              
+              <nav>
+                <a href="">
+                    <img src="./public/images/social-media-facebook-2.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="./public/images/social-media-whatsapp-2.svg" alt="">
+                </a>
 
-                <div class="slider-categories">
+                <a href="">
+                    <img src="./public/images/social-media-instagram-2.svg" alt="">
+                </a>
 
-                    <a href="" class="categorie">
-                        
-                        <div class="centering">
-                            <img src="./public/images/categories/hamburguer.svg" alt=""> Hambúrguer
-                        </div>
-                      
-                    </a>
-
-                    <a href="" class="categorie">
-
-                        <div class="centering">
-
-                            <img src="./public/images/categories/pizza.svg" alt=""> Pizza
-
-                        </div>
-                        
-                      
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-
-                            <img src="./public/images/categories/chicken.svg" alt=""> Frango
-
-                        </div>
-
-                     
-                    </a>
-
-                    <a href="" class="categorie">
-
-                        <div class="centering">
-
-                            <img src="./public/images/categories/fried-pastry.svg" alt="">  Pastel
-
-                        </div>
-
-                  
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-                            <img src="./public/images/categories/drinks.svg" alt=""> Bebidas
-                        </div>
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-                            <img src="./public/images/categories/fruits.svg" alt=""> Frutas
-                        </div>
-                    </a>
-
-                    <a href="" class="categorie">
-                        <div class="centering">
-                            <img src="./public/images/categories/candy.svg" alt=""> Doces
-                        </div>
-                    </a>
-                </div>
+                <a href="">
+                    <img src="./public/images/social-media-location-2.svg" alt="">
+                </a>
+              </nav>
+         
             </div>
+      </main>
 
+      <div class="other-reviews">
+        <h3>Outras avaliações</h3>
+        <div class="line-up-grid-reviews">
             
-            <div id="section-result-foods">
-
-                <div class="food-category-container">
-
-                    <h5 id="title-category-food"></h5>
-            
-                    <div class="slider-foods"></div>
-            
-                    <div class="foods-location"></div>
-            
-                </div>
-                
-            </div>
-           
-
-        </main>
-        
+        </div>
+    </div>
 
     </section>
+
 
 
     <button type="button"  onclick="appearPurchasingCar()" class="purchasing-button">
@@ -239,29 +171,7 @@
     <aside class="purchasing-car animate-appear-purchasing-car">
         <h5>Isso é o que você escolheu até agora</h5>
     
-        <div class="chosenFoods">
-<!--            
-            <div class="food">
-                <main>
-                    <img src="./public/images/hamburguer-example.svg" alt="">
-                    <h6>Zinger burguer</h6>
-                </main>
-             
-                
-                <div class="amount-this-food">
-                    <button> 
-                        <img src="./public/images/amount-arrow-left.svg" alt="Adicionar">
-                    </button>
-                    <div class="amount">23</div>
-                    <button> 
-                        <img src="./public/images/amount-arrow-right.svg" alt="Remover">
-                    </button>
-                </div>
-
-            </div> -->
-
-
-        </div>
+        <div class="chosenFoods"></div>
 
         <button href="aa" class="finish-buy"> Prosseguir </button>
 
@@ -274,10 +184,17 @@
         </footer>
     </aside>
 
+    <div class="pop-up-food-added animate-food-added">
+        <p>Comida adicionada</p>
+    </div>
+
+    <div class="pop-up-container">
+     
+    </div>
 
 </div>
 </body>
 <script src="./public/javascript/utils.js"></script>
-<script src="./public/javascript/page-menu.js"></script>
+<script src="./public/javascript/page-feedback.js"></script>
 </html>
 

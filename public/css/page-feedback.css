@@ -11,7 +11,6 @@
 
 .section {
     flex-shrink: 1;
-    padding-top: clamp(3rem, 8vw, 11rem);
     padding-bottom: 10rem;
 
     height: 100%;
@@ -20,206 +19,18 @@
     flex-direction: column;
 }
 
-.section .section-food {
+.section main {
     display: flex;
-    align-items: center;
     flex-direction: column;
-}
-
-.section .section-food .food {
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 25rem;
-    max-width: 42rem;
-    width: 75vw;
-    
-    min-height: 25rem;
-    max-height: 30rem;
-    height: 47vw;
-
-
-    padding: 1rem 0 0;
- 
-
-    background: #fbfaff;
-    box-shadow: 0px .8px 15px rgba(183, 183, 229, 0.3);
-    border-radius: 34px;
-
-} 
-
-
-.section .section-food .food  main {
-    width: 100%;
-    margin-top: 3rem;
-
-    display: flex;
     align-items: center;
-    word-break: break-all;
-
-    margin-left: 2rem;
-}
-
-.section .section-food .food  hr {
-    border: none;
-
-    border-bottom: .50rem solid var(--color-grey);
-    width: 80%;
-
-    margin-top: .8rem;
-
-    align-self: center;
-}
-
-.section .section-food .food  main img {
-    height: clamp(7rem, 10vw, 10rem);
-    width: clamp(11rem, 10vw, 14rem);
-    align-self: center;
-}
-
-.section .section-food .food  main h4 {
-    font-family: var(--font-poppins);
-    font-size: clamp(1.5rem, 2.3vw, 2rem);
-
-    margin-top: 1rem;
-
-    margin-right: 3rem;
-}
-
-
-.section .section-food .food  main .stars-container {
-    margin-top: .3rem;
-}
-
-.section .section-food .food  main .stars-outer {
-    position: relative;
-    display: inline-block;
-
-}
-
-.section  .section-food .food main .stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-
-    width: 20%;
-}
-
-.section .section-food .food  main .stars-outer::before {
-    content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 300;
-    color: #FFE120;
-    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-}
-
-.section  .section-food .food main .stars-inner::before {
-    content: "\f005 \f005 \f005 \f005 \f005 ";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: #FFE120;
-    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-}
-
-.section  .section-food .food .images {
-    display: flex;
-
-    margin-top: clamp(1.3rem, 3vw, 2rem);
-
-    overflow-y: hidden;
-    overflow-x: scroll;
-    width: 85%;
-
-    align-self: center;
-}
-
-.section  .section-food .food .images::-webkit-scrollbar {
-    height: .35rem;
-}
-
-.section  .section-food .food .images::-webkit-scrollbar-thumb {
-   border-radius: 1rem;
-
-    background-color: var(--color-black);
-}
-
-.section  .section-food .food .images button {
-    background: none;
-    border: none;
-
-    outline: none;
-}
-
-.section  .section-food .food .images button.active {
-    opacity: .5;
-
-}
-
-.section  .section-food .food .images button + button {
-    margin-left: clamp(.5rem, 2vw, .8rem);
-}
-
-.section  .section-food .food .images button img {
-    height: clamp(4.4rem, 5.8vw, 7rem);
-}
-
-.section  .section-food .food footer {
-    align-self: flex-end;
-
-    margin-top: clamp(.5rem, 3vw, 5rem);
-    margin-bottom: 1rem;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-family: var(--font-poppins);
-
-    width: 85%;
-    align-self: center;
-
-}
-
-.section  .section-food .food footer button {
-    text-decoration: none;
-    background: none;
-    border: none;
-
-    width: clamp(12.8rem, 27vw, 17rem);
-    height: clamp(3rem, 16vw, 4rem);
-
-    background: var(--color-red-dark);
-    border-radius: 3rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-weight: 600;
-    font-size: clamp(1.05rem, 2.1vw, 1.35rem);
-    color: var(--color-white);
-
-    outline: none;
-}
-
-.section  .section-food .food footer button:hover {
-    background-color: var(--color-red-button-hover);
-}
-
-.section  .section-food .food footer span.value {
-
-    font-weight: 700;
-    font-size: clamp(1.8rem, 5vw, 2.3rem);
-    color: var(--color-black);
 }
 
 /* evaluation */
 
+
+
 .your-evaluation-container {
-    margin-top: 5rem;
+    margin-top: 7rem;
 
     display: flex;
     flex-direction: column;
@@ -229,19 +40,15 @@
     color: var(--color-black);
     font-family: var(--font-poppins);
     font-weight: 400;
-    font-size: clamp(1.7rem, 3vw, 3.2rem);
+    font-size: clamp(1.7rem, 3.2vw, 4rem);
 
-    width: clamp(25rem, 42vw, 50rem);
-}
-
-.your-evaluation-container h3 strong {
-    font-weight: 700;
+    width: clamp(25rem, 46vw, 60rem);
 }
 
 .your-evaluation-container form  {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: clamp(1rem, 2vw, 2rem);
 
 }
 
@@ -260,7 +67,7 @@
     font-weight: 300;
     color: #FFE120;
     
-    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 
     transition: all .2 ease;
 }
@@ -269,7 +76,6 @@
 .stars-container input:not(:checked) ~ label:hover ~ label {
     font-weight: 900;
 }
-
 
 .stars-container input:checked ~ label {
     font-weight: 900;
@@ -287,15 +93,15 @@
     background: none;
     resize: none;
 
-    margin-top: clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(1rem, 2vw, 2rem);
 
     font-family: var(--font-poppins);
     color: var(--color-grey);
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
 
     outline: none;
 
-    width: clamp(25rem, 36vw, 35rem);
+    width: clamp(25rem, 40vw, 53rem);
 
 
     overflow-y: hidden;
@@ -305,10 +111,10 @@
 .your-evaluation-container form input[type="submit"] {
     border: none;
 
-    margin-top: 1.5rem;
+    margin-top: clamp(1.5rem, 2vw, 2.4rem);
 
-    width: clamp(12.8rem, 23vw, 17rem);
-    height: clamp(3rem, 14vw, 4rem);
+    width: clamp(13rem, 24vw, 20rem);
+    height: clamp(3rem, 10vw, 4.8rem);
 
     background: var(--color-red-dark);
     border-radius: 2.3rem;
@@ -318,7 +124,7 @@
     justify-content: center;
 
     font-weight: 600;
-    font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+    font-size: clamp(1.2rem, 2.25vw, 1.65rem);
     color: var(--color-white);
 
     outline: none;
@@ -329,8 +135,7 @@
 
 }
 
-/* exibindo comentário */
-
+/* Exibindo comentário */
 .your-evaluation-container .stars-outer {
     position: relative;
     display: inline-block;
@@ -351,7 +156,7 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 300;
     color: #FFE120;
-    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .your-evaluation-container .stars-inner::before {
@@ -359,21 +164,59 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     color: #FFE120;
-    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+
 }
 
 .your-evaluation-container .comment {
-    margin-top: 1rem;
+    margin-top: clamp(1rem, 2vw, 2rem);
 
     font-family: var(--font-poppins);
     color: var(--color-grey);
-    font-size: 1.5rem;
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
 
 
     display: flex;
-    width: clamp(25rem, 36vw, 35rem);
+    width: clamp(25rem, 40vw, 53rem);
+
 }
 
+.social-networks {
+    align-self: flex-start;
+
+    
+    margin-top: clamp(2rem, 8vw, 6rem);
+    margin-left: clamp(2.3rem, 10vw, 6rem);
+}
+
+.social-networks h4 {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.4vw, 2.3rem);
+    margin-bottom: 1rem;
+    
+    color: var(--color-black);
+
+}
+
+.social-networks nav {
+    margin-left: clamp(.5rem, 1vw, 11.5rem);
+}
+
+.social-networks a + a {
+    margin-left: clamp(.3rem, 2vw, .8rem);
+}
+
+.social-networks a {
+    text-decoration: none;
+}
+
+.social-networks a img {
+    height: clamp(2rem, 3vw, 2.8rem);
+}
+
+
+/* Avaliações de outros usuários */
 .other-reviews {
     display: flex;
     flex-direction: column;
@@ -436,7 +279,6 @@
     display: flex;
     margin-bottom: .5rem;
     align-self: flex-start;
-
 }
 
 
@@ -481,7 +323,9 @@
 .other-reviews .evaluation-container .user-comment {
     color: var(--color-grey-font);
     font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+    align-self: flex-start;
 }
+
 
 @media(min-width: 400px) {
     .your-evaluation-container {
@@ -491,71 +335,8 @@
     }
 }
 
+
 @media(min-width: 580px) {
-
-    .section .section-food .food {
-        max-width: 60rem;
-        width: 75vw;
-        
-        max-height: 38rem;
-        height: 47vw;
-    
-
-        align-self: flex-start;
-        margin-left: clamp(4rem, 7vw, 7rem);
-    
-    } 
-
-    .section .section-food .food  main img {
-        height: clamp(7rem, 12vw, 10rem);
-        width: clamp(11rem, 12vw, 14rem);
-    }
-
-    .section .section-food .food  main h4 {
-        font-size: clamp(1.8rem, 2.3vw, 2.3rem);
-    }
-
-    .section .section-food .food  hr {
-        border-bottom: .50rem solid var(--color-grey);
-        margin-top: 1.8rem;
-    }
-
-    .section  .section-food .food .images {
-        margin-top: clamp(1.3rem, 3vw, 2rem);
-        width: 85%;
-    }
-
-    
-
-    .section  .section-food .food .images button img {
-        height: clamp(5rem, 8vw, 6rem);
-    }
-
-    .section  .section-food .food footer {
-        margin-top: clamp(.9rem, 4vw, 7rem);
-    }
-
-    .section  .section-food .food footer button {
-        width: clamp(12.8rem, 27vw, 19rem);
-        height: clamp(3rem, 16vw, 4.5rem);
-
-        font-size: clamp(1.20rem, 2.4vw, 1.45rem);
-    }
-
-    .section  .section-food .food footer span.value {
-
-        font-size: clamp(1.8rem, 5vw, 3.5rem);
-    }
-
-
-    .your-evaluation-container form input[type="submit"] {
-        margin-top: 2.5rem;
-    
-        width: clamp(12.8rem, 27vw, 19rem);
-        height: clamp(3rem, 16vw, 4.5rem);
-
-        font-size: clamp(1.20rem, 2.4vw, 1.6rem);
-    }
 
     .your-evaluation-container {
         margin-top: 13rem;
@@ -563,16 +344,11 @@
     }
 
     .other-reviews h3 {
-    
         align-self: flex-start;
         margin-left: clamp(5rem, 6vw, 12rem);
 
         margin-bottom: 6rem;
     }
-
-   
-
-    
 }
 
 @media(min-width: 1200px) {
