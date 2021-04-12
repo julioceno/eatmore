@@ -589,7 +589,7 @@ function updatingFoodsClickingCategory() {
     if(!allFoods.length) {
         sectionResultFoods.innerHTML = `
             <div class="without-occurrence">
-            <img src="/public/images/empty-cart.svg" alt="Carrinho vazio">
+            <img src="./public/images/empty-cart.svg" alt="Carrinho vazio">
             <p>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</p>
             </div>
         `
