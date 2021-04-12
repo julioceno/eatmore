@@ -241,7 +241,6 @@ categorieHamburguer.addEventListener("click", e => {
     const img = categorieHamburguer.children[0].children[0]
     img.src = "./public/images/categories/hamburguer-focus.svg"
 
-
     allFoods = [
         {
             categorie: "hamburguer",
@@ -368,6 +367,7 @@ categorieHamburguer.addEventListener("click", e => {
     let titleCatergoryFood = document.getElementById('title-category-food')
     if(titleCatergoryFood) titleCatergoryFood.innerHTML = 'Hambúrguers'
 
+
     e.preventDefault()
 })
 
@@ -399,7 +399,6 @@ categorieChicken.addEventListener("click", e => {
     deselectingCategories()
 
     categorieChicken.classList.add('categorie-selected')
-
 
     const img = categorieChicken.children[0].children[0]
     img.src = "./public/images/categories/chicken-focus.svg"
@@ -542,6 +541,8 @@ categoriecandy.addEventListener("click", e => {
 
 // slider food
 let sliderFood = document.querySelector('.slider-foods')
+
+
 let isScroll = true
 
 
@@ -555,6 +556,7 @@ sliderFood.addEventListener('mousedown', element => {
     isDownFood = true 
     startXFood = element.pageX - sliderFood.offsetLeft
     scrollLeftFood = sliderFood.scrollLeft
+
 })
 
 sliderFood.addEventListener('mouseleave', () => {
@@ -564,6 +566,7 @@ sliderFood.addEventListener('mouseleave', () => {
 
 sliderFood.addEventListener('mouseup', () => {
     isDownFood = false
+
 })
 
 sliderFood.addEventListener('mousemove', element => {
@@ -584,28 +587,14 @@ sliderFood.addEventListener('touchmove', () => {
 
 function updatingFoodsClickingCategory() {
 
-
     const sectionResultFoods = document.getElementById('section-result-foods')
     if(!allFoods.length) {
-        sectionResultFoods.innerHTML = `
-            <div class="without-occurrence">
-            <img src="./public/images/empty-cart.svg" alt="Carrinho vazio">
-            <p>Até o momento não temos nada desta categoria, deixe suas sugestões nas nossas redes sociais ou se preferir vá até a área de feedback e deixe sua sugestão</p>
-            </div>
-        `
+        document.querySelector('.without-occurrence').style.display = "flex"
+        document.querySelector('.food-category-container').style.display = "none"
         return
     } else {
-        sectionResultFoods.innerHTML = `
-        <div class="food-category-container">
-
-        <h5 id="title-category-food"></h5>
-
-        <div class="slider-foods"></div>
-
-        <div class="foods-location"></div>
-
-    </div>
-        `
+        document.querySelector('.without-occurrence').style.display = "none"
+        document.querySelector('.food-category-container').style.display = "flex"
     }
 
     // Removendo os alimentos da categoria selecionada anteriormente

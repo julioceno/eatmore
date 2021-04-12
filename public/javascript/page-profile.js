@@ -165,35 +165,52 @@ sliderFoodFiltering.addEventListener('touchmove', () => {
    isScrollInteractions = true
 
 })
+  // if(!allFoods.length) {
+    //     sectionResultFoods.innerHTML = `
+    //         <div class="without-occurrence">
+    //         <h5 id="title-filtering"></h5>
 
+    //         <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
+    //         <p>${message}</p>
+    //         </div>
+    //     `
+    //     return
+    // } else {
+
+    //     sectionResultFoods.innerHTML = `
+    //     <div class="filtering-option-container">
+
+    //     <h5 id="title-filtering"></h5>
+
+    //     <div class="slider-filtering-foods"></div>
+
+    //     <div class="foods-filtering-location"></div>
+
+    // </div>
+    //     `
+    // }
 
 function updatingFoodsClickingCategoryFiltering(message) {
 
     const sectionResultFoods = document.getElementById('section-result-foods-filtering')
+  
+
     if(!allFoods.length) {
-        sectionResultFoods.innerHTML = `
-            <div class="without-occurrence">
-            <h5 id="title-filtering"></h5>
-
-            <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
-            <p>${message}</p>
-            </div>
-        `
-        return
-    } else {
 
         sectionResultFoods.innerHTML = `
-        <div class="filtering-option-container">
-
+        <div class="without-occurrence">
         <h5 id="title-filtering"></h5>
 
-        <div class="slider-filtering-foods"></div>
-
-        <div class="foods-filtering-location"></div>
-
-    </div>
+        <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
+        <p>${message}</p>
+        </div>
         `
-    }
+        document.querySelector('.filtering-option-container').style.display = "none"
+       return
+   } else {
+    if (document.querySelector('.without-occurrence')) document.querySelector('.without-occurrence').remove()
+    document.querySelector('.filtering-option-container').style.display = "flex"
+   }
 
     // Removendo os alimentos da categoria selecionada anteriormente
     document.querySelectorAll(".slider-filtering-foods .food").forEach( (food) => {
@@ -503,60 +520,39 @@ const allFoodsInteractions = [
     //     value: 15.55
     // },
 
-    // {
-    //     categorie: "pizza",
+    {
+        categorie: "pizza",
 
-    //     id: 1,
-    //     img: './public/images/hamburguer-example.svg' ,
-    //     name: 'Pizza',
-    //     rating: 2,
-    //     text: "sakhd siahdiosa doihsa",
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsa",
 
-    //     value: 15.55
-    // },
+        value: 15.55
+    },
 
-    // {
-    //     categorie: "pizza",
+    {
+        categorie: "pizza",
 
-    //     id: 1,
-    //     img: './public/images/hamburguer-example.svg' ,
-    //     name: 'Pizza',
-    //     rating: 2,
-    //     text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
+        id: 1,
+        img: './public/images/hamburguer-example.svg' ,
+        name: 'Pizza',
+        rating: 2,
+        text: "sakhd siahdiosa doihsadddddddddddddddddddddddddddddddddddddd",
 
-    //     value: 15.55
-    // },
+        value: 15.55
+    },
 ]
 
 
-
-
-const sectionResultFoods = document.getElementById('section-result-foods-interactions')
 if(!allFoodsInteractions.length) {
-    sectionResultFoods.innerHTML = `
-        <div class="without-occurrence">
-       <h5>Onde você já interagiu</h5>
-
-        <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
-        <p>Você não tem um histórico de comidas onde você interagiu</p>
-        </div>
-    `
+     document.querySelector('.without-occurrence').style.display = "flex"
+        document.querySelector('.interactions-container').style.display = "none"
     return
 } else {
-
-    sectionResultFoods.innerHTML = `
-    <div class="interactions-container">
-
-    <h5>Onde você já interagiu</h5>
-
-    <div class="slider-foods-intetactions">
-
-    </div>
-
-    <div class="foods-intetactions-location"></div>
-
-</div>
-    `
+    document.querySelector('.without-occurrence').style.display = "none"
+    document.querySelector('.interactions-container').style.display = "flex"
 }
 
 let sliderFoodInteractions = document.querySelector('.slider-foods-intetactions')

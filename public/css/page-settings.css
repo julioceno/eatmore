@@ -1,0 +1,114 @@
+#page-settings {
+    background:#F7FCFF;
+    height: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.section {
+    flex-shrink: 1;
+    padding-top: clamp(3rem, 8vw, 11rem);
+    padding-bottom: 10rem;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.section h2 {
+    font-family: var(--font-poppins);
+    margin-left: clamp(3rem, 2vw, 4rem);
+    margin-bottom: clamp(2rem, 2vw, 4rem);
+    color: var(--color-black);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+form.user-data {
+    background-color: var(--color-white);
+
+    min-width: 25rem;
+    width: 70vw;
+    height: 426px;
+
+    box-shadow: 0px 5px 8px rgba(174, 182, 222, 0.3);
+    border-radius: 25px;
+
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+
+    padding: 2rem 1.2rem 2rem;
+}
+
+form.user-data h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    margin-bottom: clamp(2rem, 2vw, 4rem);
+
+}
+
+form.user-data .input-block + .input-block {
+    margin-top: 2rem;
+}
+
+form.user-data .input-block.underlining {
+    border-bottom: 1px solid var(--color-grey);
+    padding: 0 0 .2rem;
+    
+}   
+
+form.user-data .input-block  h5 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1rem, 1.2vw, 1.5rem);
+
+}
+
+
+form.user-data .input-block .line-up-user-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.user-data .input-block .line-up-user-data .button-edit {
+    background:none;
+    border: none;
+
+    font-size: 1.2rem;
+    height: 2rem;
+
+    color: #78C4D4;
+
+    align-self: flex-end;
+
+    outline: none;
+}
+
+form.user-data .input-block .line-up-user-data .button-edit:focus {
+    text-decoration: underline  #78C4D4;
+}
+
+form.user-data .input-block:nth-child(2) {
+
+}
+
+form.user-data .input-block:nth-child(2) img {
+    height: 4rem;
+    width: 4rem;
+
+    border-radius: 50%;
+}
+
+form.user-data .input-block:nth-child(6) {
+    display: flex;
+    justify-content: center;
+}
+
+form.user-data .input-block input[type="submit"] {
+    border: none;
+    background: none;
+}

@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 </head>
-<body id="page-food">
+<body id="page-profile">
 <div id="container">
     <header class="header">
 
@@ -38,12 +38,12 @@
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <p>Perfil</p>
             </a>
             
 
-            <a href="./feedback.html">
+            <a href="">
                 <p>Feedback</p>
             </a>
 
@@ -78,14 +78,14 @@
                 <p>Home</p>
             </a>
 
-            <a href="./profile.html">
+            <a href="">
                 <img src="./public/images/menu-profile.svg" alt="menu-profile">
 
                 <p>Perfil</p>
             </a>
             
 
-            <a href="./feedback.html">
+            <a href="">
                 <img src="./public/images/menu-feedback.svg" alt="menu-feedback">
                 
                 <p>Feedback</p>
@@ -140,8 +140,6 @@
        </main>
        
 
-       
-
        <div class="options-container">
         <!-- <div class="categories-container"> -->
 
@@ -168,7 +166,6 @@
 
         </div>
 
-        <div id="section-result-foods-filtering">
             
             <div class="filtering-option-container">
 
@@ -179,17 +176,16 @@
                 <div class="foods-filtering-location"></div>
 
             </div>
-
-        </div>
+            
+            <div id="section-result-foods-filtering"></div>
         
-        <div id="section-result-foods-interactions">
+           
             <div class="interactions-container">
-
                 <h5>Onde você já interagiu</h5>
 
                 <div class="slider-foods-intetactions">
 
-                    <a href="food.html" class="food">
+                    <!-- <a href="food.html" class="food">
                         <div class="centering">
                         
                         <div class="line-up-data-food-interaction">
@@ -209,7 +205,7 @@
                         <p class="user-comment">Bla bla BLA BLA bla bla bla bla bla </p>
                             
                         </div>
-                    </a>
+                    </a> -->
 
 
                 </div>
@@ -217,7 +213,15 @@
                 <div class="foods-intetactions-location"></div>
 
             </div>
-    </div>
+           
+            <div id="section-result-foods-interactions">
+                <div class="without-occurrence">
+                    <h5>Onde você já interagiu</h5>
+            
+                    <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
+                    <p>Você não tem um histórico de comidas onde você interagiu</p>
+                </div>
+            </div>
 
     </section>
 
@@ -257,3 +261,26 @@
 <script src="./public/javascript/page-profile.js"></script>
 </html>
 
+
+<!-- 
+if(!allFoods.length) {
+
+    console.log('não tem nada')
+    sectionResultFoods.innerHTML = `
+    <div class="without-occurrence">
+    <h5 id="title-filtering"></h5>
+
+    <img src="./public/images/without-occurrence.svg" alt="Carrinho vazio">
+    <p>${message}</p>
+    </div>
+    `
+    document.querySelector('.filtering-option-container').style.display = "none"
+
+    return
+} else {
+
+console.log('tem sim')
+
+if (document.querySelector('.without-occurrence')) document.querySelector('.without-occurrence').remove()
+document.querySelector('.filtering-option-container').style.display = "flex"
+} -->
