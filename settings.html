@@ -133,12 +133,12 @@
         <form action="" class="user-data">
             <h3>Dados pessoais</h3>
             
-            <div class="input-block underlining">
+            <div class="input-block underlining ">
                 <h5>Foto de perfil</h5>
                 <div class="line-up-user-data">
                     <img src="./public/images/doka.png" alt="">
 
-                    <input type="button" value="Editar" class="button-edit">
+                    <input onclick="editProfileImg(event)" id="edit-profile-img" type="button" value="Editar" class="button-edit">
                 </div>
             </div>
 
@@ -147,17 +147,17 @@
                 <div class="line-up-user-data">
                     <p>Sidoka dos djongas</p>
 
-                    <input type="button" value="Editar" class="button-edit">
+                    <input onclick="editName(event)" type="button" value="Editar" class="button-edit">
                 </div>
               
             </div>
 
             <div class="input-block underlining">
-                <h5>Número</h5>
+                <h5>Número de telefone</h5>
                 <div class="line-up-user-data">
                     <p>(22) 938379463</p>
 
-                    <input type="button" value="Editar" class="button-edit">
+                    <input onclick="editTelephoneNumber(event)" type="button" value="Editar" class="button-edit">
                 </div>
               
             </div>
@@ -165,16 +165,16 @@
             <div class="input-block underlining">
                 <h5>Endereço</h5>
                 <div class="line-up-user-data">
-                    <p>Rua dos dokas, próximo ao bairro do dj Onga número 21 LT 72 QD 92</p>
+                    <p>Rua dos dokas, próximo ao ddddddddddddddddddddddddddddbairro do dj Onga número 21 LT 72 QD 92</p>
 
-                    <input type="button" value="Editar" class="button-edit">
+                    <input onclick="editUserAddress(event)" type="button" value="Editar" class="button-edit">
                 </div>
               
             </div>
 
 
             <div class="input-block">
-                <input type="submit" value="Salvar alterações">
+                <input id="submit-send-form-user-data" type="submit" value="Salvar alterações">
             </div>
 
         </form>
@@ -213,6 +213,6 @@
 </div>
 </body>
 <script src="./public/javascript/utils.js"></script>
-<script src="./public/javascript/page-profile.js"></script>
+<script src="./public/javascript/page-settings.js"></script>
 </html>
 
