@@ -162,16 +162,16 @@ function editTelephoneNumber(event) {
     // RegExp
     const inputTelephoneNumber = document.getElementById('input-telephone-number');
 
-    inputTelephoneNumber.addEventListener('keypress', () => {
-        alert('ola')
-        if(inputTelephoneNumber.value.length == 0) {
-            inputTelephoneNumber.value += "("
-        };
+    // inputTelephoneNumber.addEventListener('keypress', () => {
+    //     alert('ola')
+    //     if(inputTelephoneNumber.value.length == 0) {
+    //         inputTelephoneNumber.value += "("
+    //     };
 
-        if(inputTelephoneNumber.value.length == 3) {
-            inputTelephoneNumber.value += ") "
-        };
-    });
+    //     if(inputTelephoneNumber.value.length == 3) {
+    //         inputTelephoneNumber.value += ") "
+    //     };
+    // });
 
     inputTelephoneNumber.addEventListener('keyup', () => {
         alert('ola')
@@ -200,9 +200,7 @@ function editTelephoneNumber(event) {
             
             `
 
-            if (inputTelephoneNumber.value.length === 14) {
-                newUserData.telephoneNumber = inputTelephoneNumberValue
-            }
+            newUserData.telephoneNumber = inputTelephoneNumberValue
 
             validateSendFormUserData()
         } else {
