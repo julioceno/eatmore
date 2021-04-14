@@ -63,6 +63,49 @@
 }
 
 
+@keyframes request-show-more {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-100px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+   
+}
+
+.animate-request-show-more {
+    animation-name: request-show-more;
+    animation-fill-mode: backwards;
+    animation-duration: 200ms;
+}
+
+@keyframes request-show-less {
+
+    from {
+        opacity: 1;
+
+        transform: translateY(100px);
+
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0);
+    }
+   
+}
+
+.animate-request-show-less {
+    animation-name: request-show-less;
+    animation-fill-mode: backwards;
+    animation-duration: 150ms;
+}
 
 @media(min-width: 760px) {
     @keyframes appear-purchasing-car{

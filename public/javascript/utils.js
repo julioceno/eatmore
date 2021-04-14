@@ -12,7 +12,6 @@ function appearMenu() {
        ], {
             duration: 300,
        }
-    
        )
        setTimeout(() =>{
         sideMenu.classList.remove('appear-menu-options')
@@ -45,10 +44,10 @@ function generateNewFoods() {
 
     if(!localStorage.chosenFoods) return
 
-    const allChosenFoods = document.querySelectorAll('.chosenFoods .food')
+    const allChosenFoods = document.querySelectorAll('.purchasing-car .chosenFoods .food')
     allChosenFoods.forEach( food => food.remove() )
     
-    const containerChosenFoods = document.querySelector('.chosenFoods')
+    const containerChosenFoods = document.querySelector('.purchasing-car .chosenFoods')
     let chosenFoods = JSON.parse(localStorage.chosenFoods) 
 
     chosenFoods.forEach( ({ id, amount }) => {
@@ -167,7 +166,7 @@ function generateNewFoods() {
     // Botões de aumentar e diminuir a  quantidade de alimentos do carrinho
 
     // Diminuir
-    const buttonsDecreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(1)')
+    const buttonsDecreaseAmount = document.querySelectorAll('.purchasing-car .chosenFoods .amount-this-food button:nth-child(1)')
 
     buttonsDecreaseAmount.forEach( button => {
         button.addEventListener('click', button => {
@@ -208,7 +207,7 @@ function generateNewFoods() {
     })
 
     // Aumentar
-    const buttonsIncreaseAmount = document.querySelectorAll('.chosenFoods .amount-this-food button:nth-child(3)')
+    const buttonsIncreaseAmount = document.querySelectorAll('.purchasing-car .chosenFoods .amount-this-food button:nth-child(3)')
 
     buttonsIncreaseAmount.forEach( button => {
         button.addEventListener('click', button => {
@@ -304,7 +303,6 @@ function calculatingValueTotal() {
                 for (let i = 0; i < amount ; i++) {
                     totalPayable += food.value
                 }
-
             }
         })
     })

@@ -238,7 +238,7 @@ if (userData.avaliation.rating && userData.avaliation.text) {
     // Set width of stars-inner to percentage
     document.querySelector('.stars-inner').style.width = starPercentageRounded
 } else {
-    const html= `<h3>O que acha de <strong>avaliar</strong> este prato?</h3>
+    const html= `<h3>O que acha de <strong> avaliar </strong> este prato?</h3>
           
     <form action="" method="POST" onsubmit="validate(event)" enctype="multipart/form-data"> <!-- Ficar ligado -->
         <div class="stars-container">

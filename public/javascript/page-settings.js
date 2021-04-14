@@ -449,7 +449,8 @@ function validateSendFormSafetyData() {
 
 // enviando formulario de dados de usuário para o backend 
 function sendFormSafetyDataBackend(event) {
-    const url = "";
+    const url = "/rota";
+    alert('ola')
 
     const options = {
         method: "POST",
