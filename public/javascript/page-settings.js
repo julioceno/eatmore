@@ -159,31 +159,6 @@ function editTelephoneNumber(event) {
     </div>
     `;
 
-    // RegExp
-    const inputTelephoneNumber = document.getElementById('input-telephone-number');
-
-    // inputTelephoneNumber.addEventListener('keypress', () => {
-    //     alert('ola')
-    //     if(inputTelephoneNumber.value.length == 0) {
-    //         inputTelephoneNumber.value += "("
-    //     };
-
-    //     if(inputTelephoneNumber.value.length == 3) {
-    //         inputTelephoneNumber.value += ") "
-    //     };
-    // });
-
-    inputTelephoneNumber.addEventListener('keyup', () => {
-        alert('ola')
-        if(inputTelephoneNumber.value.length == 0) {
-            inputTelephoneNumber.value += "("
-        };
-
-        if(inputTelephoneNumber.value.length == 3) {
-            inputTelephoneNumber.value += ") "
-        };
-    });
-
 
     const finishEditTelephoneNumber = document.getElementById('finish-edit-telephone-number')
 
