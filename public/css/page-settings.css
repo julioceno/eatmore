@@ -33,7 +33,11 @@
     align-self: flex-start;
 }
 
-form.user-data {
+form + form {
+    margin-top: 4rem;
+}
+
+form {
     background-color: var(--color-white);
 
     min-width: 25rem;
@@ -54,53 +58,58 @@ form.user-data {
 
 }
 
-form.user-data h3 {
+form h3 {
     font-size: clamp(1.3rem, 2.3vw, 2.4rem);
     margin-bottom: clamp(2rem, 2vw, 4rem);
 
 }
 
-form.user-data .input-block + .input-block {
+form .input-block + .input-block {
     margin-top: 2rem;
 
 }
 
-form.user-data .input-block.underlining {
+form .input-block.underlining {
     border-bottom: 1px solid var(--color-grey);
     padding: 0 0 .2rem;
     
 }   
 
-form.user-data .input-block.underlining.active {
+form .input-block.underlining.active {
     border-bottom: 1px solid var(--color-red-dark);
 
 }
 
-form.user-data .input-block  h5 {
+form .input-block  h5 {
     font-size: clamp(1.1rem, 2.2vw, 1.7rem);
     margin-bottom: clamp(1rem, 1.2vw, 1.5rem);
     font-weight: 400;
 
 }
 
+form .input-block  h5 small {
 
-form.user-data .input-block .line-up-user-data {
+    font-size: clamp(.8rem, 1.5vw, 1.2rem);
+}
+
+
+form .input-block .line-up-user-data {
     display: flex;
     justify-content: space-between;
 }
 
-form.user-data .input-block .line-up-user-data p {
+form .input-block .line-up-user-data p {
     color: var(--color-grey-font);
     font-size: clamp(1.1rem, 2vw, 1.55rem);
 
     word-break: break-all;    
 }
 
-form.user-data .input-block .line-up-user-data .buttons {
+form .input-block .line-up-user-data .buttons {
     display: flex;
 }
 
-form.user-data .input-block .line-up-user-data .button-edit {
+form .input-block .line-up-user-data .button-edit {
     background:none;
     border: none;
 
@@ -114,11 +123,11 @@ form.user-data .input-block .line-up-user-data .button-edit {
     outline: none;
 }
 
-form.user-data .input-block .line-up-user-data .button-edit:hover {
+form .input-block .line-up-user-data .button-edit:hover {
     text-decoration: underline  #78C4D4;
 }
 
-form.user-data .input-block .line-up-user-data .button-detele {
+form .input-block .line-up-user-data .button-detele {
     background:none;
     border: none;
 
@@ -134,24 +143,24 @@ form.user-data .input-block .line-up-user-data .button-detele {
     margin-left: .6rem;
 }
 
-form.user-data .input-block .line-up-user-data .button-detele:hover {
+form .input-block .line-up-user-data .button-detele:hover {
     text-decoration: underline  var(--color-red-dark);
 }
 
 
-form.user-data .input-block:nth-child(2) img {
+form .input-block:nth-child(2) img {
     height: clamp(4rem, 5vw, 6rem);
     width: clamp(4rem, 5vw, 6rem);
 
     border-radius: 50%;
 }
 
-form.user-data .input-block:nth-child(6) {
+form .input-block.container-submit {
     display: flex;
     justify-content: center;
 }
 
-form.user-data .input-block input[type="submit"] {
+form .input-block input[type="submit"] {
     border: none;
 
     margin-top: 1.5rem;
@@ -175,21 +184,21 @@ form.user-data .input-block input[type="submit"] {
     pointer-events: none;
 }
 
-form.user-data .input-block input[type="submit"].ready {
+form .input-block input[type="submit"].ready {
     background: var(--color-red-dark);
     pointer-events: all;
 }
 
-form.user-data .input-block input[type="submit"]:hover {
+form .input-block input[type="submit"]:hover {
     background: var(--color-red-button-hover);
 }
 
 
-form.user-data .input-block  input[type="file"] {
+form .input-block  input[type="file"] {
     display: none;
 }
 
-form.user-data .input-block label {
+form .input-block label {
     color: var(--color-white-soft);
     background-color: var(--color-red-dark);
     font-family: var(--font-poppins);
@@ -209,11 +218,12 @@ form.user-data .input-block label {
     transition: 50ms all;
 }
 
-form.user-data .input-block label:hover {
+form .input-block label:hover {
     background-color: var(--color-red-button-hover);
 }
 
-form.user-data .input-block  input[type="text"] {
+form .input-block  input[type="text"],
+form .input-block  input[type="number"] {
     background: none;
     border: none;
 
@@ -227,8 +237,23 @@ form.user-data .input-block  input[type="text"] {
     outline: none;
 }
 
+form .input-block  input[type="number"]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+
+form .password-confirm-field {
+    display: none;
+}
+
+form .show-password-confirm-field {
+    display: block;
+}
+
+
+
 @media(min-width: 600px) {
-    form.user-data .input-block  {
+    form .input-block  {
         width: 98%;
 
         align-self: center;

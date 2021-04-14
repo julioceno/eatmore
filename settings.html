@@ -130,13 +130,13 @@
     <section class="section">
         <h2>Configurações</h2>
         
-        <form action="" class="user-data">
+        <form action="" >
             <h3>Dados pessoais</h3>
             
             <div class="input-block underlining ">
                 <h5>Foto de perfil</h5>
                 <div class="line-up-user-data">
-                    <img src="./public/images/doka.png" alt="">
+                    <img id="img-profile" src="" alt="">
 
                     <input onclick="editProfileImg(event)" id="edit-profile-img" type="button" value="Editar" class="button-edit">
                 </div>
@@ -145,7 +145,7 @@
             <div class="input-block underlining">
                 <h5>Nome de usuário</h5>
                 <div class="line-up-user-data">
-                    <p>Sidoka dos djongas</p>
+                    <p id="user-name"></p>
 
                     <input onclick="editName(event)" type="button" value="Editar" class="button-edit">
                 </div>
@@ -155,7 +155,7 @@
             <div class="input-block underlining">
                 <h5>Número de telefone</h5>
                 <div class="line-up-user-data">
-                    <p>(22) 938379463</p>
+                    <p id="user-telephone"></p>
 
                     <input onclick="editTelephoneNumber(event)" type="button" value="Editar" class="button-edit">
                 </div>
@@ -165,7 +165,7 @@
             <div class="input-block underlining">
                 <h5>Endereço</h5>
                 <div class="line-up-user-data">
-                    <p>Rua dos dokas, próximo ao ddddddddddddddddddddddddddddbairro do dj Onga número 21 LT 72 QD 92</p>
+                    <p id="user-address"></p>
 
                     <input onclick="editUserAddress(event)" type="button" value="Editar" class="button-edit">
                 </div>
@@ -173,10 +173,55 @@
             </div>
 
 
-            <div class="input-block">
-                <input id="submit-send-form-user-data" type="submit" value="Salvar alterações">
+            <div class="input-block container-submit">
+                <input onclick="sendFormUserDataBackend(event)" id="submit-send-form-user-data" type="submit" value="Salvar alterações">
             </div>
 
+        </form>
+
+        <form action="" >
+            <h3>Dados de segurança</h3>
+            
+            <div class="input-block underlining">
+                <h5>Email</h5>
+                <div class="line-up-user-data">
+                    <p>ss@gmail.com</p>
+
+                    <input onclick="editEmail(event)" type="button" value="Editar" class="button-edit">
+                </div>
+              
+            </div>
+
+            <div class="input-block underlining" id="container-input-new-password">
+                <h5>Nova senha</h5>
+                <div class="line-up-user-data">
+                    <input type="text" id="input-new-password" onkeyup="updatePassword(event)">
+
+                </div>
+              
+            </div>
+
+            <div class="input-block underlining password-confirm-field" id="container-input-confirm-new-password">
+                <h5>Confirmar nova senha</h5>
+                <div class="line-up-user-data">
+                    <input type="text" id="input-confirm-new-password">
+
+                </div>
+              
+            </div>
+
+            <div class="input-block underlining" id="container-input-corfirm-password">
+                <h5>Senha atual <small>(Obrigatório)</small></h5>
+                <div class="line-up-user-data">
+                    <input type="text" id="input-current-password">
+
+                </div>
+              
+            </div>
+
+            <div class="input-block container-submit">
+                <input  onclick="sendFormSafetyDataBackend()" id="submit-send-form-safety-data" type="submit" value="Salvar alterações">
+            </div>
         </form>
     </section>
 
