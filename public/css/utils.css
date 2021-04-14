@@ -288,7 +288,6 @@ nav.nav {
 .purchasing-car .chosenFoods::-webkit-scrollbar-thumb{
     background-color: var(--color-white-soft);
     border-radius: 3px;
-
 }
 
 .chosenFoods .food  + .food {
