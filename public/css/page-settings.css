@@ -28,9 +28,17 @@
     margin-left: clamp(3rem, 10vw, 20rem);
     margin-bottom: clamp(2rem, 5vw, 4rem);
     color: var(--color-black);
-    font-size: clamp(1.5rem, 3vw, 2.7rem);
+    font-size: clamp(1.5rem, 3vw, 3rem);
 
     align-self: flex-start;
+}
+
+.section h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: clamp(.5rem, 1vw, .65rem);
+    background-color: var(--color-black);
 }
 
 form + form {

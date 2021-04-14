@@ -10,8 +10,6 @@ if (document.referrer) {
 
 // Editando foto de perfil
 
-
-
 const userData = {
     img: "./public/images/doka.png",
     userName: "sidoka",
@@ -165,7 +163,7 @@ function editTelephoneNumber(event) {
     const inputTelephoneNumber = document.getElementById('input-telephone-number');
 
     inputTelephoneNumber.addEventListener('keypress', () => {
-
+        alert('ola')
         if(inputTelephoneNumber.value.length == 0) {
             inputTelephoneNumber.value += "("
         };
