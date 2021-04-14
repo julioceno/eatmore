@@ -37,7 +37,7 @@
     content: "";
     display: block;
     width: 100%;
-    height: clamp(.5rem, 1vw, .65rem);
+    height: clamp(.2rem, .8vw, .65rem);
     background-color: var(--color-black);
 }
 

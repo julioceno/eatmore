@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatmore | Cardápio</title>
+
+    <link rel="icon" href="./public/images/logo2.png">
+
+    <link rel="stylesheet" href="./public/css/main.css">
+    <link rel="stylesheet" href="./public/css/utils.css">
+    <link rel="stylesheet" href="./public/css/animations.css">
+    <link rel="stylesheet" href="./public/css/pop-up.css">
+    <link rel="stylesheet" href="./public/css/page-orders-in-progress.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" crossorigin="anonymous"/>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+</head>
+<body id="page-orders-in-progress">
+<div id="container">
+    <header class="header">
+
+        <div class="menu-hamburguer-container">
+            <input type="checkbox"id="check" style="display: none;">
+
+            <label for="check" onclick="appearMenu()">
+                <div class="menu-hamburguer"></div>
+            </label>
+        </div>
+
+        <nav class="nav">
+            <a href="./menu.html">
+                <p>Home</p>
+            </a>
+
+            <a href="./profile.html">
+                <p>Perfil</p>
+            </a>
+            
+
+            <a href="./feedback.html">
+                <p>Feedback</p>
+            </a>
+
+            <a href="">
+                <p>Pedidos em andamento</p>
+            </a>
+
+            <a href="./settings.html">
+                <p>Configurações</p>
+            </a>
+
+            <a href="">
+                <p>Sair</p>
+            </a>
+
+        </nav>
+      
+        <a class="profile" href="./profile.html">
+            <img src="./public/images/doka.png" alt="perfil">
+        </a>
+    </header>
+
+    <aside class="menu-options animate-appear-menu ">
+        <nav class="routes">
+
+            <a href="./menu.html">
+                <img src="./public/images/menu-home.svg" alt="menu-Home">
+
+                <p>Home</p>
+            </a>
+
+            <a href="./profile.html">
+                <img src="./public/images/menu-profile.svg" alt="menu-profile">
+
+                <p>Perfil</p>
+            </a>
+            
+
+            <a href="./feedback.html">
+                <img src="./public/images/menu-feedback.svg" alt="menu-feedback">
+                
+                <p>Feedback</p>
+            </a>
+
+            <a href="">
+                <img src="./public/images/menu-request.svg" alt="menu-request">
+                
+                <p>Pedidos em andamento</p>
+            </a>
+
+            <a href="./settings.html">
+                <img src="./public/images/menu-settings.svg" alt="menu-settings">
+                
+                <p>Configurações</p>
+            </a>
+
+            <a href="">
+                <img src="./public/images/menu-log-out.svg" alt="menu-log-out">
+                
+                <p>Sair</p>
+            </a>
+
+        </nav>
+
+        <hr class="line-menu">
+
+            <nav class="social-media">
+                <a href=""><img src="./public/images/social-media-facebook.svg" alt=""></a>
+                <a href=""><img src="./public/images/social-media-whatsapp.svg" alt=""></a>
+                <a href=""><img src="./public/images/social-media-instagram.svg" alt=""></a>
+                <a href=""><img src="./public/images/social-media-location.svg" alt=""></a>
+            </nav>
+
+            <div class="address">
+                <p>Rua almerida - Jardim Lúcio QD 77 LT 27</p>
+            </div>
+
+    </aside>
+
+
+    <section class="section">
+      
+        <h2>Pedidos em andamento</h2> 
+       
+        <main>
+            
+            <div class="orders-in-progress">
+                
+                <div class="request">
+                    <div class="order-data">
+                        <p>Destinatario: Sidoka</p>
+                        <p>Contato: (33)94827838</p>
+                        <p>Pagamento: Não concluido</p>
+                        <p>Valor: R$ 40,20</p>
+                        <p>Retirada: Entrega</p>
+                        <p>Endereço: Rua das oliveiras em tal lugar da alfandega</p>
+                        <p>Pedido feito as 19:20 dia 19/02/2021</p>
+                    </div>
+
+                    <div class="more-order-data">
+                        <div class="total-payable"></div>
+
+                    </div>
+
+                    <input type="button" value="Mostrar mais">
+                </div>
+           
+            </div>
+
+        </main>
+
+
+
+    </section>
+
+
+
+    <button type="button"  onclick="appearPurchasingCar()" class="purchasing-button">
+        <img src="./public/images/carry-bag.svg" alt="sacola">
+    </button>
+
+    <aside class="purchasing-car animate-appear-purchasing-car">
+        <h5>Isso é o que você escolheu até agora</h5>
+    
+        <div class="chosenFoods"></div>
+
+        <button href="" class="finish-buy"> Prosseguir </button>
+
+        <footer>
+            <div class="total-payable"></div>
+            
+            <button  onclick="disappearPurchasingCar()" class="minimize-purchasing-car">
+                <img src="./public/images/minimize.svg" alt="Botão minimizar">
+            </button>
+        </footer>
+    </aside>
+
+    <div class="pop-up-food-added animate-food-added">
+        <p>Comida adicionada</p>
+    </div>
+
+    <div class="pop-up-container">
+     
+    </div>
+
+</div>
+</body>
+<script src="./public/javascript/utils.js"></script>
+<script src="./public/javascript/page-feedback.js"></script>
+</html>
+
