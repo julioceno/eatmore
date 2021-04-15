@@ -154,7 +154,7 @@
 
 
 .section  main .orders-in-progress .request.selected .more-order-data .chosen-foods-the-order .order-food  + .order-food {
-    margin-top: 2rem;
+    margin-top: clamp(1rem, 2vw, 2rem);
 }
 
 .section  main .orders-in-progress .request.selected .more-order-data .chosen-foods-the-order .order-food  {
@@ -198,10 +198,70 @@
     font-weight: 400;
 
     font-size: clamp(1rem, 2.2vw, 1.4rem);
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 clamp(1rem, 4vw, 3rem);
+
+    border: none;
+
+    margin-top: 2rem;
+
+    height: clamp(3rem, 5vw, 4.8rem);
+
+    max-width: 50rem;
+    width: 100%;
+    
+    background: var(--color-white-soft);
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    outline: none;
+
+    transition: background .1s;
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel:hover {
+    background: #eaeaee;
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel .time-container {
+    display: flex;
+    align-items: center;
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel .time-container img {
+    height: clamp(1.9rem, 3vw, 2.8rem);
+    margin-right: clamp(.4rem, 2vw, .8rem);
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel .time-container p {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    margin-top: .2rem;
+}
+
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel hr {
+    border: none;
+
+    background-color: var(--color-black);
+
+    width: 2.5px;
+    height: clamp(2rem, 4vw, 2.5rem);
+
+    margin-left: .6rem;
+    margin-right: 1.2rem;
 
 }
 
+.section  main .orders-in-progress .request.selected .more-order-data .button-cancel p {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
 
+}
 
 .section  main .orders-in-progress .request.selected label {
     color: var(--color-white-soft);
