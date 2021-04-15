@@ -90,7 +90,7 @@
     display: none;
 }
 
-.section  main .orders-in-progress .request label {
+.section  main .orders-in-progress .request input[type="button"] {
     background: none;
     border: none;
 
@@ -263,10 +263,13 @@
 
 }
 
-.section  main .orders-in-progress .request.selected label {
+.section  main .orders-in-progress .request.selected input[type="button"] {
     color: var(--color-white-soft);
 
     text-decoration: underline var(--color-white-soft);
+
+
+
 }
 
 
