@@ -4,7 +4,6 @@ buttonsShowMore.forEach( button => {
     button.addEventListener('click', showMore)    
 })
 
-
 const checkboxShowMore = document.getElementById('checkbox-show-more')
 function showMore(event) {
     const requestContainer = event.currentTarget.parentNode
@@ -21,7 +20,6 @@ function showMore(event) {
 
 function showLess(event) {
     const requestContainer = event.currentTarget.parentNode
-    const containerChosenFoods = event.currentTarget.parentNode.children[1].children[0]
 
     requestContainer.classList.remove('selected')
     event.currentTarget.value = "Mostrar mais"
@@ -34,7 +32,6 @@ function showLess(event) {
     
     event.currentTarget.innerHTML = "Mostrar mais"
 } 
-
 
 
 // 2021-04-15 13:34:07 UTC
@@ -66,7 +63,19 @@ function convertDate(date) {
     let minutes = realDate.getMinutes()
     if (minutes < 10) minutes = `0${minutes}`
   
-    return `Perdido feito as ${hours}:${minutes} dia ${day}/${month}/${year}`
+    let milliseconds = realDate.getMilliseconds()
+    if (milliseconds < 10) milliseconds = `0${milliseconds}`
+
+    return {
+        hours,
+        minutes,
+        day,
+        month,
+        year,
+        milliseconds
+    }
+
+    // return `Perdido feito as ${hours}:${minutes} dia ${day}/${month}/${year}`
 }
 
 
@@ -79,7 +88,7 @@ const requests = [
         value: 20.35,
         withdrawal: "Entrega",
         address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-15 14:31:22 UTC",
+        orderTime: "2021-04-16 20:50:00 UTC",
         chosenFoods: [
             {
                 id: 2,
@@ -107,12 +116,12 @@ const requests = [
     {
         id: 2,
         recipient: "Sidoka",
-        telephone: "(33)94827838",
+        telephone: "(33)95027838",
         payment: "Concluido",
         value: 90.15,
         withdrawal: "Entrega",
         address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-15 14:31:22 UTC",
+        orderTime: "2021-04-16 20:50:00 UTC",
         chosenFoods: [
             {
                 id: 2,
@@ -176,7 +185,8 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
 
 
     const pOrderDataOrderTime = document.createElement('p')
-    const pOrderDataOrderTimeValue = document.createTextNode(convertDate(orderTime))
+    const objectDate = convertDate(orderTime)
+    const pOrderDataOrderTimeValue = document.createTextNode(`Perdido feito as ${objectDate.hours}:${objectDate.minutes} dia ${objectDate.day}/${objectDate.month}/${objectDate.year}`)
     pOrderDataOrderTime.appendChild(pOrderDataOrderTimeValue)
     
     const divMoreOrderData = document.createElement('div')
@@ -210,8 +220,11 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
     inputCheckbox.setAttribute('value', "Mostrar mais")
     inputCheckbox.setAttribute('onclick', "showMore(event)")
 
-    // Criando encadeamento de tags html
 
+
+
+
+    // Criando encadeamento de tags html
     divOrderData.appendChild(pOrderDataRecipient)
     divOrderData.appendChild(pOrderDataTelephone)
     divOrderData.appendChild(pOrderDataPayment)
@@ -329,33 +342,72 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
     
     divRequest.appendChild(inputCheckbox)
 
-    console.log(divRequest)
-
     containerRequests.appendChild(divRequest)
+
+
+
+
+
+    let currentDate = new Date()
+    
+    currentDate.toUTCString()
+
+    if (convertDate(currentDate).hours > objectDate.hours 
+        ||convertDate(currentDate).day > objectDate.day 
+            ||convertDate(currentDate).month > objectDate.month
+                ||convertDate(currentDate).year > objectDate.year) {
+      
+                    buttonCancelRequest.remove()
+                    return
+    }
+
+    const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes) 
+
+    let time = startingMinutes * 60
+    let canCount = true
+    setInterval(updateCountDown, 1000) 
+    
+
+    function updateCountDown() {
+        if (!canCount) return
+            const minutes = Math.floor( time / 60)
+            let seconds = time % 60
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            PCountDown.innerHTML = `${minutes}:${seconds}`
+            time--
+
+            if (Number(minutes) <= 0 && Number(seconds) <= 0  ) { 
+                
+                buttonCancelRequest.remove()
+                canCount =  false
+            } else {
+                
+            }
+    }   
 })
 
 
-const startingMinutes = 10 
-let time = startingMinutes * 60
+// const startingMinutes = 10 
+// let time = startingMinutes * 60
 
-const countDowns = document.querySelectorAll('.countDown')
-console.log(countDowns)
 
-countDowns.forEach( containerCountDown => {
+// countDowns.forEach( containerCountDown => {
 
-    setInterval(updateCountDown, 1000) 
+//     setInterval(updateCountDown, 1000) 
 
-    function updateCountDown() {
-        const minutes = Math.floor( time / 60)
-        let seconds = time % 60
+//     function updateCountDown() {
+//         const minutes = Math.floor( time / 60)
+//         let seconds = time % 60
 
-        seconds = seconds < 10 ? '0' + seconds : seconds
+//         seconds = seconds < 10 ? '0' + seconds : seconds
 
-        containerCountDown.innerHTML = `${minutes}:${seconds}`
-        time--
-    }
+//         containerCountDown.innerHTML = `${minutes}:${seconds}`
+//         time--
+//     }
 
-}) 
+// }) 
 
 // setInterval(updateCountDown, 1000) 
 
@@ -368,3 +420,6 @@ countDowns.forEach( containerCountDown => {
 //     countDown.innerHTML = `${minutes}:${seconds}`
 //     time--
 // }
+
+
+// Então pessoal eu estou desenvolvendo esse site que ta na primeira imagem e vocês tão vendo que tem um cronometro ali em baixo né? Então, ele vai funcionar da seguinte forma quando o usuário fizer o pedido do lanche o cliente só vai poder recusar nos primeiros 15 minutos, então assim que a pagina de pedidos for recarregada ele vai checar no DB se o cliente tem algum pedido, se tiver ele vai listar na page e a api que vou criar vai retornar com o horário UTC em que foi feito o pedido. Porém eu tenho que fazer uns calculos pra checar o horario do pedido, se ainda pode cancelar e tal e se o pedido ainda não tiver completado 15 minutos  eu vou pegar o utc que a api vai me retornar e extrair os minutos e a apartir dai eu vou começar a contagem regressiva, o problema é que eu só arranjei uma forma de capturar os minutos e os segundos e milisegundos que sobraram? Se a hora que o cliente pediu foi as 19:20:59 esses 59 segundos serão descartados? Me ajudem ai (A linha que checa como deve começar a contagem regressiva é na linha 364 o "objectDate" é o objeto que fornece os horarios em que o usuário fez o pedido)
