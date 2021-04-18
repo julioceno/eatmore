@@ -361,8 +361,9 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
                     return
     }
 
-    const startingMinutes = 13.2 - (currentDate.getMinutes() - objectDate.minutes) 
-
+    //const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes) 
+    const startingMinutes = 13.2
+    
     let time = startingMinutes * 60
     let canCount = true
     setInterval(updateCountDown, 1000) 
