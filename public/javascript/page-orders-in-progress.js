@@ -88,7 +88,7 @@ const requests = [
         value: 20.35,
         withdrawal: "Entrega",
         address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-16 20:50:00 UTC",
+        orderTime: "2021-04-18 16:15:00 UTC",
         chosenFoods: [
             {
                 id: 2,
@@ -361,7 +361,7 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
                     return
     }
 
-    const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes) 
+    const startingMinutes = 13.2 - (currentDate.getMinutes() - objectDate.minutes) 
 
     let time = startingMinutes * 60
     let canCount = true
