@@ -57,7 +57,6 @@ header .menu-hamburguer::after {
     top: 25%;
 
     transition: .8s ease;
-
 }
 
 header #check:checked ~ label .menu-hamburguer::before{
@@ -65,6 +64,7 @@ header #check:checked ~ label .menu-hamburguer::before{
     top: 10%;
     
     background: var(--color-white-soft);
+
 
 }
 
@@ -83,7 +83,6 @@ header .profile img {
 
     border-radius: 50%;
     border: .2rem solid #fff;
-
 }
 
 header .come-back img {
@@ -92,7 +91,6 @@ header .come-back img {
 }
 
 /* menu */
-
 .menu-options {
     height: 100%;
     

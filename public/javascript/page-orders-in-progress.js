@@ -63,8 +63,8 @@ function convertDate(date) {
     let minutes = realDate.getMinutes()
     if (minutes < 10) minutes = `0${minutes}`
   
-    let milliseconds = realDate.getMilliseconds()
-    if (milliseconds < 10) milliseconds = `0${milliseconds}`
+    let seconds = realDate.getSeconds()
+    if (seconds < 10) seconds = `0${seconds}`
 
     return {
         hours,
@@ -72,7 +72,7 @@ function convertDate(date) {
         day,
         month,
         year,
-        milliseconds
+        seconds
     }
 
     // return `Perdido feito as ${hours}:${minutes} dia ${day}/${month}/${year}`
@@ -88,24 +88,28 @@ const requests = [
         value: 20.35,
         withdrawal: "Entrega",
         address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-18 16:17:00 UTC",
+        orderTime: "2021-04-19 04:06:00 UTC",
         chosenFoods: [
             {
                 id: 2,
                 amount: 5
             },
+
             {
                 id: 2,
                 amount: 5
             },
+
             {
                 id: 2,
                 amount: 5
             },
+
             {
                 id: 2,
                 amount: 5
             },
+
             {
                 id: 2,
                 amount: 5
@@ -113,38 +117,42 @@ const requests = [
         ]
     },
 
-    {
-        id: 2,
-        recipient: "Sidoka",
-        telephone: "(33)95027838",
-        payment: "Concluido",
-        value: 90.15,
-        withdrawal: "Entrega",
-        address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-16 20:50:00 UTC",
-        chosenFoods: [
-            {
-                id: 2,
-                amount: 10
-            },
-            {
-                id: 2,
-                amount: 5
-            },
-            {
-                id: 3,
-                amount: 3
-            },
-            {
-                id: 2,
-                amount: 9
-            },
-            {
-                id: 1,
-                amount: 5
-            }
-        ]
-    }
+    // {
+    //     id: 2,
+    //     recipient: "Sidoka",
+    //     telephone: "(33)95027838",
+    //     payment: "Concluido",
+    //     value: 90.15,
+    //     withdrawal: "Entrega",
+    //     address: "Rua das oliveiras em tal lugar da alfandega",
+    //     orderTime: "2021-04-16 20:50:00 UTC",
+    //     chosenFoods: [
+    //         {
+    //             id: 2,
+    //             amount: 10
+    //         },
+            
+    //         {
+    //             id: 2,
+    //             amount: 5
+    //         },
+           
+    //         {
+    //             id: 3,
+    //             amount: 3
+    //         },
+           
+    //         {
+    //             id: 2,
+    //             amount: 9
+    //         },
+           
+    //         {
+    //             id: 1,
+    //             amount: 5
+    //         }
+    //     ]
+    // }
 ]
       
 const containerRequests = document.querySelector('.orders-in-progress')
@@ -327,67 +335,77 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
             
         })
 
-    })
+    });
     
-    divTimeContainer.appendChild(imgClock) 
-    divTimeContainer.appendChild(PCountDown) 
-    divTimeContainer.appendChild(hrLine) 
+    divTimeContainer.appendChild(imgClock); 
+    divTimeContainer.appendChild(PCountDown); 
+    divTimeContainer.appendChild(hrLine); 
 
-    buttonCancelRequest.appendChild(divTimeContainer) 
-    buttonCancelRequest.appendChild(PButtonCancel) 
+    buttonCancelRequest.appendChild(divTimeContainer); 
+    buttonCancelRequest.appendChild(PButtonCancel); 
     
-    divMoreOrderData.appendChild(buttonCancelRequest)    
+    divMoreOrderData.appendChild(buttonCancelRequest);    
     
-    divRequest.appendChild(divMoreOrderData)    
+    divRequest.appendChild(divMoreOrderData);    
     
-    divRequest.appendChild(inputCheckbox)
+    divRequest.appendChild(inputCheckbox);
 
-    containerRequests.appendChild(divRequest)
-
-
+    containerRequests.appendChild(divRequest);
 
 
 
-    let currentDate = new Date()
-    
-    currentDate.toUTCString()
+
+    let currentDate = new Date();
+
+    currentDate.toUTCString();
 
     if (convertDate(currentDate).hours > objectDate.hours 
         ||convertDate(currentDate).day > objectDate.day 
             ||convertDate(currentDate).month > objectDate.month
                 ||convertDate(currentDate).year > objectDate.year) {
       
-                    buttonCancelRequest.remove()
-                    return
-    }
+                    buttonCancelRequest.remove();
+                    return;
+    };
 
-    //const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes) 
-    const startingMinutes = 13.2
+    const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes)
     
-    let time = startingMinutes * 60
-    let canCount = true
+    let time = startingMinutes * 60;
+    // let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
+    let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
+    console.log(seconds)
+
+    let canCount = true;
     setInterval(updateCountDown, 1000) 
     
-
     function updateCountDown() {
-        if (!canCount) return
-            const minutes = Math.floor( time / 60)
-            let seconds = time % 60
+        
+        if (!canCount) return;
+            const minutes = Math.floor( time / 60);
+            // let seconds = time % 60
 
             seconds = seconds < 10 ? '0' + seconds : seconds;
+            PCountDown.innerHTML = `${minutes}:${seconds}`;
+            console.log(minutes)
+            console.log(time)
 
-            PCountDown.innerHTML = `${minutes}:${seconds}`
-            time--
+
+            time--;
+            seconds--;
+            
+            currentDate = new Date();
+            currentDate.toUTCString();
 
             if (Number(minutes) <= 0 && Number(seconds) <= 0  ) { 
-                
-                buttonCancelRequest.remove()
-                canCount =  false
-            } else {
-                
-            }
-    }   
-})
+                buttonCancelRequest.remove();
+                canCount =  false;
+            } else if (Number(seconds) <= 0) {
+                seconds = 59 
+            };
+
+          
+    };
+});
 
 
 // const startingMinutes = 10 
