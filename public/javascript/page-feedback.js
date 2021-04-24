@@ -4,8 +4,8 @@
 const userData = {
 
     avaliation: {
-        rating: 2.4,
-        text: 'Eu acho muito dahora e pa tlgd? e assim vai o role'
+        rating: 3.5,
+        // text: 'Foi o melhor restaurante que ja conheci, a comida chega na hora.'
         }
 }
  
@@ -92,30 +92,30 @@ if (userData.avaliation.rating && userData.avaliation.text) {
 const evalueationContainer = document.querySelector('.other-reviews .line-up-grid-reviews')
 
 const evaluations = [
+   
     {
-        profile: "./public/images/doka.png",
-        name: "Julin",
+        profile: "./public/images/profile.jpg",
+        name: "Marcos Augusto",
         rating: 5,
-        date: "19/09/2021",
-        text: "Testando",
+        date: "02/01/2021",
+        text: "Restaurante de ótima qualidade.",
     },
 
     {
-        profile: "./public/images/doka.png",
-        name: "Sidoka",
-        rating: 1.5,
-        date: "209/05/2021",
-        text: "saopkdop dipsamoip dopsamndo osamndosa doipsanodp",
+        profile: "./public/images/profile.jpg",
+        name: "Gabriela Sampaio",
+        rating: 5,
+        date: "04/01/2021",
+        text: "Muito bom, tem todos os tipos de salgados para todos os tipos de gosto.",
     },
 
     {
-        profile: "./public/images/doka.png",
-        name: "Gulio",
-        rating: 3,
-        date: "12/02/2021",
-        text: "saopkdop dipsamoip dopsamndo osamndosa doipsanodp",
-    },
-
+        profile: "./public/images/profile.jpg",
+        name: "Júlio nepomuceno",
+        rating: 4,
+        date: "06/01/2021",
+        text: "A melhor rede com os melhores hambúrgueres e preços para todos os gostos."
+    }
 ]
 
 evaluations.forEach( ({profile, name, rating, date, text}) => {
@@ -210,7 +210,6 @@ evaluations.forEach( ({profile, name, rating, date, text}) => {
     elementMain.appendChild(elementPComment)
 
     elementDivContainer.appendChild(elementMain)
-
 
     evalueationContainer.appendChild(elementDivContainer)
 })

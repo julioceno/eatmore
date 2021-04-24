@@ -66,33 +66,37 @@ function convertDate(date) {
     let seconds = realDate.getSeconds()
     if (seconds < 10) seconds = `0${seconds}`
 
+    let milliseconds = realDate.getMilliseconds()
+    if (milliseconds < 10) milliseconds = `0${milliseconds}`
+
     return {
         hours,
         minutes,
         day,
         month,
         year,
-        seconds
+        seconds,
+        milliseconds
     }
 
     // return `Perdido feito as ${hours}:${minutes} dia ${day}/${month}/${year}`
-}
+} 
 
 
 const requests = [
     {
         id: 1,
-        recipient: "Sidoka",
-        telephone: "(33)94827838",
+        recipient: "Algusto",
+        telephone: "(22)973829473",
         payment: "Não concluido",
-        value: 20.35,
+        value: 60.25,
         withdrawal: "Entrega",
-        address: "Rua das oliveiras em tal lugar da alfandega",
-        orderTime: "2021-04-19 04:06:00 UTC",
+        address: "Rua das Rosas bairro do Limoeiro, N.92, LT.82, QD.44",
+        orderTime: "2021-04-24 13:39:00 UTC",
         chosenFoods: [
             {
-                id: 2,
-                amount: 5
+                id: 1,
+                amount: 2
             },
 
             {
@@ -100,59 +104,16 @@ const requests = [
                 amount: 5
             },
 
-            {
-                id: 2,
-                amount: 5
-            },
+           
 
             {
-                id: 2,
-                amount: 5
+                id: 3,
+                amount: 1
             },
 
-            {
-                id: 2,
-                amount: 5
-            }
+          
         ]
     },
-
-    // {
-    //     id: 2,
-    //     recipient: "Sidoka",
-    //     telephone: "(33)95027838",
-    //     payment: "Concluido",
-    //     value: 90.15,
-    //     withdrawal: "Entrega",
-    //     address: "Rua das oliveiras em tal lugar da alfandega",
-    //     orderTime: "2021-04-16 20:50:00 UTC",
-    //     chosenFoods: [
-    //         {
-    //             id: 2,
-    //             amount: 10
-    //         },
-            
-    //         {
-    //             id: 2,
-    //             amount: 5
-    //         },
-           
-    //         {
-    //             id: 3,
-    //             amount: 3
-    //         },
-           
-    //         {
-    //             id: 2,
-    //             amount: 9
-    //         },
-           
-    //         {
-    //             id: 1,
-    //             amount: 5
-    //         }
-    //     ]
-    // }
 ]
       
 const containerRequests = document.querySelector('.orders-in-progress')
@@ -172,7 +133,6 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
     const pOrderDataTelephoneValue = document.createTextNode(`Contato: ${telephone}`)
     pOrderDataTelephone.appendChild(pOrderDataTelephoneValue)
 
-
     const pOrderDataPayment = document.createElement('p')
     const pOrderDataPaymentValue = document.createTextNode(`Pagamento: ${payment}`)
     pOrderDataPayment.appendChild(pOrderDataPaymentValue)
@@ -181,20 +141,17 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
     const pOrderDataTotalPayableValue = document.createTextNode(`Valor: R$ ${value.toFixed(2).toString().replace('.', ',')}`)
     pOrderDataTotalPayable.appendChild(pOrderDataTotalPayableValue)
 
-
     const pOrderDataWithdrawal = document.createElement('p')
     const pOrderDataWithdrawalValue = document.createTextNode(`Retirada: ${withdrawal}`)
     pOrderDataWithdrawal.appendChild(pOrderDataWithdrawalValue)
-
 
     const pOrderDataAddress = document.createElement('p')
     const pOrderDataAddressValue = document.createTextNode(`Endereço: ${address}`)
     pOrderDataAddress.appendChild(pOrderDataAddressValue)
 
-
     const pOrderDataOrderTime = document.createElement('p')
     const objectDate = convertDate(orderTime)
-    const pOrderDataOrderTimeValue = document.createTextNode(`Perdido feito as ${objectDate.hours}:${objectDate.minutes} dia ${objectDate.day}/${objectDate.month}/${objectDate.year}`)
+    const pOrderDataOrderTimeValue = document.createTextNode(`Perdido feito as ${objectDate.hours}:${objectDate.minutes} dia ${objectDate.day}/${objectDate.month + 1}/${objectDate.year}`)
     pOrderDataOrderTime.appendChild(pOrderDataOrderTimeValue)
     
     const divMoreOrderData = document.createElement('div')
@@ -253,7 +210,7 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
                     caregorie: 'hamburguer',
                     id: 1,
                     img: './public/images/hamburguer-example.svg' ,
-                    name: 'Hamburgyu',
+                    name: 'hamburuer',
                     rating: 3,
                     value: 8.50
                 },
@@ -354,57 +311,95 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
 
 
 
-
     let currentDate = new Date();
 
-    currentDate.toUTCString();
+  
+    
+    let requestDate = new Date(objectDate.year, objectDate.month , objectDate.day, objectDate.hours, objectDate.minutes, objectDate.seconds, objectDate.milliseconds)
+    requestDate = new Date(requestDate.setMinutes(requestDate.getMinutes() + 15)); /* Aqui eu adiciono mais 15 minutos no horario pra o programa ter ciencia de quando ele deve fechar o pedido */
 
-    if (convertDate(currentDate).hours > objectDate.hours 
-        ||convertDate(currentDate).day > objectDate.day 
-            ||convertDate(currentDate).month > objectDate.month
-                ||convertDate(currentDate).year > objectDate.year) {
-      
-                    buttonCancelRequest.remove();
-                    return;
+    if (currentDate > requestDate ){
+        buttonCancelRequest.remove();
+        return;
     };
 
-    const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes)
-    
-    let time = startingMinutes * 60;
-    // let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
-    let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
-    console.log(seconds)
-
     let canCount = true;
-    setInterval(updateCountDown, 1000) 
-    
+    setInterval(updateCountDown, 1000);
+
     function updateCountDown() {
-        
         if (!canCount) return;
-            const minutes = Math.floor( time / 60);
-            // let seconds = time % 60
 
+            let currentDate = new Date();
+
+            const totalSeconds = (requestDate - currentDate) / 1000;
+            console.log(currentDate);
+
+            let minutes = ((Math.floor(totalSeconds / 60) % 60) );
+            let seconds = Math.floor(totalSeconds) % 60;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
             seconds = seconds < 10 ? '0' + seconds : seconds;
+
             PCountDown.innerHTML = `${minutes}:${seconds}`;
-            console.log(minutes)
-            console.log(time)
 
-
-            time--;
-            seconds--;
-            
-            currentDate = new Date();
-            currentDate.toUTCString();
 
             if (Number(minutes) <= 0 && Number(seconds) <= 0  ) { 
                 buttonCancelRequest.remove();
                 canCount =  false;
-            } else if (Number(seconds) <= 0) {
-                seconds = 59 
             };
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const startingMinutes = 15 - (currentDate.getMinutes() - objectDate.minutes)
+    
+    // let time = startingMinutes * 60;
+    // let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
+
+    // let seconds = 59 - (currentDate.getSeconds() - objectDate.seconds)
+    // console.log(seconds)
+
+    // let canCount = true;
+    // setInterval(updateCountDown, 1000) 
+    
+    // function updateCountDown() {
+        
+    //     if (!canCount) return;
+    //         const minutes = Math.floor( time / 60);
+    //         // let seconds = time % 60
+
+    //         seconds = seconds < 10 ? '0' + seconds : seconds;
+    //         PCountDown.innerHTML = `${minutes}:${seconds}`;
+    //         console.log(minutes)
+    //         console.log(time)
+
+
+    //         time--;
+    //         seconds--;
+            
+    //         currentDate = new Date();
+    //         currentDate.toUTCString();
+
+    //         if (Number(minutes) <= 0 && Number(seconds) <= 0  ) { 
+    //             buttonCancelRequest.remove();
+    //             canCount =  false;
+    //         } else if (Number(seconds) <= 0) {
+    //             seconds = 59 
+    //         };
 
           
-    };
+    // };
+
 });
 
 
@@ -440,5 +435,3 @@ requests.forEach( ({recipient, telephone, payment, value, withdrawal, address, o
 //     time--
 // }
 
-
-// Então pessoal eu estou desenvolvendo esse site que ta na primeira imagem e vocês tão vendo que tem um cronometro ali em baixo né? Então, ele vai funcionar da seguinte forma quando o usuário fizer o pedido do lanche o cliente só vai poder recusar nos primeiros 15 minutos, então assim que a pagina de pedidos for recarregada ele vai checar no DB se o cliente tem algum pedido, se tiver ele vai listar na page e a api que vou criar vai retornar com o horário UTC em que foi feito o pedido. Porém eu tenho que fazer uns calculos pra checar o horario do pedido, se ainda pode cancelar e tal e se o pedido ainda não tiver completado 15 minutos  eu vou pegar o utc que a api vai me retornar e extrair os minutos e a apartir dai eu vou começar a contagem regressiva, o problema é que eu só arranjei uma forma de capturar os minutos e os segundos e milisegundos que sobraram? Se a hora que o cliente pediu foi as 19:20:59 esses 59 segundos serão descartados? Me ajudem ai (A linha que checa como deve começar a contagem regressiva é na linha 364 o "objectDate" é o objeto que fornece os horarios em que o usuário fez o pedido)

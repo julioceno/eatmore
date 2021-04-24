@@ -284,26 +284,26 @@ const evalueationContainer = document.querySelector('.other-reviews .line-up-gri
 
 const evaluations = [
     {
-        profile: "./public/images/doka.png",
-        name: "Julin",
+        profile: "./public/images/profile.jpg",
+        name: "Maria Lúcia",
         rating: 5,
-        date: "19/09/2021",
-        text: "Testando",
+        date: "02/02/2021",
+        text: "Ótimo lanche, vou pedir de novo!",
     },
 
     {
-        profile: "./public/images/doka.png",
+        profile: "./public/images/profile.jpg",
         name: "Sidoka",
         rating: 1.5,
-        date: "209/05/2021",
+        date: "01/02/2021",
         text: "saopkdop dipsamoip dopsamndo osamndosa doipsanodp",
     },
 
     {
-        profile: "./public/images/doka.png",
+        profile: "./public/images/profile.jpg",
         name: "Gulio",
         rating: 3,
-        date: "12/02/2021",
+        date: "05/01/2021",
         text: "saopkdop dipsamoip dopsamndo osamndosa doipsanodp",
     },
 

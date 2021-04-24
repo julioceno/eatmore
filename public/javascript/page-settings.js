@@ -12,14 +12,14 @@ if (document.referrer) {
 
 const userData = {
     img: "./public/images/doka.png",
-    userName: "sidoka",
+    userName: "Algusto Vieira",
     telephoneNumber: "(22) 938379463",
-    address: "Rua dos dokas, próximo ao ddddddddddddddddddddddddddddbairro do dj Onga número 21 LT 72 QD 92"
+    address: "Rua das Rosas bairro do Limoeiro, N.92, LT.82, QD.44"
 };
 
 const userCredentials = {
-    email: "sidoka@sidoka.com.br",
-    password: "sidoka123"
+    email: "algusto@gmail.com",
+    password: "algusto123"
 };
 
 // Renderizando os dados atuais do usuário nos campos
@@ -29,6 +29,7 @@ const userCredentials = {
     document.getElementById('user-name').innerHTML =  userData.userName
     document.getElementById('user-telephone').innerHTML = userData.telephoneNumber
     document.getElementById('user-address').innerHTML = userData.address
+    document.getElementById('email').innerHTML = userCredentials.email
 })()
 
 const newUserData = {
@@ -200,7 +201,6 @@ function editTelephoneNumber(event) {
         <p></p>
 
         <input onclick="editTelephoneNumber(event)" type="button" value="Editar" class="button-edit">
-        
         `
 
         containerParent.classList.remove('active')
